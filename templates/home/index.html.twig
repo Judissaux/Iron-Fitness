@@ -1,0 +1,335 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Accueil
+{% endblock %}
+{% block body %}
+	<div class="container-fluid">
+		<div class="row wrapped">
+			<video autoplay loop muted>
+				<source src={{asset ('assets/video/iron-fitness.mp4')}} type='video/mp4'>
+			</video>
+		</div>
+	</div>
+
+	<div class="transition my-2"></div>
+		
+	<div class="container text-center custom-container">
+		<div class='display-1 fst-italic text uppercase text-warning '>Iron Fitness</div>
+		<div class="defile">
+			<span class="txt">
+				Musculation - Cardio-Training - CrossFit - Abdos - FitBox - Cours collectifs &nbsp;
+			</span>
+			<span class="txt ">
+				- Musculation - Cardio-Training - CrossFit - Abdos - FitBox - Cours collectifs &nbsp;
+			</span>
+		</div>
+		<div class='display-6 text-center text-uppercase'>Lievin</div>
+
+		<p class='mt-5'>
+			<span </span>
+			<br>
+			est fière de vous accueillir 7 jours sur 7, de 6h à 23h, avec une équipe de professionnels de santé qualifiés et coachs diplômés d'état, dédiée à vous accompagner tout au long de vos activités de remise en forme. Que vous soyez débutant ou vrai athlète, notre salle de sport santé est adaptée à tous les âges pour que vous puissiez pratiquer dans les meilleures conditions.
+			<hr class="border border-warning border-2 opacity-50">
+			La salle de musculation Iron Fitness est un centre de fitness et de musculation situé dans un grand bâtiment moderne équipé d'une grande variété d'appareils de musculation et de cardio-training. La salle de musculation propose également des cours de groupe, des programmes de formation personnalisés et des services de coaching pour aider les clients à atteindre leurs objectifs de remise en forme.</p>
+	</div>
+
+<div class="transition my-2"></div>
+
+	<div class="container-fluid mt-5">
+	
+		<div class="row">			
+			<div class="col-xl-3 col-lg-6 text-center  mb-3 ">
+				<div class="display-6 text-warning fst-italic text-decoration-underline mb-2">Cardio-Training</div>	
+				<div class="position-relative">			
+				<img src="{{asset ('assets/img/cardio-salle-2.jpg')}}" alt="" class=" img-fluid img-activite">					
+				<p class='description text-white'>Nous offrons une variété d'équipements de cardio-training, tels que des tapis de course, des vélos elliptiques, des vélos stationnaires, des rameurs et des steppers, pour vous permettre de profiter d'une expérience de cardio-training optimale chez Iron Fitness.</p>				
+				</div>
+			</div>			
+			<div class="col-xl-3  col-lg-6 text-center mb-3 ">
+				<div class="display-6 text-warning fst-italic text-decoration-underline mb-2">Machine guidée</div>	
+				<div class="position-relative">				
+				<img src="{{asset ('assets/img/machine-guidée.jpg')}}" alt="" class="  img-fluid img-activite">
+				<p class='description text-white'> Les machines guidées sont utilisées pour un entraînement efficace et sûr. Les machines ciblent différents groupes musculaires tels que les pectoraux, les biceps, les triceps, les jambes et les abdominaux.</p>
+				</div>
+			</div>
+			<div class="col-xl-3  col-lg-6 text-center mb-3 ">
+				<div class="display-6 text-warning fst-italic text-decoration-underline mb-2">Cross-fit</div>
+				<div class="position-relative">	
+				<img src="{{asset ('assets/img/machine-libre.jpg')}}" alt="" class=" img-fluid img-activite">
+				<p class='description text-white'>Le CrossFit est un programme d'entraînement physique intense qui utilise des mouvements fonctionnels de gymnastique et d'haltérophilie pour améliorer la forme physique générale. Les séances sont variées et exigeantes, avec un accent sur l'amélioration de la condition physique en un temps donné</p>
+				</div>
+			</div>
+			<div class="col-xl-3 col-lg-6 text-center  mb-3">
+				<div class="display-6 text-warning fst-italic text-decoration-underline mb-2">Cours collectifs</div>
+				<div class="position-relative">	
+				<img src="{{asset ('assets/img/cours-salle.jpg')}}" alt="" class=" img-fluid img-activite">
+				<p class='description text-white'>Iron Fitness propose des cours collectifs pour tous les niveaux de condition physique, tels que cardio, renforcement musculaire, danse et yoga. Les cours sont amusants, motivants et efficaces, enseignés par des instructeurs qualifiés, et encouragent les participants à travailler ensemble pour atteindre leurs objectifs de fitness.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{# VAGUE #}
+
+<svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 200" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,20L30,33.3C60,47,120,73,180,96.7C240,120,300,140,360,150C420,160,480,160,540,163.3C600,167,660,173,720,173.3C780,173,840,167,900,146.7C960,127,1020,93,1080,66.7C1140,40,1200,20,1260,36.7C1320,53,1380,107,1440,126.7C1500,147,1560,133,1620,133.3C1680,133,1740,147,1800,156.7C1860,167,1920,173,1980,146.7C2040,120,2100,60,2160,33.3C2220,7,2280,13,2340,36.7C2400,60,2460,100,2520,120C2580,140,2640,140,2700,133.3C2760,127,2820,113,2880,90C2940,67,3000,33,3060,46.7C3120,60,3180,120,3240,150C3300,180,3360,180,3420,173.3C3480,167,3540,153,3600,133.3C3660,113,3720,87,3780,83.3C3840,80,3900,100,3960,116.7C4020,133,4080,147,4140,146.7C4200,147,4260,133,4290,126.7L4320,120L4320,200L4290,200C4260,200,4200,200,4140,200C4080,200,4020,200,3960,200C3900,200,3840,200,3780,200C3720,200,3660,200,3600,200C3540,200,3480,200,3420,200C3360,200,3300,200,3240,200C3180,200,3120,200,3060,200C3000,200,2940,200,2880,200C2820,200,2760,200,2700,200C2640,200,2580,200,2520,200C2460,200,2400,200,2340,200C2280,200,2220,200,2160,200C2100,200,2040,200,1980,200C1920,200,1860,200,1800,200C1740,200,1680,200,1620,200C1560,200,1500,200,1440,200C1380,200,1320,200,1260,200C1200,200,1140,200,1080,200C1020,200,960,200,900,200C840,200,780,200,720,200C660,200,600,200,540,200C480,200,420,200,360,200C300,200,240,200,180,200C120,200,60,200,30,200L0,200Z"></path><defs><linearGradient id="sw-gradient-1" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 50px); opacity:0.9" fill="url(#sw-gradient-1)" d="M0,0L30,30C60,60,120,120,180,126.7C240,133,300,87,360,73.3C420,60,480,80,540,90C600,100,660,100,720,86.7C780,73,840,47,900,56.7C960,67,1020,113,1080,123.3C1140,133,1200,107,1260,96.7C1320,87,1380,93,1440,90C1500,87,1560,73,1620,63.3C1680,53,1740,47,1800,63.3C1860,80,1920,120,1980,130C2040,140,2100,120,2160,106.7C2220,93,2280,87,2340,90C2400,93,2460,107,2520,106.7C2580,107,2640,93,2700,90C2760,87,2820,93,2880,100C2940,107,3000,113,3060,103.3C3120,93,3180,67,3240,70C3300,73,3360,107,3420,123.3C3480,140,3540,140,3600,140C3660,140,3720,140,3780,120C3840,100,3900,60,3960,40C4020,20,4080,20,4140,23.3C4200,27,4260,33,4290,36.7L4320,40L4320,200L4290,200C4260,200,4200,200,4140,200C4080,200,4020,200,3960,200C3900,200,3840,200,3780,200C3720,200,3660,200,3600,200C3540,200,3480,200,3420,200C3360,200,3300,200,3240,200C3180,200,3120,200,3060,200C3000,200,2940,200,2880,200C2820,200,2760,200,2700,200C2640,200,2580,200,2520,200C2460,200,2400,200,2340,200C2280,200,2220,200,2160,200C2100,200,2040,200,1980,200C1920,200,1860,200,1800,200C1740,200,1680,200,1620,200C1560,200,1500,200,1440,200C1380,200,1320,200,1260,200C1200,200,1140,200,1080,200C1020,200,960,200,900,200C840,200,780,200,720,200C660,200,600,200,540,200C480,200,420,200,360,200C300,200,240,200,180,200C120,200,60,200,30,200L0,200Z"></path><defs><linearGradient id="sw-gradient-2" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 100px); opacity:0.8" fill="url(#sw-gradient-2)" d="M0,0L30,16.7C60,33,120,67,180,80C240,93,300,87,360,83.3C420,80,480,80,540,76.7C600,73,660,67,720,76.7C780,87,840,113,900,103.3C960,93,1020,47,1080,43.3C1140,40,1200,80,1260,83.3C1320,87,1380,53,1440,36.7C1500,20,1560,20,1620,46.7C1680,73,1740,127,1800,133.3C1860,140,1920,100,1980,80C2040,60,2100,60,2160,53.3C2220,47,2280,33,2340,23.3C2400,13,2460,7,2520,16.7C2580,27,2640,53,2700,83.3C2760,113,2820,147,2880,156.7C2940,167,3000,153,3060,133.3C3120,113,3180,87,3240,80C3300,73,3360,87,3420,80C3480,73,3540,47,3600,43.3C3660,40,3720,60,3780,76.7C3840,93,3900,107,3960,113.3C4020,120,4080,120,4140,106.7C4200,93,4260,67,4290,53.3L4320,40L4320,200L4290,200C4260,200,4200,200,4140,200C4080,200,4020,200,3960,200C3900,200,3840,200,3780,200C3720,200,3660,200,3600,200C3540,200,3480,200,3420,200C3360,200,3300,200,3240,200C3180,200,3120,200,3060,200C3000,200,2940,200,2880,200C2820,200,2760,200,2700,200C2640,200,2580,200,2520,200C2460,200,2400,200,2340,200C2280,200,2220,200,2160,200C2100,200,2040,200,1980,200C1920,200,1860,200,1800,200C1740,200,1680,200,1620,200C1560,200,1500,200,1440,200C1380,200,1320,200,1260,200C1200,200,1140,200,1080,200C1020,200,960,200,900,200C840,200,780,200,720,200C660,200,600,200,540,200C480,200,420,200,360,200C300,200,240,200,180,200C120,200,60,200,30,200L0,200Z"></path><defs><linearGradient id="sw-gradient-3" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(239.433, 164.855, 0, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 150px); opacity:0.7" fill="url(#sw-gradient-3)" d="M0,20L30,46.7C60,73,120,127,180,143.3C240,160,300,140,360,120C420,100,480,80,540,60C600,40,660,20,720,13.3C780,7,840,13,900,40C960,67,1020,113,1080,136.7C1140,160,1200,160,1260,150C1320,140,1380,120,1440,120C1500,120,1560,140,1620,133.3C1680,127,1740,93,1800,96.7C1860,100,1920,140,1980,146.7C2040,153,2100,127,2160,106.7C2220,87,2280,73,2340,60C2400,47,2460,33,2520,43.3C2580,53,2640,87,2700,96.7C2760,107,2820,93,2880,83.3C2940,73,3000,67,3060,83.3C3120,100,3180,140,3240,150C3300,160,3360,140,3420,136.7C3480,133,3540,147,3600,146.7C3660,147,3720,133,3780,123.3C3840,113,3900,107,3960,106.7C4020,107,4080,113,4140,126.7C4200,140,4260,160,4290,170L4320,180L4320,200L4290,200C4260,200,4200,200,4140,200C4080,200,4020,200,3960,200C3900,200,3840,200,3780,200C3720,200,3660,200,3600,200C3540,200,3480,200,3420,200C3360,200,3300,200,3240,200C3180,200,3120,200,3060,200C3000,200,2940,200,2880,200C2820,200,2760,200,2700,200C2640,200,2580,200,2520,200C2460,200,2400,200,2340,200C2280,200,2220,200,2160,200C2100,200,2040,200,1980,200C1920,200,1860,200,1800,200C1740,200,1680,200,1620,200C1560,200,1500,200,1440,200C1380,200,1320,200,1260,200C1200,200,1140,200,1080,200C1020,200,960,200,900,200C840,200,780,200,720,200C660,200,600,200,540,200C480,200,420,200,360,200C300,200,240,200,180,200C120,200,60,200,30,200L0,200Z"></path></svg>
+<svg id="wave" style="transform:rotate(180deg); transition: 0.3s" viewBox="0 0 1440 200" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,20L30,33.3C60,47,120,73,180,96.7C240,120,300,140,360,150C420,160,480,160,540,163.3C600,167,660,173,720,173.3C780,173,840,167,900,146.7C960,127,1020,93,1080,66.7C1140,40,1200,20,1260,36.7C1320,53,1380,107,1440,126.7C1500,147,1560,133,1620,133.3C1680,133,1740,147,1800,156.7C1860,167,1920,173,1980,146.7C2040,120,2100,60,2160,33.3C2220,7,2280,13,2340,36.7C2400,60,2460,100,2520,120C2580,140,2640,140,2700,133.3C2760,127,2820,113,2880,90C2940,67,3000,33,3060,46.7C3120,60,3180,120,3240,150C3300,180,3360,180,3420,173.3C3480,167,3540,153,3600,133.3C3660,113,3720,87,3780,83.3C3840,80,3900,100,3960,116.7C4020,133,4080,147,4140,146.7C4200,147,4260,133,4290,126.7L4320,120L4320,200L4290,200C4260,200,4200,200,4140,200C4080,200,4020,200,3960,200C3900,200,3840,200,3780,200C3720,200,3660,200,3600,200C3540,200,3480,200,3420,200C3360,200,3300,200,3240,200C3180,200,3120,200,3060,200C3000,200,2940,200,2880,200C2820,200,2760,200,2700,200C2640,200,2580,200,2520,200C2460,200,2400,200,2340,200C2280,200,2220,200,2160,200C2100,200,2040,200,1980,200C1920,200,1860,200,1800,200C1740,200,1680,200,1620,200C1560,200,1500,200,1440,200C1380,200,1320,200,1260,200C1200,200,1140,200,1080,200C1020,200,960,200,900,200C840,200,780,200,720,200C660,200,600,200,540,200C480,200,420,200,360,200C300,200,240,200,180,200C120,200,60,200,30,200L0,200Z"></path><defs><linearGradient id="sw-gradient-1" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 50px); opacity:0.9" fill="url(#sw-gradient-1)" d="M0,0L30,30C60,60,120,120,180,126.7C240,133,300,87,360,73.3C420,60,480,80,540,90C600,100,660,100,720,86.7C780,73,840,47,900,56.7C960,67,1020,113,1080,123.3C1140,133,1200,107,1260,96.7C1320,87,1380,93,1440,90C1500,87,1560,73,1620,63.3C1680,53,1740,47,1800,63.3C1860,80,1920,120,1980,130C2040,140,2100,120,2160,106.7C2220,93,2280,87,2340,90C2400,93,2460,107,2520,106.7C2580,107,2640,93,2700,90C2760,87,2820,93,2880,100C2940,107,3000,113,3060,103.3C3120,93,3180,67,3240,70C3300,73,3360,107,3420,123.3C3480,140,3540,140,3600,140C3660,140,3720,140,3780,120C3840,100,3900,60,3960,40C4020,20,4080,20,4140,23.3C4200,27,4260,33,4290,36.7L4320,40L4320,200L4290,200C4260,200,4200,200,4140,200C4080,200,4020,200,3960,200C3900,200,3840,200,3780,200C3720,200,3660,200,3600,200C3540,200,3480,200,3420,200C3360,200,3300,200,3240,200C3180,200,3120,200,3060,200C3000,200,2940,200,2880,200C2820,200,2760,200,2700,200C2640,200,2580,200,2520,200C2460,200,2400,200,2340,200C2280,200,2220,200,2160,200C2100,200,2040,200,1980,200C1920,200,1860,200,1800,200C1740,200,1680,200,1620,200C1560,200,1500,200,1440,200C1380,200,1320,200,1260,200C1200,200,1140,200,1080,200C1020,200,960,200,900,200C840,200,780,200,720,200C660,200,600,200,540,200C480,200,420,200,360,200C300,200,240,200,180,200C120,200,60,200,30,200L0,200Z"></path><defs><linearGradient id="sw-gradient-2" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 100px); opacity:0.8" fill="url(#sw-gradient-2)" d="M0,0L30,16.7C60,33,120,67,180,80C240,93,300,87,360,83.3C420,80,480,80,540,76.7C600,73,660,67,720,76.7C780,87,840,113,900,103.3C960,93,1020,47,1080,43.3C1140,40,1200,80,1260,83.3C1320,87,1380,53,1440,36.7C1500,20,1560,20,1620,46.7C1680,73,1740,127,1800,133.3C1860,140,1920,100,1980,80C2040,60,2100,60,2160,53.3C2220,47,2280,33,2340,23.3C2400,13,2460,7,2520,16.7C2580,27,2640,53,2700,83.3C2760,113,2820,147,2880,156.7C2940,167,3000,153,3060,133.3C3120,113,3180,87,3240,80C3300,73,3360,87,3420,80C3480,73,3540,47,3600,43.3C3660,40,3720,60,3780,76.7C3840,93,3900,107,3960,113.3C4020,120,4080,120,4140,106.7C4200,93,4260,67,4290,53.3L4320,40L4320,200L4290,200C4260,200,4200,200,4140,200C4080,200,4020,200,3960,200C3900,200,3840,200,3780,200C3720,200,3660,200,3600,200C3540,200,3480,200,3420,200C3360,200,3300,200,3240,200C3180,200,3120,200,3060,200C3000,200,2940,200,2880,200C2820,200,2760,200,2700,200C2640,200,2580,200,2520,200C2460,200,2400,200,2340,200C2280,200,2220,200,2160,200C2100,200,2040,200,1980,200C1920,200,1860,200,1800,200C1740,200,1680,200,1620,200C1560,200,1500,200,1440,200C1380,200,1320,200,1260,200C1200,200,1140,200,1080,200C1020,200,960,200,900,200C840,200,780,200,720,200C660,200,600,200,540,200C480,200,420,200,360,200C300,200,240,200,180,200C120,200,60,200,30,200L0,200Z"></path><defs><linearGradient id="sw-gradient-3" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(239.433, 164.855, 0, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 150px); opacity:0.7" fill="url(#sw-gradient-3)" d="M0,20L30,46.7C60,73,120,127,180,143.3C240,160,300,140,360,120C420,100,480,80,540,60C600,40,660,20,720,13.3C780,7,840,13,900,40C960,67,1020,113,1080,136.7C1140,160,1200,160,1260,150C1320,140,1380,120,1440,120C1500,120,1560,140,1620,133.3C1680,127,1740,93,1800,96.7C1860,100,1920,140,1980,146.7C2040,153,2100,127,2160,106.7C2220,87,2280,73,2340,60C2400,47,2460,33,2520,43.3C2580,53,2640,87,2700,96.7C2760,107,2820,93,2880,83.3C2940,73,3000,67,3060,83.3C3120,100,3180,140,3240,150C3300,160,3360,140,3420,136.7C3480,133,3540,147,3600,146.7C3660,147,3720,133,3780,123.3C3840,113,3900,107,3960,106.7C4020,107,4080,113,4140,126.7C4200,140,4260,160,4290,170L4320,180L4320,200L4290,200C4260,200,4200,200,4140,200C4080,200,4020,200,3960,200C3900,200,3840,200,3780,200C3720,200,3660,200,3600,200C3540,200,3480,200,3420,200C3360,200,3300,200,3240,200C3180,200,3120,200,3060,200C3000,200,2940,200,2880,200C2820,200,2760,200,2700,200C2640,200,2580,200,2520,200C2460,200,2400,200,2340,200C2280,200,2220,200,2160,200C2100,200,2040,200,1980,200C1920,200,1860,200,1800,200C1740,200,1680,200,1620,200C1560,200,1500,200,1440,200C1380,200,1320,200,1260,200C1200,200,1140,200,1080,200C1020,200,960,200,900,200C840,200,780,200,720,200C660,200,600,200,540,200C480,200,420,200,360,200C300,200,240,200,180,200C120,200,60,200,30,200L0,200Z"></path></svg>
+
+{# COACHING #}
+
+<div class="container-fluid ">
+	<div class="row text-center">
+                <div class="heading-title fst-italic text-warning text-decoration-underline text-family display-5 text-uppercase">Nos coachs</div>
+				<div class="coaching">
+				<h2 class="text-center"><span class="display-1 text-warning text-uppercase fsw-bold text-family"> Iron Fitness</span> </h2>
+				<h3> offre un système de coaching sportif <strong><u>personnalisé</u></strong>  encadré par des coachs professionnels <strong><u> diplômés d'Etat</u></strong> . </h3></div> 
+				<h5>Leur approche <strong> holistique </strong> aide les membres à améliorer leur condition physique et à atteindre leurs objectifs. L'entraînement physique étant un élément clé de la santé, Iron Fitness est fier de proposer un système de coaching de qualité supérieure pour aider les membres à atteindre leur potentiel maximum.</h5>
+				
+            </div>		
+			<div class="row text-center">
+				<div class="col-xl-3  col-md-6">
+					<div class="content">					
+							<div class="img-container">
+								<img src="{{asset ('assets/img/coach1.jpg')}}" alt="">
+							</div>
+							<div class="user-info">
+								<h2>John Doe</h2>
+								<span>Coach Fitness</span>
+							</div>								
+					</div>
+				</div>
+				<div class="col-xl-3  col-md-6">
+					<div class="content">					
+							<div class="img-container">
+								<img src="{{asset ('assets/img/coach2.jpg')}}" alt="">
+							</div>
+							<div class="user-info">
+								<h2>John Doe</h2>
+								<span>Coach Fitness</span>
+							</div>								
+					</div>
+				</div>
+				<div class="col-xl-3  col-md-6">
+					<div class="content">					
+							<div class="img-container">
+								<img src="{{asset ('assets/img/coach3.jpg')}}" alt="">
+							</div>
+							<div class="user-info">
+								<h2>John Doe</h2>
+								<span>Coach Fitness</span>
+							</div>								
+					</div>
+				</div>
+				<div class="col-xl-3  col-md-6">
+					<div class="content">					
+							<div class="img-container">
+								<img src="{{asset ('assets/img/coach4.jpg')}}" alt="">
+							</div>
+							<div class="user-info">
+								<h2>John Doe</h2>
+								<span>Coach Fitness</span>
+							</div>								
+					</div>
+				</div>
+			</div>		
+	</div>
+</div>
+
+{# TARIF #}
+<div class="transition my-2"></div>
+
+ <div class="demo bg-image">
+        <div class="container mx-auto ">
+            <div class="row text-center">
+                <div class="heading-title fst-italic text-white text-decoration-underline text-family display-5 text-uppercase">Tarif unique</div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="pricingTable">
+						<div class="pricingTable-header">
+							<span class="heading">
+								Standard
+							</span>
+						</div>
+						<div class="pricing-plans">
+							<span class="price-value"><i class="fa fa-usd"></i><span>10</span></span>
+							<span class="subtitle">Lorem ipsum dolor</span>
+						</div>
+						<div class="pricingContent">
+							<ul>
+								<li><b>50GB</b> Disk Space</li>
+								<li><b>50</b>Email Accounts</li>
+								<li><b>50GB</b> Monthly Bandwidth</li>
+								<li><b>10</b> subdomains</li>
+								<li><b>15</b> Domains</li>
+							</ul>
+						</div><!-- /  CONTENT BOX-->
+
+						<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+							<a href="#" class="btn btn-block btn-default">buy now</a>
+						</div><!-- BUTTON BOX-->
+                    </div>	
+			    </div>										
+	        </div>
+        </div>
+	</div>
+
+	{# FOOTER #}
+
+<footer class="text-center text-white  " style="background-color: #21081a;">
+
+
+ <div class="container p-4"> <div id="map"></div></div>
+ 
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright    
+  </div>  
+</footer>
+
+
+	{# <div class="container-fluid actu">
+		  <div class='display-3 py-4'>Les dernières actualités de votre salle</div>
+		    <div class="row text-center  ">		
+		      		<div class="col-md-3  mb-2 ">
+		              <div class="card shadow-sm">
+		                      <img src="{{asset ('assets/img/nouveau-coach.jpg')}}" class=" card-img-top " width="200px" height="300px">
+		                <div class="card-body">
+		                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		                   <div class="d-flex justify-content-between align-items-center">
+		                      <div class="btn-group">
+		                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+		                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+		                      </div>
+		                        <small class="text-muted">9 mins</small>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+				    <div class="col-md-3 mb-2">
+		          <div class="card shadow-sm">
+		            <img src="{{asset ('assets/img/NouveauPoids.jpg')}}" class=" card-img-top " width="200px" height="300px">
+		
+		              <div class="card-body">
+		                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		                <div class="d-flex justify-content-between align-items-center">
+		                  <div class="btn-group">
+		                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+		                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+		                  </div>
+		                    <small class="text-muted">9 mins</small>
+		                </div>
+		             </div>
+		          </div>
+		        </div>
+				    <div class="col-md-3 mb-2">
+		          <div class="card shadow-sm">
+		            <img src="{{asset ('assets/img/ballon.jpg')}}" class=" card-img-top " width="200px" height="300px">
+		            <div class="card-body">
+		              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		              <div class="d-flex justify-content-between align-items-center">
+		                <div class="btn-group">
+		                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+		                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+		                </div>
+		                <small class="text-muted">9 mins</small>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		        <div class="col-md-3  mb-2">
+		              <div class="card shadow-sm">
+		                      <img src="{{asset ('assets/img/nouveau-coach.jpg')}}" class=" card-img-top " width="200px" height="300px">
+		                <div class="card-body">
+		                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+		                   <div class="d-flex justify-content-between align-items-center">
+		                      <div class="btn-group">
+		                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+		                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+		                      </div>
+		                  <small class="text-muted">9 mins</small>
+		                    </div>
+		                </div>
+		            </div>              		
+			        </div>	  
+		    </div>
+		</div> #}
+
+
+{# <div class="container activite">
+		<div class='display-5 text-warning my-4'><i> Différentes activités le même objectif,</i> <span class='display-6 text-dark '>
+		un corps de rêves !</span></div>
+			<div class="row text-center" >
+				<div class="col-lg-3">
+					<img src="{{asset ('assets/icons/pec-deck.png')}}" class="mb-3 bd-placeholder-img rounded" width="75" height="75"></img>
+	
+					<h2 class="fw-normal">Machines guidées</h2>
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto consectetur voluptatem quaerat atque quasi hic!</p>
+				</div>
+				<div class="col-lg-3 ">
+						<img src="{{asset ('assets/icons/treadmill.png')}}" class="mb-3 bd-placeholder-img rounded" width="75" height="75"> <br>
+						<h2 class="fw-normal">Cardio-Training</h2>
+						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, natus.</p>
+				</div><!-- /.col-lg-4 -->
+	
+				<div class="col-lg-3">
+					<img src="{{asset ('assets/icons/body-building.png')}}" alt="" class=" mb-3 bd-placeholder-img rounded" width="75" height="75"> <br>
+					<h2 class="fw-normal">CrossFit</h2>	
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, natus.</p>
+				</div><!-- /.col-lg-4 -->
+	
+				<div class="col-lg-3">
+					<img src="{{asset ('assets/icons/group.png')}}" alt="" class=" bd-placeholder-img rounded mt-n5" width="90" height="95"> <br>
+					<h2 class="fw-normal">Cours collectifs</h2>	
+					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, natus.</p>
+				</div><!-- /.col-lg-4 -->
+			</div>
+	</div> #}
+
+	{# <div class="wrapper-grey padded">
+	      <div class="container" id="activite">
+		  	<div class="row">
+				<div class="text-center display-6 mb-5  fw-bold  fst-italic ">Activités <br> <span class=" fw-bold display-5 text-warning fst-italic text-decoration-underline"> IRON FITNESS</span> </div>
+							<div class="col-xs-12 col-sm-6">
+					<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{asset ('assets/img/cardio-salle-2.jpg')}}') center;">
+						<div class="card-description">
+							<h2>Cardio-Training</h2>
+							<p class='hidden'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste at accusamus eos perspiciatis non.</p>
+						</div>            
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{asset ('assets/img/machine-guidée.jpg')}}') center;">
+						<div class="card-description">
+							<h2>Machines guidées</h2>
+						<p class='hidden'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste at accusamus eos perspiciatis non.</p>
+	
+						</div>            
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{asset ('assets/img/machine-libre.jpg')}}') center;">
+					<div class="card-description">
+						<h2>Cross-Training</h2>
+						<p class='hidden'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste at accusamus eos perspiciatis non.</p>
+	
+					</div>            
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{asset ('assets/img/cours-salle.jpg')}}') center;">
+					<div class="card-description">
+						<h2>Cours collectifs</h2>
+						<p class='hidden'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste at accusamus eos perspiciatis non.</p>
+					</div>            
+					</div>
+				</div>				
+			</div>
+	     </div>
+		 
+	</div>
+	
+	<div class="container">
+		<h1>Nos coachs</h1>
+	</div> #}
+
+{% endblock %}
