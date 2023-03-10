@@ -1,0 +1,72 @@
+
+/* GENERAL */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(245, 245, 245);
+    font-family: 'Roboto' , sans-serif;
+    
+   
+}
+
+svg{
+    margin: 0;
+    padding: 0;
+}
+
+/* NAVBAR */
+
+.logoIF{
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    border-radius: 2px;    
+}
+
+.navbar{
+    margin: 0 2px;
+    height: auto;
+    width: 99vw;
+    position:fixed;   
+    z-index:999;
+    border-radius: 0 10px 10px 0 ;   
+    opacity: 0.8;
+}
+
+.active{
+    color: #f5cb55 !important;
+}
+
+
+.navbar li a{
+    font-size: 0.9rem;
+    font-family: 'Oswald', sans-serif;
+    color: #ffffff;
+    font-weight: 400;
+    text-transform: uppercase;   
+    
+}
+
+.navbar li a:hover{
+    color: #ffc107;
+}
+.navbar-toggler{
+    font-size: 0.8rem;
+}
+
+.navbar-toggler-icon, .navbar-toggler{
+    background-color:white;
+    
+}
+
+
+  /* FOOTER */
+
+  #map { 
+    height: 400px;
+    width: 400px;
+}

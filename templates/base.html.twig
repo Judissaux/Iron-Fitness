@@ -7,26 +7,28 @@
 			{% block title %}{% endblock %}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+		{# <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
      	integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-     	crossorigin=""/>
-		{% block stylesheets %}
-			<link rel="stylesheet" href="{{asset ('assets/css/bootstrap.min.css')}}">
-			<link rel="stylesheet" href="{{asset ('assets/css/style.css')}}">
+     	crossorigin=""/> #}
+		<link rel="stylesheet" href="{{asset ('assets/css/bootstrap.min.css')}}">
+		{% block stylesheets %}		
+			
 		{% endblock %}
+		<link rel="stylesheet" href="{{asset ('assets/css/styleGeneral.css')}}">
 
 		{% block javascripts %}
 		
 		<script src="{{asset ('assets/js/bootstrap.min.js')}}"></script>
 		<script src="{{asset ('assets/js/app.js')}}" defer></script>
-		<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+		{# <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
      	integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-     	crossorigin=""></script>
+     	crossorigin=""></script> #}
 		
 		{% endblock %}
 	</head>
 	<body>
 		{% include "_partials/_navbar.html.twig" %}
 		{% block body %}{% endblock %}
+		{% include "_partials/_footer.html.twig" %}
 	</body>
 </html>

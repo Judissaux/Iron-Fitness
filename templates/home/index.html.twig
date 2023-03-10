@@ -2,6 +2,9 @@
 
 {% block title %}- Accueil
 {% endblock %}
+ {% block stylesheets %}			
+			<link rel="stylesheet" href="{{asset ('assets/css/styleHomePage.css')}}">
+		{% endblock %}
 {% block body %}
 	<div class="container-fluid">
 		<div class="row wrapped">
@@ -25,7 +28,7 @@
 		</div>
 		<div class='display-6 text-center text-uppercase'>Lievin</div>
 
-		<p class='mt-5'>
+		<p class='mt-2'>
 			<span </span>
 			<br>
 			est fière de vous accueillir 7 jours sur 7, de 6h à 23h, avec une équipe de professionnels de santé qualifiés et coachs diplômés d'état, dédiée à vous accompagner tout au long de vos activités de remise en forme. Que vous soyez débutant ou vrai athlète, notre salle de sport santé est adaptée à tous les âges pour que vous puissiez pratiquer dans les meilleures conditions.
@@ -76,13 +79,11 @@
 
 {# COACHING #}
 
-<div class="container-fluid ">
+<div class="container ">
 	<div class="row text-center">
                 <div class="heading-title fst-italic text-warning text-decoration-underline text-family display-5 text-uppercase">Nos coachs</div>
 				<div class="coaching">
-				<h2 class="text-center"><span class="display-1 text-warning text-uppercase fsw-bold text-family"> Iron Fitness</span> </h2>
-				<h3> offre un système de coaching sportif <strong><u>personnalisé</u></strong>  encadré par des coachs professionnels <strong><u> diplômés d'Etat</u></strong> . </h3></div> 
-				<h5>Leur approche <strong> holistique </strong> aide les membres à améliorer leur condition physique et à atteindre leurs objectifs. L'entraînement physique étant un élément clé de la santé, Iron Fitness est fier de proposer un système de coaching de qualité supérieure pour aider les membres à atteindre leur potentiel maximum.</h5>
+				<p><strong>IRON FITNESS</strong> offre un système de coaching sportif personnalisé encadré par des coachs professionnels diplômés d'Etat. Leur approche holistique aide les membres à améliorer leur condition physique et à atteindre leurs objectifs. L'entraînement physique étant un élément clé de la santé, Iron Fitness est fier de proposer un système de coaching de qualité supérieure pour aider les membres à atteindre leur potentiel maximum.</p>
 				
             </div>		
 			<div class="row text-center">
@@ -137,54 +138,56 @@
 {# TARIF #}
 <div class="transition my-2"></div>
 
- <div class="demo bg-image">
-        <div class="container mx-auto ">
+ <div class="demo">
+        <div class="container-fluid  ">
             <div class="row text-center">
-                <div class="heading-title fst-italic text-white text-decoration-underline text-family display-5 text-uppercase">Tarif unique</div>
+                <div class="heading-title fst-italic text-warning text-decoration-underline text-family display-5 text-uppercase">Tarif unique</div>
             </div>
-
+		
             <div class="row justify-content-center">
+				<div class="col-md-4">
+					<img src="{{asset ('assets/img/image1Tarifs.svg')}}" alt="Personne faisant du sport en dessin" class='img-fluid'>
+				</div>
                 <div class="col-md-4">
                     <div class="pricingTable">
 						<div class="pricingTable-header">
 							<span class="heading">
-								Standard
+								Iron Fitness Enjoy
 							</span>
 						</div>
 						<div class="pricing-plans">
-							<span class="price-value"><i class="fa fa-usd"></i><span>10</span></span>
-							<span class="subtitle">Lorem ipsum dolor</span>
+							<span class="price-value"><i class="fa fa-usd"></i><span>24.90€ / mois</span></span>
+							<span class="subtitle">30€ de frais d'inscription </span>
 						</div>
 						<div class="pricingContent">
 							<ul>
-								<li><b>50GB</b> Disk Space</li>
-								<li><b>50</b>Email Accounts</li>
-								<li><b>50GB</b> Monthly Bandwidth</li>
-								<li><b>10</b> subdomains</li>
-								<li><b>15</b> Domains</li>
+								<li><b>Horaires étendus:</b> <br> 6h/23h et 7j/7</li>								
+								<li><b>Coaching:</b> <br> Programme personnalisé offert</li>
+								<li><b>Cours collectif:</b> <br> Accés à l'ensemble des cours en illimité</li>
+								
 							</ul>
 						</div><!-- /  CONTENT BOX-->
-
 						<div class="pricingTable-sign-up"><!-- BUTTON BOX-->
-							<a href="#" class="btn btn-block btn-default">buy now</a>
+							<a href="#" class="btn btn-block btn-default">M'inscrire</a>
 						</div><!-- BUTTON BOX-->
                     </div>	
-			    </div>										
+			    </div>
+				<div class="col-md-4 mx-auto">
+					<img src="{{asset ('assets/img/image2Tarifs.svg')}}" alt="Personne faisant du sport en dessin" class='img-fluid'>
+				</div>										
 	        </div>
         </div>
 	</div>
 
-	{# FOOTER #}
+<div class="transition my-2"></div>
 
-<footer class="text-center text-white  " style="background-color: #21081a;">
+<div class="container"> 
+
+{# <div id="map"></div></div> #}
 
 
- <div class="container p-4"> <div id="map"></div></div>
- 
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Copyright    
-  </div>  
-</footer>
+
+
 
 
 	{# <div class="container-fluid actu">

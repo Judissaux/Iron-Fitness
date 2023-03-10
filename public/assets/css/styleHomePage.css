@@ -1,67 +1,3 @@
-
-/* GENERAL */
-
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto&display=swap');
-
-body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: rgb(245, 245, 245);
-    font-family: 'Roboto' , sans-serif;
-    
-   
-}
-
-svg{
-    margin: 0;
-    padding: 0;
-}
-
-/* NAVBAR */
-
-.logoIF{
-    margin: 0;
-    padding: 0;
-    width: 60px;
-    border-radius: 2px;    
-}
-
-.navbar{
-    margin: 0 2px;
-    height: auto;
-    width: 99vw;
-    position:fixed;   
-    z-index:999;
-    border-radius: 0 10px 10px 0 ;   
-    opacity: 0.8;
-}
-
-.active{
-    color: #f5cb55 !important;
-}
-
-
-.navbar li a{
-    font-size: 0.9rem;
-    font-family: 'Oswald', sans-serif;
-    color: #ffffff;
-    font-weight: 400;
-    text-transform: uppercase;   
-    
-}
-
-.navbar li a:hover{
-    color: #ffc107;
-}
-.navbar-toggler{
-    font-size: 0.8rem;
-}
-
-.navbar-toggler-icon, .navbar-toggler{
-    background-color:white;
-    
-}
 /* VIDEO */
 video{
     max-height: 100vh;   
@@ -143,7 +79,7 @@ video{
     background: linear-gradient(to right, rgba(36,31,31,1) 0%, rgba(36,31,31,1) 32%, rgba(74,71,70,1) 100%);
 }
 .coaching{
-    width: 600px;
+    width: 1500px;
     margin: 0 auto ;
 }
 .text-family{
@@ -213,9 +149,7 @@ video{
   }
 
   /* TARIF */
-  .bg-image{
-    background-image: url('../img/fond-jaune.jpg');
-  }
+
   .demo
   {
       padding: 50px 0;      
@@ -320,7 +254,7 @@ video{
   
   .pricingTable:hover .btn-block{
       background:#fff;
-      color: #f5cb55;
+      color: #050505;
       border:1px solid #f5cb55;
   }
   
@@ -336,72 +270,3 @@ video{
       }
   }
   
-  /* FOOTER */
-
-  #map { 
-    height: 500px;
-    width: 500px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ACTIVITE */
-
-/* .padded {
-    padding: 30px 0;
-  }
-  .wrapper-grey {
-    background: #F4F4F4;
-  }
-
-  .card {
-    height: 250px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    background-size: cover !important;
-    color: white;
-    position: relative;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    transition:1.2s;
-    
-  }
-  .card-description {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  .card-description h2 {
-    font-size: 22px;
-  }
-
-  .hidden{
-    display: none;  
-  }
-
-  .card:hover{
-    filter:grayscale(80%);
-    transform: scale(1.1);
-    z-index:1;
-  }
-  .card:hover .hidden{
-    display: inline-block;      
-    font-size: 1rem; 
-    color: #F4F4F4;
-    font-weight: 500;   
-  }
-
-   */
