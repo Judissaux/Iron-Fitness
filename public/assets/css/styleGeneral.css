@@ -23,7 +23,7 @@ svg{
 .logoIF{
     margin: 0;
     padding: 0;
-    width: 60px;
+    width: 70px;
     border-radius: 2px;    
 }
 
@@ -43,7 +43,7 @@ svg{
 
 
 .navbar li a{
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-family: 'Oswald', sans-serif;
     color: #ffffff;
     font-weight: 400;
@@ -63,9 +63,18 @@ svg{
     
 }
 
+/* TRANSITION */
+.transition{
+    margin: 0 auto;
+    width: 90%;    
+    border-top: 2px solid #f5cb55;
+}
 
   /* FOOTER */
 
+  .footer{
+    width: 100vw;
+  }
   #map { 
     height: 400px;
     width: 400px;

@@ -1,47 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CoachingController!{% endblock %}
+{% block title %}- Coaching{% endblock %}
 
 {% block body %}
   {% block stylesheets %}			
 			<link rel="stylesheet" href="{{asset ('assets/css/styleCoaching.css')}}">
 		{% endblock %}
-<div class="bgCoaching"></div>
-<div class="coaching-container">
-  <h2>Coaching personnalisé</h2>
-  <img src="iron-fitness-coaching.jpg" alt="Coach en train de travailler avec un client">
-  <p>Notre équipe de coachs professionnels diplômés d'Etat est là pour vous aider à atteindre vos objectifs de fitness. Nous offrons un programme de coaching personnalisé qui est adapté à vos besoins individuels et à votre emploi du temps. Notre approche holistique prend en compte votre alimentation, votre condition physique et votre mental pour vous aider à atteindre votre potentiel maximum.</p>
-  <h3>Comment ça fonctionne ?</h3>
-  <p>Notre programme de coaching commence par une évaluation complète de votre condition physique, de votre alimentation et de vos objectifs. En fonction de vos résultats, nous travaillons avec vous pour créer un plan de coaching personnalisé qui comprend :</p>
-  <ul>
-    <li>Des séances d'entraînement en personne avec votre coach personnel</li>
-    <li>Des séances d'entraînement en ligne pour les jours où vous ne pouvez pas être présent en personne</li>
-    <li>Un plan d'alimentation personnalisé pour vous aider à atteindre vos objectifs</li>
-    <li>Un suivi régulier de vos progrès pour vous aider à rester sur la bonne voie</li>
-  </ul>
-  <h3>Pourquoi choisir Iron Fitness Coaching ?</h3>
-  <p>Nous sommes fiers de proposer un programme de coaching de qualité supérieure pour aider nos membres à atteindre leur potentiel maximum. Voici quelques raisons pour lesquelles vous devriez choisir Iron Fitness Coaching :</p>
-  <ul>
-    <li>Un programme de coaching personnalisé adapté à vos besoins individuels</li>
-    <li>Des coachs professionnels diplômés d'Etat avec une expérience avérée</li>
-    <li>Un suivi régulier de vos progrès pour vous aider à rester motivé et sur la bonne voie</li>
-    <li>Un environnement de soutien pour vous aider à atteindre vos objectifs de fitness</li>
-  </ul>
-  <h3>Nos coachs professionnels</h3>
-<p>Nos coachs professionnels sont tous diplômés d'Etat et ont une expérience avérée dans le domaine du fitness. Ils sont passionnés par leur métier et sont déterminés à aider nos membres à atteindre leurs objectifs. En travaillant avec l'un de nos coachs, vous bénéficierez de leurs connaissances et de leur expertise pour vous aider à améliorer votre condition physique et à atteindre votre potentiel maximum.</p>
-<h3>Notre approche holistique</h3>
-<p>Notre approche holistique du coaching sportif prend en compte tous les aspects de votre vie pour vous aider à atteindre vos objectifs de fitness. En plus de l'entraînement physique, nous nous intéressons également à votre alimentation, à votre sommeil, à votre stress et à votre mental. En travaillant sur tous ces aspects, nous pouvons vous aider à créer un mode de vie sain et durable qui vous permettra de rester en forme et en bonne santé sur le long terme.</p>
-<h3>Les avantages du coaching personnalisé</h3>
-<p>Le coaching personnalisé offre de nombreux avantages par rapport à l'entraînement en solo. En travaillant avec l'un de nos coachs, vous bénéficierez de :</p>
-<ul>
-  <li>Un programme d'entraînement personnalisé adapté à vos besoins et à votre niveau de condition physique</li>
-  <li>Un suivi régulier de vos progrès pour vous aider à rester motivé et à atteindre vos objectifs</li>
-  <li>Un soutien et une motivation supplémentaires de la part de votre coach et des autres membres de la communauté Iron Fitness</li>
-  <li>Des conseils en nutrition pour vous aider à manger sainement et à atteindre vos objectifs de perte de poids ou de gain musculaire</li>
-</ul>
-<h3>Commencez dès maintenant !</h3>
-<p>Nous sommes convaincus que notre programme de coaching personnalisé peut vous aider à atteindre vos objectifs de fitness. Contactez-nous dès maintenant pour en savoir plus sur nos tarifs et pour planifier votre première séance d'entraînement avec l'un de nos coachs professionnels diplômés d'Etat.</p>
-
-  <a href="contact.html" class="btn btn-primary">S'inscrire</a>
+<div class="bgCoaching">
+<div class=" display-4 text-uppercase text-family text-white ms-5 bg-dark center1" width='150'> Coaching</div>
+<div class="display-3 text-uppercase text-white ms-5 bg-warning center2">Iron Fitness</div>
 </div>
+<svg id="wave" style="transform:rotate(180deg); transition: 0.3s" viewBox="0 0 1440 220" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,198L16,198C32,198,64,198,96,179.7C128,161,160,125,192,99C224,73,256,59,288,58.7C320,59,352,73,384,91.7C416,110,448,132,480,132C512,132,544,110,576,110C608,110,640,132,672,117.3C704,103,736,51,768,55C800,59,832,117,864,135.7C896,154,928,132,960,128.3C992,125,1024,139,1056,132C1088,125,1120,95,1152,95.3C1184,95,1216,125,1248,132C1280,139,1312,125,1344,121C1376,117,1408,125,1440,113.7C1472,103,1504,73,1536,73.3C1568,73,1600,103,1632,117.3C1664,132,1696,132,1728,113.7C1760,95,1792,59,1824,44C1856,29,1888,37,1920,36.7C1952,37,1984,29,2016,47.7C2048,66,2080,110,2112,135.7C2144,161,2176,169,2208,161.3C2240,154,2272,132,2288,121L2304,110L2304,220L2288,220C2272,220,2240,220,2208,220C2176,220,2144,220,2112,220C2080,220,2048,220,2016,220C1984,220,1952,220,1920,220C1888,220,1856,220,1824,220C1792,220,1760,220,1728,220C1696,220,1664,220,1632,220C1600,220,1568,220,1536,220C1504,220,1472,220,1440,220C1408,220,1376,220,1344,220C1312,220,1280,220,1248,220C1216,220,1184,220,1152,220C1120,220,1088,220,1056,220C1024,220,992,220,960,220C928,220,896,220,864,220C832,220,800,220,768,220C736,220,704,220,672,220C640,220,608,220,576,220C544,220,512,220,480,220C448,220,416,220,384,220C352,220,320,220,288,220C256,220,224,220,192,220C160,220,128,220,96,220C64,220,32,220,16,220L0,220Z"></path><defs><linearGradient id="sw-gradient-1" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 50px); opacity:0.9" fill="url(#sw-gradient-1)" d="M0,88L16,99C32,110,64,132,96,132C128,132,160,110,192,110C224,110,256,132,288,124.7C320,117,352,81,384,69.7C416,59,448,73,480,88C512,103,544,117,576,121C608,125,640,117,672,95.3C704,73,736,37,768,29.3C800,22,832,44,864,47.7C896,51,928,37,960,29.3C992,22,1024,22,1056,51.3C1088,81,1120,139,1152,150.3C1184,161,1216,125,1248,121C1280,117,1312,147,1344,161.3C1376,176,1408,176,1440,161.3C1472,147,1504,117,1536,106.3C1568,95,1600,103,1632,88C1664,73,1696,37,1728,29.3C1760,22,1792,44,1824,55C1856,66,1888,66,1920,80.7C1952,95,1984,125,2016,135.7C2048,147,2080,139,2112,121C2144,103,2176,73,2208,55C2240,37,2272,29,2288,25.7L2304,22L2304,220L2288,220C2272,220,2240,220,2208,220C2176,220,2144,220,2112,220C2080,220,2048,220,2016,220C1984,220,1952,220,1920,220C1888,220,1856,220,1824,220C1792,220,1760,220,1728,220C1696,220,1664,220,1632,220C1600,220,1568,220,1536,220C1504,220,1472,220,1440,220C1408,220,1376,220,1344,220C1312,220,1280,220,1248,220C1216,220,1184,220,1152,220C1120,220,1088,220,1056,220C1024,220,992,220,960,220C928,220,896,220,864,220C832,220,800,220,768,220C736,220,704,220,672,220C640,220,608,220,576,220C544,220,512,220,480,220C448,220,416,220,384,220C352,220,320,220,288,220C256,220,224,220,192,220C160,220,128,220,96,220C64,220,32,220,16,220L0,220Z"></path><defs><linearGradient id="sw-gradient-2" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 100px); opacity:0.8" fill="url(#sw-gradient-2)" d="M0,44L16,36.7C32,29,64,15,96,22C128,29,160,59,192,69.7C224,81,256,73,288,84.3C320,95,352,125,384,128.3C416,132,448,110,480,88C512,66,544,44,576,36.7C608,29,640,37,672,33C704,29,736,15,768,22C800,29,832,59,864,91.7C896,125,928,161,960,165C992,169,1024,139,1056,139.3C1088,139,1120,169,1152,165C1184,161,1216,125,1248,113.7C1280,103,1312,117,1344,121C1376,125,1408,117,1440,121C1472,125,1504,139,1536,135.7C1568,132,1600,110,1632,117.3C1664,125,1696,161,1728,161.3C1760,161,1792,125,1824,124.7C1856,125,1888,161,1920,146.7C1952,132,1984,66,2016,33C2048,0,2080,0,2112,3.7C2144,7,2176,15,2208,33C2240,51,2272,81,2288,95.3L2304,110L2304,220L2288,220C2272,220,2240,220,2208,220C2176,220,2144,220,2112,220C2080,220,2048,220,2016,220C1984,220,1952,220,1920,220C1888,220,1856,220,1824,220C1792,220,1760,220,1728,220C1696,220,1664,220,1632,220C1600,220,1568,220,1536,220C1504,220,1472,220,1440,220C1408,220,1376,220,1344,220C1312,220,1280,220,1248,220C1216,220,1184,220,1152,220C1120,220,1088,220,1056,220C1024,220,992,220,960,220C928,220,896,220,864,220C832,220,800,220,768,220C736,220,704,220,672,220C640,220,608,220,576,220C544,220,512,220,480,220C448,220,416,220,384,220C352,220,320,220,288,220C256,220,224,220,192,220C160,220,128,220,96,220C64,220,32,220,16,220L0,220Z"></path><defs><linearGradient id="sw-gradient-3" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(243, 106, 62, 1)" offset="0%"></stop><stop stop-color="rgba(255, 179, 11, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 150px); opacity:0.7" fill="url(#sw-gradient-3)" d="M0,154L16,161.3C32,169,64,183,96,168.7C128,154,160,110,192,99C224,88,256,110,288,124.7C320,139,352,147,384,132C416,117,448,81,480,55C512,29,544,15,576,29.3C608,44,640,88,672,88C704,88,736,44,768,51.3C800,59,832,117,864,135.7C896,154,928,132,960,102.7C992,73,1024,37,1056,33C1088,29,1120,59,1152,91.7C1184,125,1216,161,1248,161.3C1280,161,1312,125,1344,117.3C1376,110,1408,132,1440,117.3C1472,103,1504,51,1536,44C1568,37,1600,73,1632,80.7C1664,88,1696,66,1728,66C1760,66,1792,88,1824,102.7C1856,117,1888,125,1920,117.3C1952,110,1984,88,2016,73.3C2048,59,2080,51,2112,69.7C2144,88,2176,132,2208,135.7C2240,139,2272,103,2288,84.3L2304,66L2304,220L2288,220C2272,220,2240,220,2208,220C2176,220,2144,220,2112,220C2080,220,2048,220,2016,220C1984,220,1952,220,1920,220C1888,220,1856,220,1824,220C1792,220,1760,220,1728,220C1696,220,1664,220,1632,220C1600,220,1568,220,1536,220C1504,220,1472,220,1440,220C1408,220,1376,220,1344,220C1312,220,1280,220,1248,220C1216,220,1184,220,1152,220C1120,220,1088,220,1056,220C1024,220,992,220,960,220C928,220,896,220,864,220C832,220,800,220,768,220C736,220,704,220,672,220C640,220,608,220,576,220C544,220,512,220,480,220C448,220,416,220,384,220C352,220,320,220,288,220C256,220,224,220,192,220C160,220,128,220,96,220C64,220,32,220,16,220L0,220Z"></path></svg>
+
+<div class="container"> 
+<h3 class='display-4 text-center text-family text-warning text-decoration-underline my-5 fst-italic'>Un coaching de qualité ! </h3>
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 text-center">
+      <p class="fs-6 ">Notre équipe de coachs professionnels <strong class='text-warning fs-4'> diplômés d'Etat </strong> est là pour vous aider à atteindre vos objectifs de fitness.</p>
+      <p class="fs-6 "> Nous offrons <strong> un programme de coaching personnalisé </strong> qui est adapté à vos besoins individuels et à votre emploi du temps.</p>
+      <p > Notre approche  prend en compte votre alimentation, votre condition physique et votre mental pour vous aider à atteindre votre potentiel maximum.</p>
+    </div>
+    <div class="col-md-6">
+      <img src="{{asset ('assets/img/coaching.png')}}" alt="photo coaching" class='img-fluid h-100 '>
+    </div>
+</div>  
+    <div class="row align-items-center my-3">
+    <h3 class='display-5 text-center text-family text-warning text-decoration-underline my-5'>Pourquoi choisir Iron Fitness Coaching ?</h3>
+      <div class="col-md-6">
+        <img src="{{asset ('assets/img/coaching2.jpg')}}" alt="photo coaching" class='img-fluid h-100 rounded'>
+      </div>      
+        <div class="col-md-6 text-center">        
+        <p>Nous sommes fiers de proposer un programme de coaching de <b>qualité supérieure</b>  pour aider nos membres à atteindre leur potentiel maximum. </p><p class='fw-bold text-decoration-underline'> Voici quelques raisons pour lesquelles vous devriez choisir Iron Fitness Coaching :</p>
+        <ul  class="list-group list-group-flush text-center">
+          <li class="list-group-item list-group-item-warning">Un programme de coaching personnalisé adapté à vos besoins individuels</li>
+          <li class="list-group-item">Des coachs professionnels diplômés d'Etat avec une expérience avérée</li>
+          <li class="list-group-item list-group-item-warning">Un suivi régulier de vos progrès pour vous aider à rester motivé et sur la bonne voie</li>
+          <li class="list-group-item">Un environnement de soutien pour vous aider à atteindre vos objectifs de fitness</li>
+        </ul>
+      </div>
+    </div>
+    <div class="row align-items-center">
+     <h3 class='display-5 text-center text-family text-warning text-decoration-underline my-5'>Comment ça fonctionne ?</h3>
+    <div class="col-md-6 text-center">       
+        <p>Notre programme de coaching commence par une <b> évaluation complète </b> de votre condition physique , de votre alimentation et de vos objectifs. </p><p> En fonction de vos résultats, nous travaillons avec vous pour créer un <b> plan de coaching personnalisé </b> qui comprend :</p>
+        <ul  class="list-group list-group-flush text-center">
+          <li class="list-group-item ">Des séances d'entraînement en personne avec votre coach personnel</li>
+          <li class="list-group-item list-group-item-warning">Des séances d'entraînement en ligne pour les jours où vous ne pouvez pas être présent en personne</li>
+          <li class="list-group-item ">Un plan d'alimentation personnalisé pour vous aider à atteindre vos objectifs</li>
+          <li class="list-group-item list-group-item-warning">Un suivi régulier de vos progrès pour vous aider à rester sur la bonne voie</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+      <img src="{{asset ('assets/img/coaching3.jpg')}}" alt="photo coaching" class='img-fluid h-100 '>
+      </div>
+    </div>
+  <div class="transition my-2"></div>
+ <div class="container text-center my-4">
+  <button class="cssbuttons-io">
+    <span> Rejoindre l'équipe Iron Fitness</span>
+  </button>
+  </div>
+  
 {% endblock %}
