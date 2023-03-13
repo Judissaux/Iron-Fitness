@@ -1,0 +1,231 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Cours collectifs
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset ('assets/css/styleCollectifs.css')}}">
+{% endblock %}
+{% block body %}
+	{# HEADER #}
+	<div class="bgCollectifs">
+		<div class="container text-center text-dark bg rounded">
+			<h1>Cours Collectifs</h1>
+			<h2>Venez vous dépensez avec nous !</h2>
+			<button type="button" class="btn btn-warning mt-4">S'inscrire</button>
+			<button type="button" class="btn btn-info mt-4">
+				Tester une séance gratuite</button>
+		</div>
+	</div>
+
+	{# SLOGAN #}
+	<div class="container-fluid-g-0 text-center text-white p-5" style="background :linear-gradient(to right, rgba(36,31,31,1) 0%, rgba(36,31,31,1) 32%, rgba(74,71,70,1) 100%)">
+		<div class='display-2 letter'>
+			Forger votre corps. Sculpter votre esprit.</div>
+	</div>
+
+	{# PRESENTATION ACTIVITE + IMAGE #}
+	<div class="container-fluid g-0 bg-light bg-gradient">
+		<div class="row align-items-center g-0">
+			<div class="col-md-6">
+				<img src="{{asset ('assets/img/coursCollectif.jpg')}}" alt="Image d'un cours collectif" class='img-fluid w-100 '>
+			</div>
+			<div class="col-md-6 mt-5">
+				<p class="text-center fs-4">Chez
+					<strong class='text-warning'>Iron Fitness</strong>, nous proposons une large gamme de
+					<em>cours collectifs</em>
+					pour répondre à tous les niveaux et à toutes les envies.</p>
+				<div class="container">
+					<div class="row mb-5 text-center">
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title text-danger mb-3">Danse cardio</h4>
+									<p class="card-text">Pour une activité cardiovasculaire stimulante et amusante</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title text-warning mb-3">Musculation</h4>
+									<p class="card-text">Pour développer votre force et votre endurance musculaire</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card">
+								<div class="card-body">
+									<h4 class="card-title text-success mb-3">Yoga</h4>
+									<p class="card-text">Pour améliorer votre souplesse et votre équilibre intérieur</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p>Nos instructeurs qualifiés sont là pour vous motiver et vous guider tout au long de votre séance. Nos cours sont conçus pour vous offrir une expérience de groupe dynamique et motivante, tout en vous aidant à atteindre vos objectifs de remise en forme.</p>
+						</div>
+					</div>
+					<div class="row mt-4">
+						<div class="col-md-12">
+							<p class="text-muted">
+								<em>N'oubliez pas : un corps sain est un esprit sain !</em>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{# EXEMPLE DE QUELQUES ACTIVITE #}
+	<div class="container-fluid bgActivite">
+		<div class="display-1 text-warning text-decoration-underline fst-italic text-center p-3 text-family">Découvrez nos activités</div>
+		 <div class="row text-center mx-2 ">
+			{# FORMAT DESKTOP #}
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="{{asset ('assets/img/abdo-fessier.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<div class="card-body">
+						<h5 class="card-title">Abdo-fessier</h5>
+						<div class="row">
+							<div class="col-sm-7">
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 1000 calories</p>
+							</div>
+							<div class="col-sm-5">
+								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="{{asset ('assets/img/aerobic.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<div class="card-body">
+						<h5 class="card-title">Aerobic</h5>
+						<div class="row">
+							<div class="col-sm-7">
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 2500 calories</p>
+							</div>
+							<div class="col-sm-5">
+								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 180 min</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="{{asset ('assets/img/gymDouce.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<div class="card-body">
+						<h5 class="card-title">Gym douce</h5>
+						<div class="row">
+							<div class="col-sm-7">
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 800 calories</p>
+							</div>
+							<div class="col-sm-5">
+								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="{{asset ('assets/img/pompe.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<div class="card-body">
+						<h5 class="card-title">Iron pompe</h5>
+						<div class="row">
+							<div class="col-sm-7">
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 2000 calories</p>
+							</div>
+							<div class="col-sm-5">
+								<p class="card-text text-muted"> <i class="fa-regular fa-clock"></i> 30 min</p>
+							</div>
+						</div>
+						{# fin ROW #}
+					</div>
+					{# fin CARD BODY #}
+				</div>
+				{# fin CARD #}
+			</div>
+			{# fin COL #}
+		
+		{# fin ROW #}		
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="{{asset ('assets/img/step.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<div class="card-body">
+						<h5 class="card-title">Iron step</h5>
+						<div class="row">
+							<div class="col-sm-7">
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 2500 calories</p>
+							</div>
+							<div class="col-sm-5">
+								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="{{asset ('assets/img/yoga.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<div class="card-body">
+						<h5 class="card-title">Iron yoga</h5>
+						<div class="row">
+							<div class="col-sm-7">
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 300 calories</p>
+							</div>
+							<div class="col-sm-5">
+								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="{{asset ('assets/img/bodyFitness.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<div class="card-body">
+						<h5 class="card-title">Iron body</h5>
+						<div class="row">
+							<div class="col-sm-7">
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 3000 calories</p>
+							</div>
+							<div class="col-sm-5">
+								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 30 min</p>
+							</div>
+						</div>
+						{# fin ROW #}
+					</div>
+					{# fin CARD BODY #}
+				</div>
+				{# fin CARD #}
+			</div>
+			{# fin COL #}
+			<div class="col-md-2 mb-3">
+				<div class="card">
+					<img src="{{asset ('assets/img/ironBubble.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<div class="card-body">
+						<h5 class="card-title">Iron bubble</h5>
+						<div class="row">
+							<div class="col-sm-7">
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 4000 calories</p>
+							</div>
+							<div class="col-sm-5">
+								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
+							</div>
+						</div>
+						{# fin ROW #}
+					</div>
+					{# fin CARD BODY #}
+				</div>
+				{# fin CARD #}
+			</div>
+			{# fin COL #}
+			</div>
+		</div>		
+	</div>
+	{% endblock %}

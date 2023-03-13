@@ -1,0 +1,55 @@
+/* HEADER */
+
+.bgCollectifs{
+    background-image: url('../img/bgCoursCollectifs.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .bg{
+    background: linear-gradient(to right, #ffa75159, #ffe259); 
+    padding: 20px;
+    font-family: 'Oswald', sans-serif; 
+
+ }
+
+.container h1{
+    font-size: 15vmin;
+    font-weight: bold;
+    letter-spacing: 7px;
+}
+
+.container h2{
+    font-size: 8vmin; 
+    font-weight: bold;
+    color: white;
+}
+
+button{
+   margin-left: 10px;
+
+}
+
+.letter{
+    letter-spacing: 0.5rem;
+    font-family: 'Oswald', sans-serif; 
+}
+
+/* ACTIVITE */
+.bgActivite{
+    background-image: url(../img/transitionCollectif.jpg);
+    background-position: center;
+    background-size: cover;
+    height: auto;
+    margin: 0;
+}
+
+.card:hover{
+    transition: 1s;
+    transform: scale(1.1);
+}
+

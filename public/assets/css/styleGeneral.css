@@ -18,6 +18,10 @@ svg{
     padding: 0;
 }
 
+.text-family{
+    font-family: 'Oswald', sans-serif;
+}
+
 /* NAVBAR */
 
 .logoIF{
@@ -39,6 +43,13 @@ svg{
 
 .active{
     color: #f5cb55 !important;
+    text-decoration: underline ;
+}
+
+.nav-link:hover{
+    color: #f5cb55 !important;
+    text-decoration: underline ;
+   
 }
 
 
@@ -61,6 +72,10 @@ svg{
 .navbar-toggler-icon, .navbar-toggler{
     background-color:white;
     
+}
+
+.planning{
+    cursor: pointer;
 }
 
 /* TRANSITION */

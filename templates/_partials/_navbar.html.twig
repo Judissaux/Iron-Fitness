@@ -6,23 +6,48 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav me-auto mb-2 ">
-        <li class="nav-item px-3">
-          <a class="nav-link "  href="{{path ('app_home')}}">Accueil</a>
+        <li class="nav-item px-3">        
+          <a {% if app.request.attributes.get('_route') == "app_home" %} class="nav-link active" {% else %} class= "nav-link"
+            {% endif %} href="{{path ('app_home')}}" >Accueil</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link" href="{{path ('app_coaching')}}">Coaching</a>
+          <a {% if app.request.attributes.get('_route') == "app_coaching" %} class="nav-link active" {% else %} class= "nav-link"
+            {% endif %} href="{{path ('app_coaching')}}">Coaching</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link"  href="#">Cours collectif</a>
+          <a {% if app.request.attributes.get('_route') == "app_collective_lesson" %} class="nav-link active" {% else %} class= "nav-link"
+            {% endif %}  href="{{path ('app_collective_lesson')}}">Cours collectif</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link"  href="#">Planning</a>
+          <a class="nav-link planning"   data-bs-toggle="modal" data-bs-target="#modalPlanning" >Planning</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link"  href="#">Blog</a>
+          <a class="nav-link"  href="{{path ('app_blog')}}">Blog</a>
         </li>
       </ul>
             <button class="btn btn-outline-warning  mb-2" type="submit">S'inscrire</button>      
     </div>
   </div>
 </nav>
+
+{# NOTE 
+{% "app.request.attributes.get('_route')" renvoie le nom de la route (app_home si on est sur l'accueil par exemple) #}
+
+
+{# MODAL PLANNING #}
+<div class="modal fade" id="modalPlanning" tabindex="-1" aria-labelledby="modalPlanning" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title ms-5 display-5 text-warning text-family" id="modalPlanning">Planning Iron Fitness</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{{asset ('assets/img/planning.jpg')}}" alt="" class="img-fluid">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>        
+      </div>
+    </div>
+  </div>
+</div>
