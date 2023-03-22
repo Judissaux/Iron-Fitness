@@ -5,7 +5,9 @@ video{
     object-fit: fill;
     opacity: 0.9;
 }
-
+.alert{
+    z-index: 999;
+}
 
 /* Présentation salle  */
 
