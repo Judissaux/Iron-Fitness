@@ -1,6 +1,7 @@
 .bgRegister{
-    background-image: url(../img/bgRegister.png);
+    background-image: url(../img/bgRegister.jpg);
     background-size:auto;
+    background-position: left;
     background-repeat: no-repeat;
     border-radius: 20px;
     height: 650px;

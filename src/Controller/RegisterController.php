@@ -25,7 +25,7 @@ class RegisterController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $this->em->persist($user);
-            // $this->em->flush();
+            //$this->em->flush();
              $this->addFlash('success', 'Votre enregistrement a été pris en compte nous vous attendons à la salle pour finaliser votre inscription');
             return $this->redirectToRoute('app_home');
            
