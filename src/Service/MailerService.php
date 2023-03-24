@@ -16,19 +16,16 @@ class MailerService
     $subject,    
     $adresseTemplate,
     $context): void    
-    {   
-       
+    {         
 
         $email = (new TemplatedEmail())
             ->from($from)
             ->to($to)
             ->subject($subject)
             ->htmlTemplate($adresseTemplate)
-            ->context($context);
-            
+            ->context($context);           
 
         $this->mailer->send($email);
-
-        // ...
+        
     }
 }
