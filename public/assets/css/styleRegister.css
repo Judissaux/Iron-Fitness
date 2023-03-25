@@ -1,6 +1,6 @@
 .bgRegister{
     background-image: url(../img/bgRegister.jpg);
-    background-size:auto;
+    background-size:cover;
     background-position: left;
     background-repeat: no-repeat;
     border-radius: 20px;
@@ -93,4 +93,3 @@
     line-height: 38px;
     color: #a7a8aa
 }
-

@@ -22,13 +22,16 @@
           <a class="nav-link planning"   data-bs-toggle="modal" data-bs-target="#modalPlanning" >Planning</a>
         </li>
         <li class="nav-item px-3">
-          <a class="nav-link"  href="{{path ('app_blog')}}">Blog</a>
+          <a class="nav-link"  href="{{path ('app_blog')}}">Blog
+  
+          </a>
         </li>
       </ul>
-            <a href='#' class="btn btn-outline-info  mb-2 me-3" >Tester une séance gratuite </a> 
+            <a  class="btn btn-outline-info  mb-2 me-3" data-bs-toggle="modal" data-bs-target="#modalFreeSession" >Tester une séance gratuite </a> 
             <a href='{{path ('app_register')}}' class="btn btn-outline-warning  mb-2" >S'inscrire</a>       
     </div>
   </div>
+
 </nav>
 
 {# NOTE 
@@ -47,9 +50,47 @@
         <img src="{{asset ('assets/img/planning.jpg')}}" alt="" class="img-fluid">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>        
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>        
       </div>
     </div>
   </div>
 </div>
 
+{# MODAL SEANCE GRATUITE #}
+ {# {{ form_start(form) }} 
+  <div class="modal fade" id="modalFreeSession" tabindex="-1" aria-labelledby="modalFreeSession" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title mx-auto text-family " id="modalFreeSession">Tester une séance gratuite</h5>
+        <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+     
+      <div class=" p-5 bgRegister">
+         
+        <div class="col-md-2">
+        {{ form_label(form.sexe) }}
+        </div>
+        <div class="col-md-10 py-2">
+        {{ form_widget(form.sexe)}}    
+        </div> <br>
+      
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}               
+        {{ form_row(form.email) }}
+        {{ form_row(form.numTelephone) }}        
+                 
+        </div>
+     
+      </div>
+      <div class="modal-footer">
+      <button class="btn btn-warning mt-3 col-md-10 mx-auto  fs-2 text-white" type="submit" >Envoyer mes informations </button> 
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>        
+      </div> 
+      
+    {</div>
+  </div>
+</div>  
+{{ form_rest(form) }}
+{{ form_end(form) }}  #}

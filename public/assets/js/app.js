@@ -26,3 +26,4 @@ document.querySelectorAll('.reveal').forEach(r => {
     observer.observe(r)
     })
 })
+
