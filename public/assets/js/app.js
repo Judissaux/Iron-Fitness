@@ -27,3 +27,22 @@ document.querySelectorAll('.reveal').forEach(r => {
     })
 })
 
+$(document).on('submit', '#FreeSession', function(e) {
+    e.preventDefault(); // Empêche la soumission normale du formulaire
+    var formData = $(this).serialize(); // Récupère les données du formulaire
+
+    $.ajax({
+        url: '/traitement-formulaire-ajax', // URL de traitement du formulaire
+        type: 'POST',
+        data: formData,
+        success: function(data) {
+                // Code exécuté après la soumission réussie du formulaire
+                // Fermer la fenêtre modale en masquant l'élément HTML
+                window.location.href = '/';
+              
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            // Code exécuté en cas d'erreur lors de la soumission du formulaire
+        }
+    });
+});

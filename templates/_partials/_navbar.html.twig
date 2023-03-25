@@ -57,7 +57,8 @@
 </div>
 
 {# MODAL SEANCE GRATUITE #}
- {# {{ form_start(form) }} 
+
+  {{ form_start(form, {'attr': {'id': 'FreeSession'}} ) }} 
   <div class="modal fade" id="modalFreeSession" tabindex="-1" aria-labelledby="modalFreeSession" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -93,4 +94,4 @@
   </div>
 </div>  
 {{ form_rest(form) }}
-{{ form_end(form) }}  #}
+{{ form_end(form) }}  
