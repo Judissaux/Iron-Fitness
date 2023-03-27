@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Validator\Constraints\GreaterThan;
 
 class FreeSessionType extends AbstractType
 {
@@ -34,12 +36,12 @@ class FreeSessionType extends AbstractType
 
         ->add('nom', TextType::class,
              ['label' => 'Nom: ',
-              'constraints' => new NotBlank()
+              'constraints' => new NotBlank(message: "Le champs 'nom' ne peut pas être vide")
             ])
 
         ->add('prenom', TextType::class,
              ['label' => 'Prénom: ',
-              'constraints' => new NotBlank()
+              'constraints' => new NotBlank(message: "Le champs 'prénom' ne peut pas être vide")
              ])
         
 
@@ -49,7 +51,7 @@ class FreeSessionType extends AbstractType
                 new NotBlank(),
                 new Regex([
                     'pattern' => '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+(fr|com|net)))/i',
-                    'message' => "Format incorrect"]) 
+                    'message' => "Le format de l'email est incorrecte (email finissant par .net, .fr et .com seulement)"]) 
             ]       
         ])
         
@@ -60,11 +62,21 @@ class FreeSessionType extends AbstractType
                 new Length(10,exactMessage: '10 chiffres maximum et minimum'), 
                 new Regex([
                     'pattern' => '#^0[0-9]([ .-]?[0-9]{2}){4}$#',
-                    'message' => "Mauvais format -> Format autorisé (10 chiffres)"])                    
+                    'message' => "Mauvais format pour le téléphone -> Format autorisé (10 chiffres)"])                    
             ],
             'attr' => [
                 'maxlength' => 10 ]
-            ]);
+            ])
+            ->add('datePresence',DateTimeType::class,([
+                  'label' => 'Date de votre présence',
+                  'widget' => 'single_text',
+                  'constraints' => new GreaterThan('now', message: 'La date ne peux pas être inférieur à la date du jour'),                  
+                  'attr' => [
+                    'class' => 'input-group'
+                  ] 
+                   ])
+                
+            );
     }
 
     public function configureOptions(OptionsResolver $resolver): void

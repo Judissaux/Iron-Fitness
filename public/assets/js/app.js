@@ -27,11 +27,14 @@ document.querySelectorAll('.reveal').forEach(r => {
     })
 })
 
+csrf_token = $("input[name='_csrfToken']").val();
 $(document).on('submit', '#FreeSession', function(e) {
     e.preventDefault(); // Empêche la soumission normale du formulaire
-    var formData = $(this).serialize(); // Récupère les données du formulaire
+    const formData = $(this).serialize(); // Récupère les données du formulaire
 
     $.ajax({
+        beforeSend: function(xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', csrf_token)},
         url: '/traitement-formulaire-ajax', // URL de traitement du formulaire
         type: 'POST',
         data: formData,
@@ -42,7 +45,17 @@ $(document).on('submit', '#FreeSession', function(e) {
               
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            // Code exécuté en cas d'erreur lors de la soumission du formulaire
+           
         }
-    });
+     })
+ })
+
+ $('.datepicker, .input-group').datepicker({
+    format: "DD d MM ",
+    startDate: "now",
+    maxViewMode: 1,
+    language: "fr",
+    daysOfWeekDisabled: "0"
 });
+
+

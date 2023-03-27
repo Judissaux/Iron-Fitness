@@ -22,6 +22,10 @@ svg{
     font-family: 'Oswald', sans-serif;
 }
 
+.alert{
+    z-index: 999;
+}
+
 /* NAVBAR */
 
 .logoIF{
