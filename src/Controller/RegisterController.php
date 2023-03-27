@@ -25,7 +25,7 @@ class RegisterController extends AbstractController
         $contact = $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            dd($contact->getData());
+            
                 $nom = $contact->get('nom')->getData();
                 $prenom =  $contact->get('prenom')->getData();
                 $sexe = $contact->get('sexe')->getData(); 

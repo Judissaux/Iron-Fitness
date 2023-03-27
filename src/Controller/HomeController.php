@@ -25,8 +25,11 @@ class HomeController extends AbstractController
         $form = $this->createForm(FreeSessionType::class);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
-           $this->addFlash('success', 'Votre séance gratuite est enregistré, nous vous attendons avec impatience.');
-           return $this->redirectToRoute('app_home');
+           $this->addFlash('success', 'Votre séance est enregistré, nous vous attendons avec impatience.');
+        }
+
+        if ($request->isXmlHttpRequest() && !$form->isValid()) {
+            $this->addFlash('error', 'Une erreur est survenue lors de la soumission du formulaire.');
         }
        
         return $this->render('_partials/_navbar.html.twig', [

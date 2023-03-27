@@ -3,12 +3,18 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Validator\Constraints\GreaterThan;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\LessThan;
 
 class RegisterFormType extends AbstractType
 {
@@ -25,27 +31,51 @@ class RegisterFormType extends AbstractType
                 'multiple' => false,
                 'label_attr' => [
                     'class' => 'radio-inline',
-                ]
+                ],
+                'constraints' => new NotBlank()
             ])
 
             ->add('nom', TextType::class,
-                 ['label' => 'Nom: '])
+                 ['label' => 'Nom: ',
+                  'constraints' => new NotBlank()
+                 ])
 
             ->add('prenom', TextType::class,
-                 ['label' => 'Prénom: '])
+                 ['label' => 'Prénom: ',
+                  'constraints' => new NotBlank()
+                 ])
             
             ->add('dateNaissance', BirthdayType::class , [
-                'label' => 'Date de naissance: ',
+                'label' => 'Date de naissance: ',                
                 'widget' => 'single_text',
+                'constraints' =>[
+                    new NotBlank(),
+                    new LessThan(value: '-18 years', message: 'En dessous de l\'âge minimum'),
+                    new GreaterThan(value: '01/01/1920', message: " Date antérieur au 01/01/1920 non autorisée")
+                ]
                 
             ])
 
             ->add('email', EmailType::class , [
-                'label' => 'E-mail: '
+                'label' => 'E-mail: ',
+                'required' => true,
+                'constraints' => [
+                    new NotBlank(),
+                    new Regex([
+                        'pattern' => '/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+(fr|com|net)))/i',
+                        'message' => "Format incorrect"]) 
+                ]                       
             ])
             
             ->add('numTelephone', TelType::class, [
                 'label' => 'Numéro de téléphone: ',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length(10,exactMessage: '10 chiffres maximum et minimum'), 
+                    new Regex([
+                        'pattern' => '#^0[0-9]([ .-]?[0-9]{2}){4}$#',
+                        'message' => "Mauvais format -> Format autorisé (10 chiffres)"])                    
+                ],
                 'attr' => [
                     'maxlength' => 10 ]
                 ]);
