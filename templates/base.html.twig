@@ -10,6 +10,8 @@
 		{# <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
      	integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
      	crossorigin=""/> #}
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+		<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/confetti.css">
 		<link rel="stylesheet" href="{{asset ('assets/css/bootstrap.min.css')}}">
 		<link rel="stylesheet" href="{{asset ('fontawesome/css/all.css')}}">
 		{% block stylesheets %}		
@@ -17,25 +19,26 @@
 		{% endblock %}
 		<link rel="stylesheet" href="{{asset ('assets/css/styleGeneral.css')}}">
 
-		{% block javascripts %}
-		
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-		<script src="{{asset ('assets/js/app.js')}}" defer></script>
-		{# <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-     	integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-     	crossorigin=""></script> #}
-		
-		
+		{% block javascripts %}		
+					
 		{% endblock %}
 	</head>
 	<body>	
 		{# Permet de récupérer les infos venant du controlleur Home et de la fonction addNavbar, utile pour avoir le formulaire sur toutes les pages #}
 		{{ render (controller('App\\Controller\\HomeController::addNavBar', {form : 'form' })) }}
 		
-		{% block body %}{% endblock %}
-		{% include "_partials/_footer.html.twig" %}
+		{% block body %}{% endblock %}		
+		{% include "_partials/_footer.html.twig" %}	
+		{# Importation du datePicker Seance gratuite et de l'extension fr	 #}
+		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>	
+		<script src="https://npmcdn.com/flatpickr/dist/l10n/fr.js"></script>
+		{# Importation Jquery pour requête Ajax formulaire séance gratuite #}
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		{# importation de mon propres fichier Js pour insertion de code spécifique #}
+		<script src="{{asset ('assets/js/app.js')}}"></script>
+		{# importation du bootstrap JS #}
 		<script src="{{asset ('assets/js/bootstrap.min.js')}}"></script>
+		{# Importation du js pour fontAwesome #}
 		<script src="{{asset ('fontawesome/js/all.js')}}"></script>
 	</body>
 </html>

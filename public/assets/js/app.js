@@ -1,3 +1,5 @@
+
+
 const ratio = .1;
 
 const options = {
@@ -27,7 +29,7 @@ document.querySelectorAll('.reveal').forEach(r => {
     })
 })
 
-csrf_token = $("input[name='_csrfToken']").val();
+const csrf_token = $("input[name='_csrfToken']").val();
 $(document).on('submit', '#FreeSession', function(e) {
     e.preventDefault(); // Empêche la soumission normale du formulaire
     const formData = $(this).serialize(); // Récupère les données du formulaire
@@ -49,13 +51,32 @@ $(document).on('submit', '#FreeSession', function(e) {
         }
      })
  })
+ 
 
- $('.datepicker, .input-group').datepicker({
-    format: "DD d MM ",
-    startDate: "now",
-    maxViewMode: 1,
-    language: "fr",
-    daysOfWeekDisabled: "0"
-});
+
+ flatpickr(".js-datepicker", {
+    locale: "fr",
+    disable: [
+      function(date) {
+        // Désactiver les dimanches
+        return date.getDay() === 0;
+      },
+      function(date) {
+        // Désactiver les dates antérieures à la date actuelle
+        return date < new Date();
+      }
+    ],    
+    altInput: true,
+    altFormat: "d-m-Y",
+    
+    
+    
+   
+   
+    
+  });
+
+   
+
 
 

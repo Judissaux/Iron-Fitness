@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use App\Validator\Constraints\SundayConstraint;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
@@ -10,10 +11,10 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
-use Symfony\Component\Validator\Constraints\GreaterThan;
 
 class FreeSessionType extends AbstractType
 {
@@ -69,12 +70,16 @@ class FreeSessionType extends AbstractType
             ])
             ->add('datePresence',DateTimeType::class,([
                   'label' => 'Date de votre présence',
-                  'widget' => 'single_text',
-                  'constraints' => new GreaterThan('now', message: 'La date ne peux pas être inférieur à la date du jour'),                  
-                  'attr' => [
-                    'class' => 'input-group'
-                  ] 
-                   ])
+                  'widget' => 'single_text',                                   
+                  'constraints' => [
+                    new GreaterThan('now', message: 'La date ne peux pas être inférieur à la date du jour'),
+                    new SundayConstraint(),
+                  ],
+                  'html5' => false,
+                  'format' => 'yyyy-MM-dd',
+                  'attr' => ['class' => 'js-datepicker',
+                'placeholder' => "Selectionner une date"],                                 
+                ])
                 
             );
     }

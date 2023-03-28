@@ -26,12 +26,13 @@ class HomeController extends AbstractController
         $form = $this->createForm(FreeSessionType::class);
         $form->handleRequest($request);
                
-        if($form->isSubmitted() && $form->isValid()){
+        if($form->isSubmitted() && $form->isValid()){            
+            
            $this->addFlash('success', 'Votre séance est enregistré, nous vous attendons avec impatience.');
         }
 
-        if ($request->isXmlHttpRequest() && !$form->isValid()) {   
-                     
+        if ($request->isXmlHttpRequest() && !$form->isValid()) {
+                               
             foreach ($form->getErrors(true) as $error) {              
              $this->addFlash('danger',  $error->getMessage());                
         }   
