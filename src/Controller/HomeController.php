@@ -32,7 +32,7 @@ class HomeController extends AbstractController
         }
 
         if ($request->isXmlHttpRequest() && !$form->isValid()) {
-                               
+            // Récupération des erreurs et affichages dans message alert                   
             foreach ($form->getErrors(true) as $error) {              
              $this->addFlash('danger',  $error->getMessage());                
         }   
