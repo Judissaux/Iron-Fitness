@@ -3,12 +3,11 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
-use App\Validator\Constraints\SundayConstraint;
+use App\Validator\SundayConstraint;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\GreaterThan;
@@ -60,7 +59,7 @@ class FreeSessionType extends AbstractType
             'label' => 'Numéro de téléphone: ',
             'constraints' => [
                 new NotBlank(),
-                new Length(10,exactMessage: '10 chiffres maximum et minimum'), 
+                new Length(10), 
                 new Regex([
                     'pattern' => '#^0[0-9]([ .-]?[0-9]{2}){4}$#',
                     'message' => "Mauvais format pour le téléphone -> Format autorisé (10 chiffres)"])                    
@@ -84,10 +83,5 @@ class FreeSessionType extends AbstractType
             );
     }
 
-    public function configureOptions(OptionsResolver $resolver): void
-    {
-        $resolver->setDefaults([
-            // Configure your form options here
-        ]);
-    }
+    
 }

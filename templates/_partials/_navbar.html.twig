@@ -61,23 +61,23 @@
 
 {# MODAL SEANCE GRATUITE #}
 
-  {{ form_start(form, {'attr': {'id': 'FreeSession'}} ) }} 
+  {{ form_start(form, {'attr': {'id': 'FreeSession', novalidate:'novalidate'}} ) }} 
    
   <div class="modal fade" id="modalFreeSession" tabindex="-1" aria-labelledby="modalFreeSession" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title mx-auto text-family " id="modalFreeSession">Tester une séance gratuite</h5>
+        <h5 class="modal-title mx-auto text-family display-6 text-decoration-underline " id="modalFreeSession">Tester une séance gratuite</h5>
         <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
      
-      <div class=" p-5 bgRegister">
-         
+      <div class=" p-5 ">
+         <div id="form-errors" class="alert alert-danger d-none"></div>
         <div class="col-md-2">
         {{ form_label(form.sexe) }}
         </div>
-        <div class="col-md-10 py-2">
+        <div class="col-md-10 text-center py-2">
         {{ form_widget(form.sexe)}}    
         </div> <br>
       
@@ -87,17 +87,14 @@
         {{ form_row(form.numTelephone) }} 
               
         {{form_row(form.datePresence)}}
-            
+        <button class="btn btn-warning mt-3 col-md-12  mx-auto text-white" type="submit" >Enregistrer ma séance </button> 
+        {{ form_rest(form) }}
+        {{ form_end(form) }}      
         </div>
-     
+      
       </div>
-      <div class="modal-footer">
-      <button class="btn btn-warning mt-3 col-md-10 mx-auto  fs-2 text-white" type="submit" >Envoyer mes informations </button> 
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>        
-      </div> 
+      
       
     </div>
   </div>
 </div>  
-{{ form_rest(form) }}
-{{ form_end(form) }}  
