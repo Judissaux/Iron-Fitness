@@ -6,8 +6,6 @@ use App\Entity\User;
 
 use App\Form\RegisterFormType;
 use App\Service\MailerService;
-use DateTime;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class RegisterController extends AbstractController
 {   
-    public function __construct(private EntityManagerInterface $em, private MailerService $mailer){}
+    public function __construct(private MailerService $mailer){}
 
     #[Route('/inscription' , name: 'app_register')]
     public function index(Request $request): Response
