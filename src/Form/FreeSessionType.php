@@ -77,7 +77,7 @@ class FreeSessionType extends AbstractType
                     new TimeSlotConstraint(),
                   ],
                   'html5' => false,
-                  'format' => 'yyyy-MM-dd H:i',
+                  'format' => 'yyyy-MM-dd H:m',
                   'attr' => ['class' => 'js-datepicker',
                 'placeholder' => "Selectionner une date"],                                 
                 ])

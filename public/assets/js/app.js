@@ -136,20 +136,12 @@ function getTimeLimits(date) {
 // Mise en place du calendrier pour la séance gratuite
 flatpickr(".js-datepicker", {
   locale: "fr",
+  minDate:"today",
   disable: [    
     function(date) {
       // Désactiver les dimanches
       return date.getDay() === 0;
-    },
-    function(date) {
-      // Désactiver les dates antérieures à la date actuelle
-      return date < new Date();
-    },
-
-    function(date){
-      return date.getHours() === 12; 
-    }
-    
+    },    
   ],
   plugins: [
     new minMaxTimePlugin({
