@@ -4,6 +4,7 @@ namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
 use App\Validator\SundayConstraint;
+use App\Validator\TimeSlotConstraint;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
@@ -73,9 +74,10 @@ class FreeSessionType extends AbstractType
                   'constraints' => [
                     new GreaterThan('now', message: 'La date ne peux pas être inférieur à la date du jour'),
                     new SundayConstraint(),
+                    new TimeSlotConstraint(),
                   ],
                   'html5' => false,
-                  'format' => 'yyyy-MM-dd',
+                  'format' => 'yyyy-MM-dd H:i',
                   'attr' => ['class' => 'js-datepicker',
                 'placeholder' => "Selectionner une date"],                                 
                 ])

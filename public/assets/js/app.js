@@ -1,3 +1,5 @@
+
+
 // Partie pour apparition progressive des élements page accueil et page coaching
 const ratio = .1;
 const options = {
@@ -88,12 +90,53 @@ const removeErrors = function () {
   isInvalidElements.forEach(isInvalid => isInvalid.classList.remove('is-invalid'))
   
 };   
- 
+
+const timeRanges = {
+  1: { // Lundi
+    start: "09:00",
+    end: "18:00"
+  },
+  2: { // Mardi
+    start: "09:00",
+    end: "18:00"
+  },
+  3: { // Mercredi
+    start: "09:00",
+    end: "12:00"
+  },
+  4: { // Jeudi
+    start: "13:00",
+    end: "18:00"
+  },
+  5: { // Vendredi
+    start: "09:00",
+    end: "18:00"
+  },
+  6: { // Samedi
+    start: "10:00",
+    end: "12:00"
+  },
+  7: { // Dimanche
+    start: "10:00",
+    end: "12:00"
+  }
+};
+
+function getTimeLimits(date) {
+  const dayOfWeek = date.getDay(); // Récupérer le jour de la semaine (0 pour dimanche, 1 pour lundi, etc.)
+  const timeRange = timeRanges[dayOfWeek]; // Récupérer les plages horaires pour le jour de la semaine
+  
+  if (!timeRange) {
+    return { minTime: "00:00", maxTime: "23:59" }; // Retourner toutes les plages horaires si le jour de la semaine n'a pas été défini dans l'objet
+  }
+  
+  return { minTime: timeRange.start, maxTime: timeRange.end }; // Retourner les plages horaires pour le jour de la semaine
+}
 
 // Mise en place du calendrier pour la séance gratuite
 flatpickr(".js-datepicker", {
   locale: "fr",
-  disable: [
+  disable: [    
     function(date) {
       // Désactiver les dimanches
       return date.getDay() === 0;
@@ -101,11 +144,47 @@ flatpickr(".js-datepicker", {
     function(date) {
       // Désactiver les dates antérieures à la date actuelle
       return date < new Date();
+    },
+
+    function(date){
+      return date.getHours() === 12; 
     }
-  ],    
+    
+  ],
+  plugins: [
+    new minMaxTimePlugin({
+      getTimeLimits: function(date) {
+        if (date.getDay() === 1 || date.getDay() === 4 ) { // si c'est dimanche
+          return {
+            minTime: "09:30",
+            maxTime: "19:00"
+          };
+        }else if(date.getDay() === 2 ){
+          return {
+            minTime: "10:30",
+            maxTime: "19:00"
+          };
+        }else if(date.getDay() === 3 || date.getDay() === 5){
+          return {
+            minTime: "15:30",
+            maxTime: "19:00"
+          };
+        } else {
+          return {
+            minTime: "09:30",
+            maxTime: "12:30"
+          }
+        };
+    }
+  })
+], 
+  
   altInput: true,
-  altFormat: "d-m-Y",    
+  altFormat: "d-m-Y H:i",
+  enableTime: true, 
+
 });
+
 
 
 
