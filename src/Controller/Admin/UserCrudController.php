@@ -5,14 +5,19 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Orm\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
     
     class UserCrudController extends AbstractCrudController
@@ -27,7 +32,21 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
         {
             return User::class;
         }
-    
+        
+        public function configureActions(Actions $actions): Actions
+        {
+            return $actions
+                ->remove(Crud::PAGE_INDEX, Action::NEW);
+        }
+        public function configureCrud(Crud $crud): Crud
+        {
+            return $crud
+
+            ->setEntityLabelInSingular('adhérent')
+            ->setEntityLabelInPlural('Adhérents')
+            ->showEntityActionsInlined()
+            ->renderContentMaximized();
+        }
        
         public function configureFields(string $pageName): iterable
         {
@@ -38,13 +57,14 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
                 ->setFormType(PasswordType::class)
                 ->onlyOnForms();
            yield DateField::new('birthdayDate','Date de naissance');
+           yield IntegerField::new('age','Age')->hideOnForm();
                 
            yield TelephoneField::new('PhoneNumber','Téléphone');
 
         }
     
         /**
-         * Fonction qui permet de hasher le mdp avant l'enregistrement en BDD
+         * Fonction qui permet de hasher le mdp et d'avoir l'age  avant l'enregistrement en BDD
          */
         public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
         {
@@ -55,10 +75,22 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
             $hashedPassword = $this->passwordHasher->hashPassword($user, $plainPassword);
             
             $user->setPassword($hashedPassword);
+
+           
+            $dateNaissance = $user->getbirthdayDate();
+            $now = new \DateTime();
+            $interval = $now->diff($dateNaissance);
+            $age = $interval->y;
+            $user->setAge($age);
     
             parent::persistEntity($entityManager,$entityInstance);
     
-        }
+        }  
+        
+       
+
+
+
         
     }
 
