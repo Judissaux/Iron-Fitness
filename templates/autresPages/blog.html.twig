@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogController!{% endblock %}
+{% block title %}- Blog{% endblock %}
 {% block stylesheets %}			
 			<link rel="stylesheet" href="{{asset ('assets/css/styleBlog.css')}}">
 		{% endblock %}
@@ -9,23 +9,26 @@
     <div class="container text-center text-dark bg rounded">
         <h1>Articles</h1>
         <h2> Regarder nos dernières nouvelles</h2>
-        <a type="button" href="{{path ('app_register')}}" class="btn btn-warning mt-4">S'inscrire</a><a type="button" class="btn btn-info  ms-2 mt-4"> Tester une séance gratuite</a>
     </div>
-</div>    
+</div>
+<pre>
+  {{ dump() }}
+</pre>   
     <div class="container "> 
     <div class="display-1 text-family text-warning text-center my-3">Iron Fitness News</div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-3 ">
       {% for article in articles %}         
         <div class="col text-center ">
           <div class="card shadow-sm h-100">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{article.illustration}}</text></svg>
+					<img src="{{ asset ('uploads/' ~ article.illustration) }}" class="card-img-top" alt="{{article.title}}">
+
             <div class="card-body">
               <div class="fs-4 text-family text-warning">{{article.title}}</div>
               <p class="card-text"> {{article.description|u.truncate(70, '...', false)}}</p>
             </div>
             <div class="card-footer d-flex justify-content-between align-items-center my-auto">  
                          
-                <small class="text-muted"> {{ article.created_at|format_datetime('medium', 'none', locale='fr') }}</small>
+              <small class="text-muted"> {{ article.createdAt|format_datetime('medium', 'none', locale='fr') }}</small>
 
                 <div class="btn-group">
                   <button type="button" class="btn btn-sm btn-outline-secondary">En savoir plus ..</button>                  

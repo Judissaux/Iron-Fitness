@@ -3,6 +3,15 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ArticleCrudController extends AbstractCrudController
@@ -12,14 +21,52 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-    /*
-    public function configureFields(string $pageName): iterable
+    public function configureActions(Actions $actions): Actions
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        return $actions
+            ->remove(Crud::PAGE_INDEX, Action::NEW);
     }
-    */
+    
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+
+        ->setEntityLabelInSingular('un article')
+        ->setEntityLabelInPlural('Articles')
+        ->showEntityActionsInlined()
+        ->renderContentMaximized();
+    }
+
+
+public function configureFields(string $pageName): iterable
+{
+    $mediaDir = $this->getParameter('medias_directory');
+   $uploadsDir = $this->getParameter('uploads_directory');
+
+    yield TextField::new('title','Titre');
+    yield SlugField::new('slug','Slug')
+    ->setTargetFieldName('title')
+    ->hideOnIndex();
+    yield TextareaField::new('description','Description');
+    $imageField = ImageField::new('illustration', 'Images')
+    ->setBasePath($uploadsDir)
+    ->setUploadDir($mediaDir)
+    ->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+
+    //Permet d'enregistrer les modifications sans devoir remettre une image
+    if(Crud::PAGE_EDIT == $pageName){
+        $imageField->setRequired(false);
+    };
+
+    yield $imageField;
+
+    yield  DateTimeField::new('createdAt','Créé le')->hideOnForm();
+    yield  DateTimeField::new('updatedAt','Mis à jour le')->hideOnForm();
+    
+
+    
+   
 }
+
+}
+

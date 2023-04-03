@@ -11,7 +11,6 @@
 		<div class="container text-center text-dark bg rounded">
 			<h1>Cours Collectifs</h1>
 			<h2>Venez vous dépensez avec nous !</h2>
-			<a type="button" href="{{path ('app_register')}}" class="btn btn-warning mt-4">S'inscrire</a><a type="button" class="btn btn-info  ms-2 mt-4"> Tester une séance gratuite</a>
 		</div>
 	</div>
 
@@ -75,154 +74,56 @@
 			</div>
 		</div>
 	</div>
-
+   
+   
 	{# EXEMPLE DE QUELQUES ACTIVITE #}
 	<div class="container-fluid bgActivite">
 		<div class="display-1 text-warning text-decoration-underline fst-italic text-center p-3 text-family">Découvrez nos activités</div>
-		 <div class="row text-center mx-2 ">			
-			<div class="col-md-3 mb-3">
+		 <div class="row text-center mx-2 ">
+		 {% for activity in activities %} 
+			<div class="col-md-3 mb-3">			
 				<div class="card">
-					<img src="{{asset ('assets/img/abdo-fessier.jpg')}}" class="card-img-top" alt="Titre de l'image">
+					<img src="{{ asset ('uploads/' ~ activity.illustration) }}" class="card-img-top" alt="{{activity.title}}">
 					<div class="card-body">
-						<h5 class="card-title">Abdo-fessier</h5>
+						<h5 class="card-title text-family text-warning ">{{activity.title}}</h5>
 						<div class="row">
 							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 1000 calories</p>
+								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> {{activity.calories}} calories</p>
 							</div>
 							<div class="col-sm-5">
-								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
+								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> {{activity.time}} min</p>
 							</div>
 						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 mb-3">
-				<div class="card">
-					<img src="{{asset ('assets/img/aerobic.jpg')}}" class="card-img-top" alt="Titre de l'image">
-					<div class="card-body">
-						<h5 class="card-title">Aerobic</h5>
 						<div class="row">
-							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 2500 calories</p>
+							<div class="col-sm-12">
+								<p class="card-text text-info"> <i class="fa-solid fa-circle-info"></i> <a class='activity' data-bs-toggle="modal" data-bs-target="#{{activity.slug}}">En savoir plus</a></p>
 							</div>
-							<div class="col-sm-5">
-								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 180 min</p>
-							</div>
+							
 						</div>
+					</div>					
+				</div>
+			</div>	 
+				<div class="modal fade" id="{{activity.slug}}" tabindex="-1" aria-labelledby="{{activity.slug}}" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title mx-auto display-5 text-warning text-family" id="{{activity.slug}}">{{activity.title}}</h5>
+								<button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<img src="{{ asset ('uploads/' ~ activity.illustration) }}" class="card-img-top" alt="{{activity.title}}">
+
+								<p class='text-center'>{{activity.description}}</p>
+							</div>
+							<div class="modal-footer">
+							<button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>        
+							</div>	  
+						</div>	
 					</div>
 				</div>
-			</div>
-			<div class="col-md-3 mb-3">
-				<div class="card">
-					<img src="{{asset ('assets/img/gymDouce.jpg')}}" class="card-img-top" alt="Titre de l'image">
-					<div class="card-body">
-						<h5 class="card-title">Gym douce</h5>
-						<div class="row">
-							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 800 calories</p>
-							</div>
-							<div class="col-sm-5">
-								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 mb-3">
-				<div class="card">
-					<img src="{{asset ('assets/img/pompe.jpg')}}" class="card-img-top" alt="Titre de l'image">
-					<div class="card-body">
-						<h5 class="card-title">Iron pompe</h5>
-						<div class="row">
-							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 2000 calories</p>
-							</div>
-							<div class="col-sm-5">
-								<p class="card-text text-muted"> <i class="fa-regular fa-clock"></i> 30 min</p>
-							</div>
-						</div>
-						{# fin ROW #}
-					</div>
-					{# fin CARD BODY #}
-				</div>
-				{# fin CARD #}
-			</div>
-			{# fin COL #}
-		
-		{# fin ROW #}		
-			<div class="col-md-3 mb-3">
-				<div class="card">
-					<img src="{{asset ('assets/img/step.jpg')}}" class="card-img-top" alt="Titre de l'image">
-					<div class="card-body">
-						<h5 class="card-title">Iron step</h5>
-						<div class="row">
-							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 2500 calories</p>
-							</div>
-							<div class="col-sm-5">
-								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 mb-3">
-				<div class="card">
-					<img src="{{asset ('assets/img/yoga.jpg')}}" class="card-img-top" alt="Titre de l'image">
-					<div class="card-body">
-						<h5 class="card-title">Iron yoga</h5>
-						<div class="row">
-							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 300 calories</p>
-							</div>
-							<div class="col-sm-5">
-								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>			
-			<div class="col-md-3 mb-3">
-				<div class="card">
-					<img src="{{asset ('assets/img/bodyFitness.jpg')}}" class="card-img-top" alt="Titre de l'image">
-					<div class="card-body">
-						<h5 class="card-title">Iron body</h5>
-						<div class="row">
-							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 3000 calories</p>
-							</div>
-							<div class="col-sm-5">
-								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 30 min</p>
-							</div>
-						</div>
-						{# fin ROW #}
-					</div>
-					{# fin CARD BODY #}
-				</div>
-				{# fin CARD #}
-			</div>
-			{# fin COL #}
-			<div class="col-md-3 mb-3">
-				<div class="card">
-					<img src="{{asset ('assets/img/ironBubble.jpg')}}" class="card-img-top" alt="Titre de l'image">
-					<div class="card-body">
-						<h5 class="card-title">Iron bubble</h5>
-						<div class="row">
-							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> 4000 calories</p>
-							</div>
-							<div class="col-sm-5">
-								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> 60 min</p>
-							</div>
-						</div>
-						{# fin ROW #}
-					</div>
-					{# fin CARD BODY #}
-				</div>
-				{# fin CARD #}
-			</div>
-			{# fin COL #}
-			</div>
-		</div>		
+			{% endfor %}
+			</div>		
+		</div>
 	</div>
-	{% endblock %}
+</div>		
+{% endblock %}	

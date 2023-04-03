@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Activities;
 use App\Entity\Article;
 use App\Entity\Adherants;
 use App\Entity\User;
@@ -37,6 +38,16 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Comptes', 'fas fa-user')->setSubItems([
             MenuItem::linkToCrud('Tous les comptes', 'fas fa-user-friends',User::class)->setQueryParameter('submenuIndex', 0),
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus',User::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
+        ]);
+
+        yield MenuItem::subMenu('Cours collectifs', 'fas fa-person-walking')->setSubItems([
+            MenuItem::linkToCrud('Tous les cours', 'fas fa-clipboard',Activities::class)->setQueryParameter('submenuIndex', 0),
+            MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Activities::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
+        ]);
+
+        yield MenuItem::subMenu('Articles', 'fas fa-newspaper')->setSubItems([
+            MenuItem::linkToCrud('Tous les articles', 'fas fa-rectangle-list',Article::class)->setQueryParameter('submenuIndex', 0),
+            MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Article::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
         ]);
         
         yield MenuItem::linkToDashboard('article', 'fa fa-home');

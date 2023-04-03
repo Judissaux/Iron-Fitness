@@ -48,8 +48,8 @@ button{
     margin: 0;
 }
 
-.card:hover{
-    transition: 1s;
-    transform: scale(1.1);
+.activity{
+    cursor: pointer;    
+    color: rgb(39,209,243)
 }
 

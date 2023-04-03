@@ -53,12 +53,11 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
            yield TextField::new('lastname','Nom');
            yield TextField::new('firstname','Prénom');
            yield EmailField::new('email','E-mail');
-           yield TextField::new('password','Mot de passe')
-                ->setFormType(PasswordType::class)
-                ->onlyOnForms();
+           yield TextField::new('password','Mot de passe')  
+                ->onlyWhenCreating()
+                ->setRequired( true );
            yield DateField::new('birthdayDate','Date de naissance');
-           yield IntegerField::new('age','Age')->hideOnForm();
-                
+           yield IntegerField::new('age','Age')->hideOnForm();                
            yield TelephoneField::new('PhoneNumber','Téléphone');
 
         }
