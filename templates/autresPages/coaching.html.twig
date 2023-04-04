@@ -6,7 +6,7 @@
 		{% endblock %}
 {% block body %}
 {# HEADER #}
-<div class="bgCoaching">
+<div class="bgCoaching" style='background-image: url({{ asset ('assets/img/bgCoaching.jpg' ) | imagine_filter('welcome') }}) '>
   <div class="container text-center text-dark bg rounded">
       <h1>Coaching</h1>
       <h2> Découvrez vite notre expertise!</h2>
@@ -28,13 +28,13 @@
       <p > Notre approche  prend en compte votre alimentation, votre condition physique et votre mental pour vous aider à atteindre votre potentiel maximum.</p>
     </div>
     <div class="col-md-6 reveal-2">
-      <img src="{{asset ('assets/img/coaching.png')}}" alt="photo coaching" class='img-fluid h-100'>
+      <img src="{{asset ('assets/img/coaching.png')  | imagine_filter('miniature') }}" alt="photo coaching" class='img-fluid h-100'>
     </div>
 </div>  
     <div class="row align-items-center my-3 reveal ">
     <h3 class='display-5 text-center text-family text-warning text-decoration-underline my-5 reveal-1'>Pourquoi choisir Iron Fitness Coaching ?</h3>
       <div class="col-md-6 reveal-2">
-        <img src="{{asset ('assets/img/coaching2.jpg')}}" alt="photo coaching" class='img-fluid h-100 rounded my-3 '>
+        <img src="{{asset ('assets/img/coaching2.jpg')  | imagine_filter('miniature') }}" alt="photo coaching" class='img-fluid h-100 rounded my-3 '>
       </div>      
         <div class="col-md-6 text-center reveal-3">        
         <p>Nous sommes fiers de proposer un programme de coaching de <b>qualité supérieure</b>  pour aider nos membres à atteindre leur potentiel maximum. </p>
@@ -62,7 +62,7 @@
         </ul>
       </div>
       <div class="col-md-6 reveal-3">
-      <img src="{{asset ('assets/img/coaching3.jpg')}}" alt="photo coaching" class='img-fluid h-100  my-3 rounded'>
+      <img src="{{asset ('assets/img/coaching3.jpg')  | imagine_filter('miniature') }}" alt="photo coaching" class='img-fluid h-100  my-3 rounded'>
       </div>
     </div> 
   </div>

@@ -1,4 +1,8 @@
 /* VIDEO */
+
+.accueil{
+    position: relative;
+}
 video{
     max-height: 100vh;   
     padding: 0 !important;    
@@ -6,6 +10,18 @@ video{
     opacity: 0.9;
 }
 
+.text-accueil{
+    font-family: 'Permanent Marker', cursive;
+    background-color: rgba(0, 0, 0, 0.50);
+    border-radius: 20px;    
+    position: absolute;
+    top:40%;
+    left: 2%;
+    font-size: 15vmin;
+    color:#f5cb55; 
+    z-index: 999;  
+    
+}
 
 /* Présentation salle  */
 
