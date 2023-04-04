@@ -7,7 +7,7 @@
 {% endblock %}
 {% block body %}
 	{# HEADER #}
-	<div class="bgCollectifs">
+	<div class="bgPage" style='background-image: url({{ asset ('assets/img/bgCoursCollectifs.jpg' ) | imagine_filter('welcome')  }}) '>
 		<div class="container text-center text-dark bg rounded">
 			<h1>Cours Collectifs</h1>
 			<h2>Venez vous dépensez avec nous !</h2>
@@ -24,7 +24,7 @@
 	<div class="container-fluid g-0 bg-light bg-gradient">
 		<div class="row align-items-center g-0">
 			<div class="col-md-6">
-				<img src="{{asset ('assets/img/coursCollectif.jpg')}}" alt="Image d'un cours collectif" class='img-fluid w-100 '>
+				<img src="{{asset ('assets/img/coursCollectif.jpg') | imagine_filter('miniature') }}" alt="Image d'un cours collectif" class='img-fluid w-100 '>
 			</div>
 			<div class="col-md-6 mt-5">
 				<p class="text-center fs-4">Chez
@@ -83,15 +83,15 @@
 		 {% for activity in activities %} 
 			<div class="col-md-3 mb-3">			
 				<div class="card">
-					<img src="{{ asset ('uploads/' ~ activity.illustration) }}" class="card-img-top" alt="{{activity.title}}">
+					<img src="{{ asset ('uploads/' ~ activity.illustration) | imagine_filter('miniature') }}" class="card-img-top" alt="{{activity.title}}">
 					<div class="card-body">
 						<h5 class="card-title text-family text-warning ">{{activity.title}}</h5>
 						<div class="row">
 							<div class="col-sm-7">
-								<p class="card-text text-muted"> <i class="fa-solid fa-fire"></i> {{activity.calories}} calories</p>
+								<p class="card-text text-muted"> <img src="{{asset ('assets/icons/fire-solid.svg')}}" alt="icone calorie" width='15' > {{activity.calories}} calories</p>
 							</div>
 							<div class="col-sm-5">
-								<p class="card-text text-muted"><i class="fa-regular fa-clock"></i> {{activity.time}} min</p>
+								<p class="card-text text-muted"><img src="{{asset ('assets/icons/clock-regular.svg')}}" alt="icone temps" width='15'> {{activity.time}} min</p>
 							</div>
 						</div>
 						<div class="row">

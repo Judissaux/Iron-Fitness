@@ -19,7 +19,7 @@ video{
     left: 2%;
     font-size: 15vmin;
     color:#f5cb55; 
-    z-index: 999;  
+    z-index: 99;  
     
 }
 
@@ -253,12 +253,7 @@ video{
       transition:0.3s ease;
   }
   
-  .pricingTable .btn-block:after{
-      content: "\f090";
-      font-family: 'FontAwesome';
-      padding-left: 10px;
-      font-size: 15px;
-  }
+  
   
   .pricingTable:hover .btn-block{
       background:#fff;

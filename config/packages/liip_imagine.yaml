@@ -13,11 +13,11 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail:
-                    size: [500,300]
-                    mode: inset
+                    size: [800,300]
+                    mode: outbound
                     
         welcome:
-            quality: 75
+            quality: 85
             filters:
                 scale:
                     dim: [1200,1200]

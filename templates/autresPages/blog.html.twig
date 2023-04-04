@@ -5,22 +5,20 @@
 			<link rel="stylesheet" href="{{asset ('assets/css/styleBlog.css')}}">
 		{% endblock %}
 {% block body %}
-<div class="container-fluid bgBlog">
-    <div class="container text-center text-dark bg rounded">
-        <h1>Articles</h1>
-        <h2> Regarder nos dernières nouvelles</h2>
-    </div>
+<div class="bgPage" style="background-image: url({{ asset ('assets/img/bgBlog.jpg' ) | imagine_filter('welcome') }});background-position: top" >
+  <div class="container text-center text-dark bg rounded">
+      <h1>Blog</h1>
+      <h2> Découvrez nos dernières nouvelles</h2>
+  </div>
 </div>
-<pre>
-  {{ dump() }}
-</pre>   
+   
     <div class="container "> 
     <div class="display-1 text-family text-warning text-center my-3">Iron Fitness News</div>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-3 ">
       {% for article in articles %}         
         <div class="col text-center ">
           <div class="card shadow-sm h-100">
-					<img src="{{ asset ('uploads/' ~ article.illustration) }}" class="card-img-top" alt="{{article.title}}">
+					<img src="{{ asset ('uploads/' ~ article.illustration) | imagine_filter('miniature') }}" class="card-img-top" alt="{{article.title}}">
 
             <div class="card-body">
               <div class="fs-4 text-family text-warning">{{article.title}}</div>
