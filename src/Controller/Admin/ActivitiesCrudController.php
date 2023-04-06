@@ -3,17 +3,15 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Activities;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
-use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 
 class ActivitiesCrudController extends AbstractCrudController
 {
@@ -36,7 +34,9 @@ class ActivitiesCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('un cours')
             ->setEntityLabelInPlural('Cours collectifs')
             ->showEntityActionsInlined()
-            ->renderContentMaximized();
+            ->renderContentMaximized()
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+            
         }
 
     
@@ -45,11 +45,8 @@ class ActivitiesCrudController extends AbstractCrudController
         $mediaDir = $this->getParameter('medias_directory');
        $uploadsDir = $this->getParameter('uploads_directory');
 
-        yield TextField::new('title','Titre');
-        yield SlugField::new('slug','Slug')
-        ->setTargetFieldName('title')
-        ->hideOnIndex();
-        yield TextareaField::new('description','Description');
+        yield TextField::new('title','Titre');        
+        yield TextEditorField::new('description','Description')->setFormType(CKEditorType::class);
         $imageField = ImageField::new('illustration', 'Images')
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)

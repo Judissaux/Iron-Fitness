@@ -1,10 +1,11 @@
 /* ACTIVITE */
 .bgActivite{
-    background-image: url(../img/transitionCollectif.jpg);
+    background-color: rgba(53, 53, 53, 1);
     background-position: center;
     background-size: cover;
     height: auto;
     margin: 0;
+    
 }
 
 .activity{
@@ -12,3 +13,61 @@
     color: rgb(39,209,243)
 }
 
+.card {
+    margin: 0 auto;
+    cursor: pointer;      
+    min-height: 300px;    
+  }
+
+  .front,
+.back {
+  display: flex;
+  border-radius: 6px;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  justify-content: space-evenly;
+  flex-direction: column;  
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: ease-in-out 600ms;
+}
+
+.front {
+   
+  
+  justify-content: flex-end;
+  background-size: cover;
+  padding: 2rem;
+  font-size: 1.618rem;
+  font-weight: 600;
+  color: #fff;
+  overflow: hidden;
+  font-family: Poppins, sans-serif;
+}
+
+.card:hover .front {
+  transform: rotateY(180deg);
+}
+
+
+.back {
+  background: #fff;
+  transform: rotateY(-180deg);
+  padding: 0 2em;
+}
+
+.card:hover .back {
+  transform: rotateY(0deg);
+}
+.card:nth-child(even) .back {
+  transform: rotateY(180deg);
+}
+
+.card:nth-child(even):hover .back {
+  transform: rotateY(0deg);
+}

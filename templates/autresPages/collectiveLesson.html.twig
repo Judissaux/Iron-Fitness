@@ -24,7 +24,7 @@
 	<div class="container-fluid g-0 bg-light bg-gradient">
 		<div class="row align-items-center g-0">
 			<div class="col-md-6">
-				<img src="{{asset ('assets/img/coursCollectif.jpg') | imagine_filter('miniature') }}" alt="Image d'un cours collectif" class='img-fluid w-100 '>
+				<img src="{{asset ('assets/img/coursCollectif.jpg')}}" alt="Image d'un cours collectif" class='img-fluid w-100 '>
 			</div>
 			<div class="col-md-6 mt-5">
 				<p class="text-center fs-4">Chez
@@ -33,24 +33,24 @@
 					pour répondre à tous les niveaux et à toutes les envies.</p>
 				<div class="container">
 					<div class="row mb-5 text-center">
-						<div class="col-md-4">
-							<div class="card">
+						<div class="col-md-4  ">
+							<div class="card my-2" style="min-height: 50px;">
 								<div class="card-body">
 									<h4 class="card-title text-danger mb-3">Danse cardio</h4>
 									<p class="card-text">Pour une activité cardiovasculaire stimulante et amusante</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="card">
+						<div class="col-md-4 ">
+							<div class="card my-2 " style="min-height: 50px;">
 								<div class="card-body">
 									<h4 class="card-title text-warning mb-3">Musculation</h4>
 									<p class="card-text">Pour développer votre force et votre endurance musculaire</p>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4">
-							<div class="card">
+						<div class="col-md-4 " >
+							<div class="card my-2 " style="min-height: 50px;">
 								<div class="card-body">
 									<h4 class="card-title text-success mb-3">Yoga</h4>
 									<p class="card-text">Pour améliorer votre souplesse et votre équilibre intérieur</p>
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 					<div class="row mt-4">
-						<div class="col-md-12">
+						<div class="col-md-12 ">
 							<p class="text-muted">
 								<em>N'oubliez pas : un corps sain est un esprit sain !</em>
 							</p>
@@ -80,47 +80,28 @@
 	<div class="container-fluid bgActivite">
 		<div class="display-1 text-warning text-decoration-underline fst-italic text-center p-3 text-family">Découvrez nos activités</div>
 		 <div class="row text-center mx-2 ">
-		 {% for activity in activities %} 
-			<div class="col-md-3 mb-3">			
-				<div class="card">
-					<img src="{{ asset ('uploads/' ~ activity.illustration) | imagine_filter('miniature') }}" class="card-img-top" alt="{{activity.title}}">
-					<div class="card-body">
-						<h5 class="card-title text-family text-warning ">{{activity.title}}</h5>
-						<div class="row">
-							<div class="col-sm-7">
-								<p class="card-text text-muted"> <img src="{{asset ('assets/icons/fire-solid.svg')}}" alt="icone calorie" width='15' > {{activity.calories}} calories</p>
-							</div>
-							<div class="col-sm-5">
-								<p class="card-text text-muted"><img src="{{asset ('assets/icons/clock-regular.svg')}}" alt="icone temps" width='15'> {{activity.time}} min</p>
-							</div>
+		 {% for activity in activities %}
+		 	<div class="col-xxl-3 mx-auto  my-3 col-md-6">
+					<a class="card"  >
+						<div class="front" style="background-image: url({{ asset ('uploads/' ~ activity.illustration) }}">
 						</div>
-						<div class="row">
-							<div class="col-sm-12">
-								<p class="card-text text-info"> <i class="fa-solid fa-circle-info"></i> <a class='activity' data-bs-toggle="modal" data-bs-target="#{{activity.slug}}">En savoir plus</a></p>
-							</div>
+						<div class="back">
+							<div class="card-title text-family text-warning display-6 ">{{activity.title}}</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<p class="card-text text-muted"> <img src="{{asset ('assets/icons/fire-solid.svg')}}" alt="icone calorie" width='15' > {{activity.calories}} calories</p>
+									</div>
+									<div class="col-sm-6">
+										<p class="card-text text-muted"><img src="{{asset ('assets/icons/clock-regular.svg')}}" alt="icone temps" width='15'> {{activity.time}} min</p>
+									</div>									
+								</div>
+								<div class="row">
+									<p class='text-center'>{{activity.description | raw }}</p>
+								</div>			
 							
 						</div>
-					</div>					
-				</div>
-			</div>	 
-				<div class="modal fade" id="{{activity.slug}}" tabindex="-1" aria-labelledby="{{activity.slug}}" aria-hidden="true">
-					<div class="modal-dialog">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title mx-auto display-5 text-warning text-family" id="{{activity.slug}}">{{activity.title}}</h5>
-								<button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<img src="{{ asset ('uploads/' ~ activity.illustration) }}" class="card-img-top" alt="{{activity.title}}">
-
-								<p class='text-center'>{{activity.description}}</p>
-							</div>
-							<div class="modal-footer">
-							<button type="button" class="btn btn-info" data-bs-dismiss="modal">Fermer</button>        
-							</div>	  
-						</div>	
-					</div>
-				</div>
+					</a>						
+				</div>				
 			{% endfor %}
 			</div>		
 		</div>

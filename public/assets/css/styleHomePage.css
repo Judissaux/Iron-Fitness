@@ -93,68 +93,50 @@ video{
     margin: 0 auto ;
 }
 
-.content {
-    margin: 20px 40px;
-    position: relative;
-    height: 400px;
-    width: 300px;
-    overflow: hidden;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
-    transition: box-shadow 0.3s ease-out;
-    border-radius: 20px;
-  }
-  
-  .content:hover {
-    box-shadow: 1px 2px 10px rgba(0,0,0,0.5);
-  }
-  
-  .img-container {
-    background-color: #000;
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 400px;
-    width: 300px;
-    transition: transform 0.3s ease-out;
-    z-index: 2;
-  }
-  
-  .img-container:hover {
-      cursor: pointer;
-  }
-  
-  .content:hover .img-container {
-      transform: translateY(-85px);
-  }
-  
-  .img-container > img {
-    height: 400px;
-    width: 300px;
-    transition: opacity 0.3s ease-out;
+.people {
+    margin: 0 auto ;
+    padding:50px 0;
+    cursor: pointer;
   }
 
-.user-info {
-    position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: #ffffff;
-      height: 100px;
-      width: 100%;
-      box-sizing: border-box;
-      padding: 10px;
-      text-align: center;
-      color: #f5cb55;
+  .item {
+    margin-bottom:30px;
   }
   
-  .user-info > h2 {
-    padding: 0;
-    margin: 10px 0;
+  .item .box {
+    text-align:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    height:280px;
+    position:relative;
+    overflow:hidden;
   }
   
-  .user-info > span {    
-    font-size: 16px;
-    color:rgb(0, 0, 0);
+  .item .cover {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(255, 243, 51,0.75);
+    transition:opacity 0.15s ease-in;
+    opacity:0;
+    padding-top:80px;
+    color:black;
+    text-shadow:1px 1px 1px rgba(0,0,0,0.15);
   }
+  
+  .item:hover .cover {
+    opacity:1;
+  }
+  
+  .item .name {
+    font-size: 10vmin;
+    margin-bottom:8px;
+    font-family: 'Permanent Marker', cursive;
+  }
+  
 
   /* TARIF */
 

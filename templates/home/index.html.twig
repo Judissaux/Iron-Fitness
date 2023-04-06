@@ -82,55 +82,41 @@
 				<div class="coaching reveal-1">
 				<p><strong>IRON FITNESS</strong> offre un système de coaching sportif personnalisé encadré par des coachs professionnels diplômés d'Etat. Leur approche holistique aide les membres à améliorer leur condition physique et à atteindre leurs objectifs. L'entraînement physique étant un élément clé de la santé, Iron Fitness est fier de proposer un système de coaching de qualité supérieure pour aider les membres à atteindre leur potentiel maximum.</p>
 				
-            </div>		
-			<div class="row text-center reveal">
-				<div class="col-xxl-3  col-md-6 reveal-2">
-					<div class="content mx-auto">					
-							<div class="img-container ">
-								<img src="{{asset ('assets/img/coach1.jpg') | imagine_filter('portrait') }}" alt="">
-							</div>
-							<div class="user-info reveal-3">
-								<h2>Aurore</h2>
-								<span>Coach Fitness</span>
-							</div>								
-					</div>
-				</div>
-				<div class="col-xxl-3  col-md-6 reveal-2">
-					<div class="content mx-auto ">					
-							<div class="img-container ">
-								<img src="{{asset ('assets/img/coach2.jpg') | imagine_filter('portrait')}}" alt="">
-							</div>
-							<div class="user-info ">
-								<h2>Miranda</h2>
-								<span>Coach bien être</span>
-							</div>								
-					</div>
-				</div>
-				<div class="col-xxl-3  col-md-6 reveal-2">
-					<div class="content mx-auto ">					
-							<div class="img-container">
-								<img src="{{asset ('assets/img/coach3.jpg') | imagine_filter('portrait')}}" alt="">
-							</div>
-							<div class="user-info">
-								<h2>Arthur</h2>
-								<span>Coach Body-Curling</span>
-							</div>								
-					</div>
-				</div>
-				<div class="col-xxl-3  col-md-6 reveal-2">
-					<div class="content mx-auto ">					
-							<div class="img-container ">
-								<img src="{{asset ('assets/img/coach4.jpg') | imagine_filter('portrait') }}" alt="" class='img-fluid'>
-							</div>
-							<div class="user-info">
-								<h2>Paul</h2>
-								<span>Coach abdo-fessier</span>
-							</div>								
-					</div>
-				</div>
-			</div>		
+            	</div>		
+				<div class="row people d-flex justify-content-center">
+                <div class="col-md-4 col-lg-3 item">
+                    <div class="box" style="background-image:url({{ asset ('assets/img/coach1.jpg' ) | imagine_filter('miniature') }}">
+                        <div class="cover">
+                            <h3 class="name">Miranda</h3>
+                        </div>
+                    </div>
+                </div>
+				<div class="col-md-4 col-lg-3 item">
+                    <div class="box" style="background-image:url({{ asset ('assets/img/coach1.jpg' ) }}">
+                        <div class="cover">
+                            <h3 class="name">Miranda</h3>
+                        </div>
+                    </div>
+                </div>		
+				<div class="col-md-4 col-lg-3 item">
+                    <div class="box" style="background-image:url({{ asset ('assets/img/coach1.jpg' ) }}">
+                        <div class="cover">
+                            <h3 class="name">Miranda</h3>
+                        </div>
+                    </div>
+                </div>		
+				<div class="col-md-4 col-lg-3 item">
+                    <div class="box" style="background-image:url({{ asset ('assets/img/coach1.jpg' ) }}">
+                        <div class="cover">
+                            <h3 class="name">Miranda</h3>
+                        </div>
+                    </div>
+                </div>		
+							
 	</div>
 </div>
+		
+		
 
 {# TARIF #}
 <div class="transition my-2"></div>
@@ -178,157 +164,5 @@
 
 <div class="transition my-2"></div>
 
-
-{# <div id="map"></div></div> #}
-
-
-
-
-
-
-	{# <div class="container-fluid actu">
-		  <div class='display-3 py-4'>Les dernières actualités de votre salle</div>
-		    <div class="row text-center  ">		
-		      		<div class="col-md-3  mb-2 ">
-		              <div class="card shadow-sm">
-		                      <img src="{{asset ('assets/img/nouveau-coach.jpg')}}" class=" card-img-top " width="200px" height="300px">
-		                <div class="card-body">
-		                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		                   <div class="d-flex justify-content-between align-items-center">
-		                      <div class="btn-group">
-		                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-		                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-		                      </div>
-		                        <small class="text-muted">9 mins</small>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-				    <div class="col-md-3 mb-2">
-		          <div class="card shadow-sm">
-		            <img src="{{asset ('assets/img/NouveauPoids.jpg')}}" class=" card-img-top " width="200px" height="300px">
-		
-		              <div class="card-body">
-		                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		                <div class="d-flex justify-content-between align-items-center">
-		                  <div class="btn-group">
-		                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-		                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-		                  </div>
-		                    <small class="text-muted">9 mins</small>
-		                </div>
-		             </div>
-		          </div>
-		        </div>
-				    <div class="col-md-3 mb-2">
-		          <div class="card shadow-sm">
-		            <img src="{{asset ('assets/img/ballon.jpg')}}" class=" card-img-top " width="200px" height="300px">
-		            <div class="card-body">
-		              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		              <div class="d-flex justify-content-between align-items-center">
-		                <div class="btn-group">
-		                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-		                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-		                </div>
-		                <small class="text-muted">9 mins</small>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-		        <div class="col-md-3  mb-2">
-		              <div class="card shadow-sm">
-		                      <img src="{{asset ('assets/img/nouveau-coach.jpg')}}" class=" card-img-top " width="200px" height="300px">
-		                <div class="card-body">
-		                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		                   <div class="d-flex justify-content-between align-items-center">
-		                      <div class="btn-group">
-		                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-		                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-		                      </div>
-		                  <small class="text-muted">9 mins</small>
-		                    </div>
-		                </div>
-		            </div>              		
-			        </div>	  
-		    </div>
-		</div> #}
-
-
-{# <div class="container activite">
-		<div class='display-5 text-warning my-4'><i> Différentes activités le même objectif,</i> <span class='display-6 text-dark '>
-		un corps de rêves !</span></div>
-			<div class="row text-center" >
-				<div class="col-lg-3">
-					<img src="{{asset ('assets/icons/pec-deck.png')}}" class="mb-3 bd-placeholder-img rounded" width="75" height="75"></img>
-	
-					<h2 class="fw-normal">Machines guidées</h2>
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto consectetur voluptatem quaerat atque quasi hic!</p>
-				</div>
-				<div class="col-lg-3 ">
-						<img src="{{asset ('assets/icons/treadmill.png')}}" class="mb-3 bd-placeholder-img rounded" width="75" height="75"> <br>
-						<h2 class="fw-normal">Cardio-Training</h2>
-						<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, natus.</p>
-				</div><!-- /.col-lg-4 -->
-	
-				<div class="col-lg-3">
-					<img src="{{asset ('assets/icons/body-building.png')}}" alt="" class=" mb-3 bd-placeholder-img rounded" width="75" height="75"> <br>
-					<h2 class="fw-normal">CrossFit</h2>	
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, natus.</p>
-				</div><!-- /.col-lg-4 -->
-	
-				<div class="col-lg-3">
-					<img src="{{asset ('assets/icons/group.png')}}" alt="" class=" bd-placeholder-img rounded mt-n5" width="90" height="95"> <br>
-					<h2 class="fw-normal">Cours collectifs</h2>	
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio, natus.</p>
-				</div><!-- /.col-lg-4 -->
-			</div>
-	</div> #}
-
-	{# <div class="wrapper-grey padded">
-	      <div class="container" id="activite">
-		  	<div class="row">
-				<div class="text-center display-6 mb-5  fw-bold  fst-italic ">Activités <br> <span class=" fw-bold display-5 text-warning fst-italic text-decoration-underline"> IRON FITNESS</span> </div>
-							<div class="col-xs-12 col-sm-6">
-					<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{asset ('assets/img/cardio-salle-2.jpg')}}') center;">
-						<div class="card-description">
-							<h2>Cardio-Training</h2>
-							<p class='hidden'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste at accusamus eos perspiciatis non.</p>
-						</div>            
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6">
-					<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{asset ('assets/img/machine-guidée.jpg')}}') center;">
-						<div class="card-description">
-							<h2>Machines guidées</h2>
-						<p class='hidden'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste at accusamus eos perspiciatis non.</p>
-	
-						</div>            
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6">
-					<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{asset ('assets/img/machine-libre.jpg')}}') center;">
-					<div class="card-description">
-						<h2>Cross-Training</h2>
-						<p class='hidden'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste at accusamus eos perspiciatis non.</p>
-	
-					</div>            
-					</div>
-				</div>
-				<div class="col-xs-12 col-sm-6">
-					<div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{asset ('assets/img/cours-salle.jpg')}}') center;">
-					<div class="card-description">
-						<h2>Cours collectifs</h2>
-						<p class='hidden'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste at accusamus eos perspiciatis non.</p>
-					</div>            
-					</div>
-				</div>				
-			</div>
-	     </div>
-		 
-	</div>
-	
-	<div class="container">
-		<h1>Nos coachs</h1>
-	</div> #}
 
 {% endblock %}
