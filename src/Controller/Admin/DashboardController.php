@@ -6,6 +6,8 @@ use App\Entity\Activities;
 use App\Entity\Article;
 use App\Entity\Adherants;
 use App\Entity\Coach;
+use App\Entity\Exercise;
+use App\Entity\Program;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -54,6 +56,16 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Articles', 'fas fa-newspaper')->setSubItems([
             MenuItem::linkToCrud('Tous les articles', 'fas fa-rectangle-list',Article::class)->setQueryParameter('submenuIndex', 0),
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Article::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
+        ]);
+
+        yield MenuItem::subMenu('Exercices', 'fas fa-newspaper')->setSubItems([
+            MenuItem::linkToCrud('Tous les exercices', 'fas fa-rectangle-list',Exercise::class)->setQueryParameter('submenuIndex', 0),
+            MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Exercise::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
+        ]);
+
+        yield MenuItem::subMenu('Programmes', 'fas fa-newspaper')->setSubItems([
+            MenuItem::linkToCrud('Tous les programmes', 'fas fa-rectangle-list',Program::class)->setQueryParameter('submenuIndex', 0),
+            MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Program::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
         ]);
         
         
