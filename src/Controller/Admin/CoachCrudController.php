@@ -2,25 +2,22 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Activities;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use App\Entity\Coach;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class ActivitiesCrudController extends AbstractCrudController
+class CoachCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Activities::class;
+        return Coach::class;
     }
 
-
+    
     public function configureActions(Actions $actions): Actions
     {
         return $actions
@@ -31,11 +28,11 @@ class ActivitiesCrudController extends AbstractCrudController
         {
             return $crud
 
-            ->setEntityLabelInSingular('un cours')
-            ->setEntityLabelInPlural('Cours collectifs')
+            ->setEntityLabelInSingular('un coach')
+            ->setEntityLabelInPlural('Coachs')
             ->showEntityActionsInlined()
-            ->renderContentMaximized()
-            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+            ->renderContentMaximized();
+            
             
         }
 
@@ -45,8 +42,7 @@ class ActivitiesCrudController extends AbstractCrudController
         $mediaDir = $this->getParameter('medias_directory');
         $uploadsDir = $this->getParameter('uploads_directory');
 
-        yield TextField::new('title','Titre');        
-        yield TextEditorField::new('description','Description')->setFormType(CKEditorType::class);
+        yield TextField::new('firstname','Prénom');        
         $imageField = ImageField::new('illustration', 'Images')
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)
@@ -59,9 +55,8 @@ class ActivitiesCrudController extends AbstractCrudController
 
         yield $imageField;
 
-        yield IntegerField::new('calories','Calories');
-        yield IntegerField::new('time','Temps');
        
     }
     
 }
+

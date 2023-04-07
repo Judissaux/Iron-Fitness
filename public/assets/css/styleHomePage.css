@@ -95,8 +95,9 @@ video{
 
 .people {
     margin: 0 auto ;
-    padding:50px 0;
+    padding: 50px 0;
     cursor: pointer;
+    
   }
 
   .item {
@@ -107,10 +108,11 @@ video{
     text-align:center;
     background-repeat:no-repeat;
     background-size:cover;
-    background-position:center;
+    background-position:top;
     height:280px;
     position:relative;
     overflow:hidden;
+    border-radius: 20px;
   }
   
   .item .cover {
@@ -132,7 +134,7 @@ video{
   }
   
   .item .name {
-    font-size: 10vmin;
+    font-size: 5vmin;
     margin-bottom:8px;
     font-family: 'Permanent Marker', cursive;
   }

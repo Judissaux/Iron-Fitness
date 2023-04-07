@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\ActivitiesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Model\IllustrationInterface;
+use App\Repository\ActivitiesRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ActivitiesRepository::class)]
-class Activities
+class Activities implements IllustrationInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -25,6 +26,7 @@ class Activities
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
+    
     #[ORM\Column(length: 255)]
     private ?string $illustration = null;
 

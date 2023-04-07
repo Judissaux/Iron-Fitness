@@ -10,13 +10,13 @@
 	<div class="bgPage" style='background-image: url({{ asset ('assets/img/bgCoursCollectifs.jpg' ) | imagine_filter('welcome')  }}) '>
 		<div class="container text-center text-dark bg rounded">
 			<h1>Cours Collectifs</h1>
-			<h2>Venez vous dépensez avec nous !</h2>
+			<h2 class='text-style'>Venez vous dépensez avec nous !</h2>
 		</div>
 	</div>
 
 	{# SLOGAN #}
 	<div class="container-fluid-g-0 text-center text-white p-5" style="background :linear-gradient(to right, rgba(36,31,31,1) 0%, rgba(36,31,31,1) 32%, rgba(74,71,70,1) 100%)">
-		<div class='display-2 letter'>
+		<div class='display-2  text-style'>
 			Forger votre corps. Sculpter votre esprit.</div>
 	</div>
 
@@ -78,7 +78,7 @@
    
 	{# EXEMPLE DE QUELQUES ACTIVITE #}
 	<div class="container-fluid bgActivite">
-		<div class="display-1 text-warning text-decoration-underline fst-italic text-center p-3 text-family">Découvrez nos activités</div>
+		<div class="display-1 text-warning text-decoration-underline fst-italic text-center p-3 text-style">Découvrez nos activités</div>
 		 <div class="row text-center mx-2 ">
 		 {% for activity in activities %}
 		 	<div class="col-xxl-3 mx-auto  my-3 col-md-6">

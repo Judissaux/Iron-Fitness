@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
-// Permet de rendre automatique l'ajout de date lors de la création des entités qui implémente l'interface TimeStamped
+// Permet de rendre automatique l'ajout de date lors de la création d'un article
 class AdminSubscriber implements EventSubscriberInterface
 {
    public static function getSubscribedEvents()

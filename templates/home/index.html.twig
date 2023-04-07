@@ -78,41 +78,21 @@
 
 <div class="container ">
 	<div class="row text-center reveal ">
-                <div class="heading-title fst-italic text-warning text-decoration-underline text-family display-5 text-uppercase reveal-1">Nos coachs</div>
-				<div class="coaching reveal-1">
-				<p><strong>IRON FITNESS</strong> offre un système de coaching sportif personnalisé encadré par des coachs professionnels diplômés d'Etat. Leur approche holistique aide les membres à améliorer leur condition physique et à atteindre leurs objectifs. L'entraînement physique étant un élément clé de la santé, Iron Fitness est fier de proposer un système de coaching de qualité supérieure pour aider les membres à atteindre leur potentiel maximum.</p>
-				
-            	</div>		
-				<div class="row people d-flex justify-content-center">
-                <div class="col-md-4 col-lg-3 item">
-                    <div class="box" style="background-image:url({{ asset ('assets/img/coach1.jpg' ) | imagine_filter('miniature') }}">
-                        <div class="cover">
-                            <h3 class="name">Miranda</h3>
-                        </div>
-                    </div>
-                </div>
-				<div class="col-md-4 col-lg-3 item">
-                    <div class="box" style="background-image:url({{ asset ('assets/img/coach1.jpg' ) }}">
-                        <div class="cover">
-                            <h3 class="name">Miranda</h3>
-                        </div>
-                    </div>
-                </div>		
-				<div class="col-md-4 col-lg-3 item">
-                    <div class="box" style="background-image:url({{ asset ('assets/img/coach1.jpg' ) }}">
-                        <div class="cover">
-                            <h3 class="name">Miranda</h3>
-                        </div>
-                    </div>
-                </div>		
-				<div class="col-md-4 col-lg-3 item">
-                    <div class="box" style="background-image:url({{ asset ('assets/img/coach1.jpg' ) }}">
-                        <div class="cover">
-                            <h3 class="name">Miranda</h3>
-                        </div>
-                    </div>
-                </div>		
-							
+		<div class="heading-title  text-warning  text-style display-1 text-uppercase reveal-1">Nos coachs</div>
+		<div class="coaching reveal-1">
+		<p><strong>IRON FITNESS</strong> offre un système de coaching sportif personnalisé encadré par des coachs professionnels diplômés d'Etat. Leur approche holistique aide les membres à améliorer leur condition physique et à atteindre leurs objectifs. L'entraînement physique étant un élément clé de la santé, Iron Fitness est fier de proposer un système de coaching de qualité supérieure pour aider les membres à atteindre leur potentiel maximum.</p>
+		
+		</div>		
+		<div class="row people d-flex justify-content-center reveal">
+		{% for coach in coachs %}		
+		<div class="col-md-4 col-lg-3 item reveal-1">
+			<div class="box" style="background-image:url({{ asset ('uploads/'~ coach.illustration ) }})">
+				<div class="cover">
+					<h3 class="name">{{coach.firstname}}</h3>
+				</div>
+			</div>
+		</div>
+		{% endfor %}									
 	</div>
 </div>
 		
@@ -124,7 +104,7 @@
  <div class="demo">
         <div class="container-fluid  reveal ">
             <div class="row text-center reveal-1 ">
-                <div class="heading-title fst-italic text-warning text-decoration-underline text-family display-5 text-uppercase">Tarif unique</div>
+                <div class="heading-title text-warning  text-style display-1 text-uppercase">Tarif unique</div>
             </div>
 		
             <div class="row justify-content-center">

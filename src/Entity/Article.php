@@ -5,11 +5,12 @@ namespace App\Entity;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Model\TimestampedInterface;
+use App\Model\IllustrationInterface;
 use App\Repository\ArticleRepository;
 
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
-class Article implements TimestampedInterface
+class Article implements TimestampedInterface,IllustrationInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

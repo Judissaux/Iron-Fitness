@@ -23,6 +23,9 @@ svg{
     font-family: 'Oswald', sans-serif;
 }
 
+.text-style{
+    font-family: 'Permanent Marker', cursive;
+}
 .alert{
     z-index: 999;
 }

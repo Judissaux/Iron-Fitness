@@ -7,10 +7,10 @@
     margin: 0;
     
 }
-
 .activity{
     cursor: pointer;    
-    color: rgb(39,209,243)
+    color: rgb(39,209,243);
+    
 }
 
 .card {

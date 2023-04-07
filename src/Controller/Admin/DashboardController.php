@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Activities;
 use App\Entity\Article;
 use App\Entity\Adherants;
+use App\Entity\Coach;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,6 +41,11 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus',User::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
         ]);
 
+        yield MenuItem::subMenu('Coachs', 'fas fa-people-robbery')->setSubItems([
+            MenuItem::linkToCrud('Tous les coachs', 'fas fa-user',Coach::class)->setQueryParameter('submenuIndex', 0),
+            MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Coach::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
+        ]);
+
         yield MenuItem::subMenu('Cours collectifs', 'fas fa-person-walking')->setSubItems([
             MenuItem::linkToCrud('Tous les cours', 'fas fa-clipboard',Activities::class)->setQueryParameter('submenuIndex', 0),
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Activities::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
@@ -50,7 +56,6 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Article::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
         ]);
         
-        yield MenuItem::linkToDashboard('article', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        
     }
 }

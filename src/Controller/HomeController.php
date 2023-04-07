@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\FreeSessionType;
+use App\Repository\CoachRepository;
 use App\Service\MailerService;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,9 +17,11 @@ class HomeController extends AbstractController
     public function __construct(private MailerService $mailer){}
 
     #[Route('/', name: 'app_home')]
-    public function index(): Response
+    public function index(CoachRepository $coachRepo): Response
     {           
-        return $this->render('home/index.html.twig');
+        return $this->render('home/index.html.twig', [
+            'coachs' => $coachRepo->findAll()
+        ]);
     }   
     
     #[Route('/traitement-formulaire-ajax', name: 'app_test')]
