@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Blog{% endblock %}
+{% block stylesheets %}			
+			<link rel="stylesheet" href="{{asset ('assets/css/styleBlog.css')}}">
+		{% endblock %}
+{% block body %}
+<div class="bgPage" style="background-image: url({{ asset ('assets/img/bgBlog.jpg' ) | imagine_filter('welcome') }});background-position: top" >
+  <div class="container text-center text-dark bg rounded">
+      <h1 >Blog</h1>
+      <h2 class='text-style'> Détails articles</h2>
+  </div>
+</div>
+   
+   
+
+{% endblock %}

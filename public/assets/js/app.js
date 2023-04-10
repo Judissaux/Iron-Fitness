@@ -91,47 +91,47 @@ const removeErrors = function () {
   
 };   
 
-const timeRanges = {
-  1: { // Lundi
-    start: "09:00",
-    end: "18:00"
-  },
-  2: { // Mardi
-    start: "09:00",
-    end: "18:00"
-  },
-  3: { // Mercredi
-    start: "09:00",
-    end: "12:00"
-  },
-  4: { // Jeudi
-    start: "13:00",
-    end: "18:00"
-  },
-  5: { // Vendredi
-    start: "09:00",
-    end: "18:00"
-  },
-  6: { // Samedi
-    start: "10:00",
-    end: "12:00"
-  },
-  7: { // Dimanche
-    start: "10:00",
-    end: "12:00"
-  }
-};
+// const timeRanges = {
+//   1: { // Lundi
+//     start: "09:00",
+//     end: "18:00"
+//   },
+//   2: { // Mardi
+//     start: "09:00",
+//     end: "18:00"
+//   },
+//   3: { // Mercredi
+//     start: "09:00",
+//     end: "12:00"
+//   },
+//   4: { // Jeudi
+//     start: "13:00",
+//     end: "18:00"
+//   },
+//   5: { // Vendredi
+//     start: "09:00",
+//     end: "18:00"
+//   },
+//   6: { // Samedi
+//     start: "10:00",
+//     end: "12:00"
+//   },
+//   7: { // Dimanche
+//     start: "10:00",
+//     end: "12:00"
+//   }
+// };
 
-function getTimeLimits(date) {
-  const dayOfWeek = date.getDay(); // Récupérer le jour de la semaine (0 pour dimanche, 1 pour lundi, etc.)
-  const timeRange = timeRanges[dayOfWeek]; // Récupérer les plages horaires pour le jour de la semaine
+// function getTimeLimits(date) {
+//   const dayOfWeek = date.getDay(); // Récupérer le jour de la semaine (0 pour dimanche, 1 pour lundi, etc.)
+//   const timeRange = timeRanges[dayOfWeek]; // Récupérer les plages horaires pour le jour de la semaine
   
-  if (!timeRange) {
-    return { minTime: "00:00", maxTime: "23:59" }; // Retourner toutes les plages horaires si le jour de la semaine n'a pas été défini dans l'objet
-  }
+//   if (!timeRange) {
+//     return { minTime: "00:00", maxTime: "23:59" }; // Retourner toutes les plages horaires si le jour de la semaine n'a pas été défini dans l'objet
+//   }
   
-  return { minTime: timeRange.start, maxTime: timeRange.end }; // Retourner les plages horaires pour le jour de la semaine
-}
+//   return { minTime: timeRange.start, maxTime: timeRange.end }; // Retourner les plages horaires pour le jour de la semaine
+// }
 
 // Mise en place du calendrier pour la séance gratuite
 flatpickr(".js-datepicker", {

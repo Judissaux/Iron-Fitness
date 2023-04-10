@@ -3,13 +3,13 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -34,7 +34,9 @@ class ArticleCrudController extends AbstractCrudController
         ->setEntityLabelInSingular('un article')
         ->setEntityLabelInPlural('Articles')
         ->showEntityActionsInlined()
-        ->renderContentMaximized();
+        ->renderContentMaximized()
+        ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
+        
     }
 
 
@@ -47,7 +49,7 @@ public function configureFields(string $pageName): iterable
     yield SlugField::new('slug','Slug')
     ->setTargetFieldName('title')
     ->hideOnIndex();
-    yield TextareaField::new('description','Description');
+    yield TextareaField::new('description','Description')->setFormType(CKEditorType::class);
     $imageField = ImageField::new('illustration', 'Images')
     ->setBasePath($uploadsDir)
     ->setUploadDir($mediaDir)
