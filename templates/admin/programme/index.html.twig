@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation programme
+{% endblock %}
+
+{% block body %}
+ <div class="bg-light p-3">
+        <h1>Votre programme </h1>
+    </div>
+{% if exercises | length > 0 %}
+    <table class='table' >
+        <thead>
+            <tr>
+                <th colspan="2" class='text-center'>Exercice</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for exercise in exercises %}                
+                    <tr class='text-center my-auto'>
+                        <td><img src="{{ asset ('uploads/' ~ exercise.exercice.illustration) }}" width='150' alt="{{exercise.exercice.name}}"></td>
+                        <td>{{exercise.exercice.name}}</td>                        
+                    </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Surprise, c'est vide !</p>
+{% endif %}
+    
+	
+{% endblock %}

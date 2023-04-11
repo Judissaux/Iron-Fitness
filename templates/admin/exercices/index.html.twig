@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exercices
+{% endblock %}
+
+{% block body %}
+	<div class='display-1 text-center'>Bienvenue sur la page de présentation de l'ensemble de vos exercices</div>
+
+	<div class="container ">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-3 ">
+			{% for exercice in exercices %}
+				<div class="col text-center ">
+					<div class="card shadow-sm h-100 ">
+						<img src="{{ asset ('uploads/' ~ exercice.illustration) | imagine_filter('miniature') }}" class="card-img-top" alt="{{exercice.name}}">
+
+						<div class="card-body">
+							<div class="fs-4 text-family text-warning">{{exercice.name}}</div>
+							<p class="card-text">
+								{{exercice.description|u.truncate(70, '...', false)|raw}}</p>
+						</div>
+                            <div class="card-footer my-auto text-center">
+                                <a class="btn btn-sm btn-outline-warning" href='{{path ('app_program' , {'id' : exercice.id })}}' >Ajouter au programme </a>
+                            </div>
+						</div>
+					</div>
+				
+			{% endfor %}
+            
+		</div>
+	</div>
+
+</div>{% endblock %}
