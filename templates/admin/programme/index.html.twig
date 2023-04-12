@@ -8,24 +8,38 @@
         <h1>Votre programme </h1>
     </div>
 {% if exercises | length > 0 %}
-    <table class='table' >
+    <table class='table text-center' >
         <thead>
             <tr>
-                <th colspan="2" class='text-center'>Exercice</th>
                 <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>Nom exercice</th>
+                <th>Répétition</th>
+                <th>Série</th>
+                <th>Temps de repos</th>
+                <th>Durée</th>
             </tr>
         </thead>
         <tbody>
+        {{ form_start(form) }}
             {% for exercise in exercises %}                
-                    <tr class='text-center my-auto'>
+                    <tr>
                         <td><img src="{{ asset ('uploads/' ~ exercise.exercice.illustration) }}" width='150' alt="{{exercise.exercice.name}}"></td>
-                        <td>{{exercise.exercice.name}}</td>                        
+                        <td>{{exercise.exercice.name}}</td>
+                   
+                        <td> {{ form_row(form.repetition) }}</td>                                             
+                        <td> {{ form_row(form.series) }}</td>                                             
+                        <td> {{ form_row(form.break) }} </td>                                             
+                        <td> {{ form_row(form.duration) }} </td>
+                        <td> {{ form_row(form.exercises) }}</td>                                             #}
                     </tr>
-            {% endfor %}
+            {% endfor %}              
         </tbody>
+         <tfoot>
+            <td>
+            <button class="btn btn-warning mt-3 col-md-10 mx-auto   fs-2 text-white" type="submit">Créer le programme d'exercices </button> 
+                    {{ form_rest(form) }}
+                    {{ form_end(form) }}</td>
+        </tfoot> 
     </table>
 {% else %}
     <p>Surprise, c'est vide !</p>

@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ExercisesRepository;
+
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,6 +27,10 @@ class Exercises
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $video = null;
 
+    public function __toString()
+    {
+        return $this->name;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -78,4 +83,8 @@ class Exercises
 
         return $this;
     }
+
+    
+
+   
 }

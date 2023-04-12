@@ -5,7 +5,7 @@
 
 {% block body %}
 	<div class='display-1 text-center'>Bienvenue sur la page de présentation de l'ensemble de vos exercices</div>
-
+	{% set idExo = 0 %}
 	<div class="container ">
 		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-3 ">
 			{% for exercice in exercices %}
@@ -18,15 +18,47 @@
 							<p class="card-text">
 								{{exercice.description|u.truncate(70, '...', false)|raw}}</p>
 						</div>
-                            <div class="card-footer my-auto text-center">
-                                <a class="btn btn-sm btn-outline-warning" href='{{path ('app_program' , {'id' : exercice.id })}}' >Ajouter au programme </a>
-                            </div>
+						<div class="card-footer my-auto text-center">
+							<a class="btn btn-sm btn-outline-warning" data-bs-toggle="modal" data-bs-target="#modal" data-id="{{ exercice.id }}">Ajouter des options</a>
 						</div>
 					</div>
-				
-			{% endfor %}
-            
+				</div>				
+				{% endfor %}
+
+			{{ form_start(exoForm) }}
+				<div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title mx-auto text-family display-6 text-decoration-underline " id="modal">Ajouter des options</h5>
+								<button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								{{ form_row(exoForm.id_exercice, {'attr': {'class': 'js-exercises-id'}}) }}  					
+								{{ form_row(exoForm.repetition) }}                                            
+								{{ form_row(exoForm.series) }}                                            
+								{{ form_row(exoForm.break) }}                                             
+								{{ form_row(exoForm.duration) }} 
+							</div>
+							<div class="modal-footer">
+							<button class="btn btn-warning mt-3 col-md-10 mx-auto   fs-2 text-white" type="submit">Ajouter au programme </button> 
+							</div>   			
+					
+						</div>
+					</div>
+				</div>			
+			{{ form_end(exoForm) }}
 		</div>
 	</div>
 
-</div>{% endblock %}
+<script>
+    const modal = document.querySelector('#modal');
+    const exercisesIdInput = modal.querySelector('.js-exercises-id');
+
+    modal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const exercisesId = button.getAttribute('data-id');
+        exercisesIdInput.value = exercisesId;
+    });
+</script>	
+{% endblock %}
