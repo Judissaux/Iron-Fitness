@@ -6,6 +6,7 @@ use App\Entity\Activities;
 use App\Entity\Article;
 use App\Entity\Coach;
 use App\Entity\Exercises;
+use App\Entity\Program;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -59,6 +60,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Exercices', 'fas fa-person-running')->setSubItems([
             MenuItem::linkToCrud('Tous les exercices', 'fas fa-rectangle-list',Exercises::class)->setQueryParameter('submenuIndex', 0),
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Exercises::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
+        ]);
+
+        yield MenuItem::subMenu('Programmes', 'fas fa-person-running')->setSubItems([
+            MenuItem::linkToCrud('Tous les programmes', 'fas fa-rectangle-list',Program::class)->setQueryParameter('submenuIndex', 0),
+            MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Program::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
         ]);
 
        

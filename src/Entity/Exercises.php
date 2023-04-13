@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ExercisesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -26,6 +28,14 @@ class Exercises
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $video = null;
+
+    #[ORM\OneToMany(mappedBy: 'exercise', targetEntity: ExerciseSet::class)]
+    private Collection $exerciseSets;
+
+    public function __construct()
+    {
+        $this->exerciseSets = new ArrayCollection();
+    }
 
     public function __toString()
     {
@@ -80,6 +90,36 @@ class Exercises
     public function setVideo(?string $video): self
     {
         $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ExerciseSet>
+     */
+    public function getExerciseSets(): Collection
+    {
+        return $this->exerciseSets;
+    }
+
+    public function addExerciseSet(ExerciseSet $exerciseSet): self
+    {
+        if (!$this->exerciseSets->contains($exerciseSet)) {
+            $this->exerciseSets->add($exerciseSet);
+            $exerciseSet->setExercise($this);
+        }
+
+        return $this;
+    }
+
+    public function removeExerciseSet(ExerciseSet $exerciseSet): self
+    {
+        if ($this->exerciseSets->removeElement($exerciseSet)) {
+            // set the owning side to null (unless already changed)
+            if ($exerciseSet->getExercise() === $this) {
+                $exerciseSet->setExercise(null);
+            }
+        }
 
         return $this;
     }

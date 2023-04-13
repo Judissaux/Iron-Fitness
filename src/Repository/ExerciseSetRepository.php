@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\ExerciceSet;
+use App\Entity\ExerciseSet;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<ExerciceSet>
+ * @extends ServiceEntityRepository<ExerciseSet>
  *
- * @method ExerciceSet|null find($id, $lockMode = null, $lockVersion = null)
- * @method ExerciceSet|null findOneBy(array $criteria, array $orderBy = null)
- * @method ExerciceSet[]    findAll()
- * @method ExerciceSet[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ExerciseSet|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ExerciseSet|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ExerciseSet[]    findAll()
+ * @method ExerciseSet[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ExerciceSetRepository extends ServiceEntityRepository
+class ExerciseSetRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ExerciceSet::class);
+        parent::__construct($registry, ExerciseSet::class);
     }
 
-    public function save(ExerciceSet $entity, bool $flush = false): void
+    public function save(ExerciseSet $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class ExerciceSetRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(ExerciceSet $entity, bool $flush = false): void
+    public function remove(ExerciseSet $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class ExerciceSetRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return ExerciceSet[] Returns an array of ExerciceSet objects
+//     * @return ExerciseSet[] Returns an array of ExerciseSet objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class ExerciceSetRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?ExerciceSet
+//    public function findOneBySomeField($value): ?ExerciseSet
 //    {
 //        return $this->createQueryBuilder('e')
 //            ->andWhere('e.exampleField = :val')
