@@ -1,10 +1,11 @@
-.bgRegister{
-    background-image: url(../img/bgRegister.jpg);
-    background-size:cover;
-    background-position: left;
+.bgImgRegister{
     background-repeat: no-repeat;
-    border-radius: 20px;
-    height: 650px;
+background-size: cover;
+}
+
+.test
+{
+    padding: 150px 0 50px 0;
 }
 
 .form-label,.col-form-label{
@@ -21,7 +22,7 @@
 
 .pricingTable {
     text-align: center;
-    background: #fff;
+    background: #0000;
     margin: 0 -15px;
     box-shadow: 0 0 10px #ababab;
     padding-bottom: 40px;
@@ -34,49 +35,61 @@
 
 .pricingTable:hover {
     transform: scale(1.05);
-    z-index: 1
+    z-index: 1;
+    background: #ffbc00;
 }
 
 .pricingTable .pricingTable-header {
     padding: 60px 0;
-    background: #f5f6f9;
+    background: #fdbb00d1;
     border-radius: 10px 10px 50% 50%;
     transition: all .5s ease 0s
 }
 
 .pricingTable:hover .pricingTable-header {
-    background: #ff9624
+    background: #f5f6f9
+}
+
+.pricingTable:hover .pricing-content ul li,
+.pricingTable:hover .transition,
+.pricingTable:hover .heading
+{
+       color: black;
+       border-color: black;
+    
+    
 }
 
 .pricingTable .pricingTable-header i {
     font-size: 50px;
-    color: #858c9a;
+    color: #000103;
     margin-bottom: 10px;
     transition: all .5s ease 0s
 }
 
 .pricingTable .price-value {
     font-size: 35px;
-    color: #ff9624;
+    color: #ffffff;
+    font-weight: bold;
     transition: all .5s ease 0s
 }
 
 .pricingTable .month {
     display: block;
     font-size: 14px;
-    color: #cad0de
+    color: #000103
 }
 
-.pricingTable:hover .month,
 .pricingTable:hover .price-value,
 .pricingTable:hover .pricingTable-header i {
-    color: #fff
+    color: #ffbc00
 }
+
 
 .pricingTable .heading {
     font-size: 24px;
     margin-top: 30px;
-    color: #ff9624;
+    color: #f5cb55;
     margin-bottom: 20px;
     text-transform: uppercase;
     font-weight:bold;

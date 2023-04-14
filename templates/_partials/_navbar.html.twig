@@ -29,11 +29,31 @@
   
           </a>
         </li>
-      </ul>
-            <a href='{{path ('admin')}}' class="btn btn-primary me-3 mb-2" >Tableau de bord </a>             
-            <a  class="btn btn-outline-info  mb-2 me-3" data-bs-toggle="modal" data-bs-target="#modalFreeSession" >Tester une séance gratuite </a> 
-            <a href='{{path ('app_login')}}' class="btn btn-outline-primary me-3 mb-2" data-bs-toggle="tooltip" data-bs-title="Default tooltip">Connexion</a>
-            <a href='{{path ('app_register')}}' class="btn btn-outline-warning  mb-2" >S'inscrire</a>       
+         {% if is_granted('ROLE_ADMIN') %}
+              <a href='{{path ('admin')}}' class="btn btn-lg btn-primary " >Tableau de bord </a>
+          {% endif %}
+      </ul>  
+        
+        {% if not is_granted('IS_AUTHENTICATED_FULLY') %} 
+              <a  class="btn btn-outline-info  mb-2 me-3" data-bs-toggle="modal" data-bs-target="#modalFreeSession" >Tester une séance gratuite </a> 
+              <a href='{{path ('app_login')}}' class="btn btn-outline-primary me-3 mb-2" data-bs-toggle="tooltip" data-bs-title="Default tooltip">Connexion</a>
+              <a href='{{path ('app_register')}}' class="btn btn-outline-warning  mb-2" >S'inscrire</a>
+         
+           {% else %}
+            <div class="dropdown mb-2 ">
+              <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-expanded="false">
+              {{app.user.firstname | capitalize }}  
+              </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+              <li><a class="dropdown-item" href="{{path ('app_profil')}}">Profil</a></li>
+              <li><a class="dropdown-item" href="{{path ('app_logout')}}">Déconnexion</a></li>
+            </ul>
+          </div>           
+          {% endif %}  
+          
+           
+                      
+               
     </div>
   </div>
 

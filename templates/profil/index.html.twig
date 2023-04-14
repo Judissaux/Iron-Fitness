@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}- Profil{% endblock %}
+
+ {% block stylesheets %}			
+	<link rel="stylesheet" href="{{asset ('assets/css/styleProfil.css')}}">
+{% endblock %}
+{% block body %}
+{# HEADER #}
+<div class="bgPage" style='background-image: url({{ asset ('assets/img/bgProfil.jpg' ) | imagine_filter('welcome') }})' >
+  <div class="container text-center  text-dark bg rounded">
+      <h1>Profil</h1>
+      <h2 class='text-style'> Bienvenue dans ton espace personnel</h2>
+  </div>  
+</div>
+<div class="container">
+    card profil
+    Modifier mon profil
+    Modifier mon mot de passe
+    Mes programmes
+</div>
+<div class="container">
+{% set key = 0 %}
+<div class="accordion accordion-flush mt-5" id="accordionExample">
+    {% for programme in programmes %}
+    {% set key = key + 1 %}
+  <div class="accordion-item mt-2">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{key}}" aria-expanded="false" aria-controls="collapse{{key}}" > Programme : {{programme.name |capitalize }} 
+      </button>
+    </h2>
+    <div id="collapse{{key}}" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <table class="table">
+            <thead>
+                <tr class='text-center'>
+                    <th></th>
+                    <th>Exercice</th>
+                    <th>Nombre de répétitions</th>
+                    <th>Nombre de séries</th>
+                    <th>Temps de repos (entre chaque série)</th>                                        
+                </tr>
+            </thead>
+            <tbody>
+                {% for exercice in programme.exercices %}
+                <tr class='text-center'>
+                    <td>
+                    <img src="{{ asset ('uploads/' ~ exercice.exercise.illustration)  | imagine_filter('miniature') }}" alt="{{exercice.exercise.name}}" width='200'></td>
+                    <td class='py-5' >{{exercice.exercise.name}}</td>
+                    <td class='py-5'>{{exercice.repetition}}</td>
+                    <td class='py-5' >{{exercice.series}}</td>
+                    <td class='py-5' >{{exercice.rest}} secondes </td>
+                    
+                </tr> 
+                   
+                {% endfor %}
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>  
+   {% endfor %}
+</div>   
+</div>
+{% endblock %}
