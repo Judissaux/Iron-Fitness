@@ -13,15 +13,14 @@
       <h2 class='text-style'> Bienvenue dans ton espace personnel</h2>
   </div>  
 </div>
-<div class="container">
-    card profil
-    Modifier mon profil
-    Modifier mon mot de passe
-    Mes programmes
+<div class="container mt-4">
+<h2 class='text-center text-style' >Mes informations personnelles</h2>
+    
 </div>
 <div class="container">
+<h2 class='text-center text-style' >Mes programmes</h2>
 {% set key = 0 %}
-<div class="accordion accordion-flush mt-5" id="accordionExample">
+<div class="accordion accordion-flush mt-2" id="accordionExample">
     {% for programme in programmes %}
     {% set key = key + 1 %}
   <div class="accordion-item mt-2">
@@ -30,36 +29,37 @@
       </button>
     </h2>
     <div id="collapse{{key}}" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <table class="table">
-            <thead>
-                <tr class='text-center'>
-                    <th></th>
-                    <th>Exercice</th>
-                    <th>Nombre de répétitions</th>
-                    <th>Nombre de séries</th>
-                    <th>Temps de repos (entre chaque série)</th>                                        
-                </tr>
-            </thead>
-            <tbody>
-                {% for exercice in programme.exercices %}
-                <tr class='text-center'>
-                    <td>
-                    <img src="{{ asset ('uploads/' ~ exercice.exercise.illustration)  | imagine_filter('miniature') }}" alt="{{exercice.exercise.name}}" width='200'></td>
-                    <td class='py-5' >{{exercice.exercise.name}}</td>
-                    <td class='py-5'>{{exercice.repetition}}</td>
-                    <td class='py-5' >{{exercice.series}}</td>
-                    <td class='py-5' >{{exercice.rest}} secondes </td>
-                    
-                </tr> 
-                   
+      <div class="accordion-body">       
+      {% set exo = 0 %}
+        <div class="row">
+          {% for exercice in programme.exercices %}
+          <div class="col-md-4 text-center mb-3">
+           {% set exo = exo + 1 %}
+            <div class="card">
+              <div class="card-block">
+                <h4 class="card-title text-style text-decoration-underline">Exercice n° {{exo}} </h4>
+                <h6 class="card-subtitle text-warning text-style fs-2">{{exercice.exercise.name}}</h6>
+              </div>
+                <img class="card-img-top img-fluid" src="{{ asset ('uploads/' ~ exercice.exercise.illustration)  | imagine_filter('miniature') }}" alt="{{exercice.exercise.name}}"> 
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><span class='text-warning text-style text-decoration-underline fs-5'> Nombre de répétition:</span> <br> <span class='fs-6 fw-bold '> {{exercice.repetition}} </span> </li>
+                  <li class="list-group-item"> <span class='text-warning text-style text-decoration-underline fs-5'> Nombre de série : </span>   <br> <span class='fs-6 fw-bold '> {{exercice.series}} </span></li>
+                  <li class="list-group-item"> <span class='text-warning text-style text-decoration-underline fs-5'> Temps de repos: <br> (entre chaques séries) </span> <br> <span class='fs-6 fw-bold '> {{exercice.rest}} secondes </span></li>
+              </ul>
+              {# <div class="card-block">
+                <a href="#" class="card-link">Vidéo</a>    
+              </div> #}
+            </div>  
+          </div>                 
                 {% endfor %}
-            </tbody>
-        </table>
-      </div>
+        </div>         
+        </div>
     </div>
   </div>  
    {% endfor %}
 </div>   
 </div>
 {% endblock %}
+
+
+
