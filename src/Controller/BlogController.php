@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,10 +16,17 @@ class BlogController extends AbstractController
         return $this->render('articles/index.html.twig',
         ['articles' => $article->findBy([],['createdAt' => 'DESC'])]);
     }
-
+    
+    // En appelant l'entité article on récupére l'article si il existe sinon on renvoie l'utilisateur sur la page d'accueil
     #[Route('/articles/{slug}', name: 'app_show')]
-    public function show(): Response   
+    public function show(?Article $article): Response   
     {
-        return $this->render('articles/show.html.twig');
+        if(!$article) {
+           return $this->redirectToRoute('app_home');
+        }
+        
+        return $this->render('articles/show.html.twig',[
+            'article' => $article
+        ]);
     }
 }

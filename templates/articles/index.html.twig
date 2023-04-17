@@ -22,14 +22,13 @@
 
             <div class="card-body">
               <div class="fs-4 text-family text-warning">{{article.title}}</div>
-              <p class="card-text"> {{article.description|u.truncate(70, '...', false)|raw}}</p>
             </div>
             <div class="card-footer d-flex justify-content-between align-items-center my-auto">  
                          
               <small class="text-muted"> {{ article.createdAt|format_datetime('medium', 'none', locale='fr') }}</small>
 
                 <div class="btn-group">
-                  <a   class="btn btn-sm btn-outline-secondary" href={{ path ('app_show', { 'slug' : article.slug }) }} >En savoir plus ..</a>                  
+                  <a class="btn btn-sm btn-outline-secondary" href={{ path ('app_show', { 'slug' : article.slug }) }} >En savoir plus ..</a>                  
                 </div>
               </div>
             </div>            

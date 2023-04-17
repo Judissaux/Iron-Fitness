@@ -1,0 +1,16 @@
+fm_elfinder:
+    instances:
+        default:
+            locale: fr
+            editor: ckeditor # other options are tinymce, tinymce4, fm_tinymce, form, simple, custom
+            theme: smoothness
+            connector:
+                debug: true
+                roots:       # at least one root must be defined, defines root filemanager directories
+                    uploads:
+                        driver: LocalFileSystem
+                        path: img
+                        show_hidden: false # defaults to false, hides dotfiles
+                        upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                        upload_deny: ['all']
+                        upload_max_size: 2M

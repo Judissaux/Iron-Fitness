@@ -5,13 +5,18 @@
 			<link rel="stylesheet" href="{{asset ('assets/css/styleBlog.css')}}">
 		{% endblock %}
 {% block body %}
-<div class="bgPage" style="background-image: url({{ asset ('assets/img/bgBlog.jpg' ) | imagine_filter('welcome') }});background-position: top" >
-  <div class="container text-center text-dark bg rounded">
-      <h1 >Blog</h1>
-      <h2 class='text-style'> Détails articles</h2>
+
+ <div class="container-md w-50 text-center">
+
+  <h1 class='text-style text-warning '> {{article.title| capitalize }} </h1>
+
+  <div class="transition my-2"></div>
+
+  <img src="{{asset ('uploads/'~article.illustration) }}" alt="{{article.title }}"  class='img-fluid rounded'>
+
+  <div class="transition my-2"></div>
+  <div class="container-md mb-5">{{article.description | raw }}
   </div>
-</div>
-   
-   
+ </div>  
 
 {% endblock %}

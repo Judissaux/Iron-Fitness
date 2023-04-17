@@ -62,7 +62,7 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Exercises::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
         ]);
 
-        yield MenuItem::subMenu('Programmes', 'fas fa-person-running')->setSubItems([
+        yield MenuItem::subMenu('Programmes', 'fas fa-id-badge')->setSubItems([
             MenuItem::linkToCrud('Tous les programmes', 'fas fa-rectangle-list',Program::class)->setQueryParameter('submenuIndex', 0),
             MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Program::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
         ]);

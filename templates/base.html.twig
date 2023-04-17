@@ -32,7 +32,8 @@
 		{# Permet de récupérer les infos venant du controlleur Home et de la fonction addNavbar, utile pour avoir le formulaire sur toutes les pages #}
 		{{ render (controller('App\\Controller\\HomeController::addNavBar', {form : 'form' })) }}
 		
-		{% block body %}{% endblock %}		
+		{% block body %}{% endblock %}	
+			
 		{% include "_partials/_footer.html.twig" %}	
 		
 		{# Importation du datePicker Seance gratuite , de l'extension fr et du plugin minMax pour gestion horaire	 #}

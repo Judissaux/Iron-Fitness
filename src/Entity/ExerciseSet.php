@@ -6,7 +6,7 @@ use App\Repository\ExerciseSetRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ExerciseSetRepository::class)]
-class ExerciseSet
+class ExerciseSet 
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

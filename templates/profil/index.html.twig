@@ -1,65 +1,106 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}- Profil{% endblock %}
+{% block title %}- Profil
+{% endblock %}
 
- {% block stylesheets %}			
+{% block stylesheets %}
 	<link rel="stylesheet" href="{{asset ('assets/css/styleProfil.css')}}">
 {% endblock %}
 {% block body %}
-{# HEADER #}
-<div class="bgPage" style='background-image: url({{ asset ('assets/img/bgProfil.jpg' ) | imagine_filter('welcome') }})' >
-  <div class="container text-center  text-dark bg rounded">
-      <h1>Profil</h1>
-      <h2 class='text-style'> Bienvenue dans ton espace personnel</h2>
-  </div>  
-</div>
-<div class="container mt-4">
-<h2 class='text-center text-style' >Mes informations personnelles</h2>
-    
-</div>
-<div class="container">
-<h2 class='text-center text-style' >Mes programmes</h2>
-{% set key = 0 %}
-<div class="accordion accordion-flush mt-2" id="accordionExample">
-    {% for programme in programmes %}
-    {% set key = key + 1 %}
-  <div class="accordion-item mt-2">
-    <h2 class="accordion-header">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{key}}" aria-expanded="false" aria-controls="collapse{{key}}" > Programme : {{programme.name |capitalize }} 
-      </button>
-    </h2>
-    <div id="collapse{{key}}" class="accordion-collapse collapse " data-bs-parent="#accordionExample">
-      <div class="accordion-body">       
-      {% set exo = 0 %}
-        <div class="row">
-          {% for exercice in programme.exercices %}
-          <div class="col-md-4 text-center mb-3">
-           {% set exo = exo + 1 %}
-            <div class="card">
-              <div class="card-block">
-                <h4 class="card-title text-style text-decoration-underline">Exercice n° {{exo}} </h4>
-                <h6 class="card-subtitle text-warning text-style fs-2">{{exercice.exercise.name}}</h6>
-              </div>
-                <img class="card-img-top img-fluid" src="{{ asset ('uploads/' ~ exercice.exercise.illustration)  | imagine_filter('miniature') }}" alt="{{exercice.exercise.name}}"> 
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><span class='text-warning text-style text-decoration-underline fs-5'> Nombre de répétition:</span> <br> <span class='fs-6 fw-bold '> {{exercice.repetition}} </span> </li>
-                  <li class="list-group-item"> <span class='text-warning text-style text-decoration-underline fs-5'> Nombre de série : </span>   <br> <span class='fs-6 fw-bold '> {{exercice.series}} </span></li>
-                  <li class="list-group-item"> <span class='text-warning text-style text-decoration-underline fs-5'> Temps de repos: <br> (entre chaques séries) </span> <br> <span class='fs-6 fw-bold '> {{exercice.rest}} secondes </span></li>
-              </ul>
-              {# <div class="card-block">
-                <a href="#" class="card-link">Vidéo</a>    
-              </div> #}
-            </div>  
-          </div>                 
-                {% endfor %}
-        </div>         
-        </div>
-    </div>
-  </div>  
-   {% endfor %}
-</div>   
-</div>
+	{# HEADER #}
+  
+	<div class="bgPage" style='background-image: url({{ asset ('assets/img/bgProfil.jpg' ) | imagine_filter('welcome') }})' >
+		<div class="container text-center  text-dark bg rounded">
+			<h1>Profil</h1>
+			<h2 class='text-style'>
+				Bienvenue dans ton espace personnel</h2>
+		</div>
+	</div>
+	<div class="container mt-4">
+		<h2 class='text-center text-style'>Mes informations personnelles</h2>
+
+	</div>
+	<div class="container">
+		<h2 class='text-center text-style'>Mes programmes</h2>
+    {% if programmes | length > 0 %}
+		{% set key = 0 %}
+		<div class="accordion accordion-flush mt-2" id="accordion">
+			{% for programme in programmes %}
+				{% set key = key + 1 %}
+				<div class="accordion-item mt-2 mb-3">
+					<h2 class="accordion-header">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapses{{key}}" aria-expanded="false" aria-controls="collapses{{key}}">
+							Programme :
+							{{programme.name |capitalize }}</button>
+					</h2>
+					<div id="collapses{{key}}" class="accordion-collapse collapse " data-bs-parent="#accordion">
+						<div class="accordion-body">
+							{% set exo = 0 %}
+							<div class="row">
+								{% for exercice in programme.exercices %}
+									<div class="col-md-4 text-center mb-3">
+										{% set exo = exo + 1 %}
+										<div class="card">
+											<div class="card-block">
+												<h4 class="card-title text-style text-decoration-underline">Exercice n°
+													{{exo}}
+												</h4>
+												<h6 class="card-subtitle text-warning text-style fs-2">{{exercice.exercise.name}}</h6>
+											</div>
+											<img class="card-img-top img-fluid" src="{{ asset ('uploads/' ~ exercice.exercise.illustration) | imagine_filter('miniature') }}" alt="{{exercice.exercise.name}}">
+											<ul class="list-group list-group-flush">
+												<li class="list-group-item">
+													<span class='text-warning text-style text-decoration-underline fs-5'>
+														Nombre de répétition:</span>
+													<br>
+													<span class='fs-6 fw-bold '>
+														{{exercice.repetition}}
+													</span>
+												</li>
+												<li class="list-group-item">
+													<span class='text-warning text-style text-decoration-underline fs-5'>
+														Nombre de série :
+													</span>
+													<br>
+													<span class='fs-6 fw-bold '>
+														{{exercice.series}}
+													</span>
+												</li>
+												<li class="list-group-item">
+													<span class='text-warning text-style text-decoration-underline fs-5'>
+														Temps de repos:
+														<br>
+														(entre chaques séries)
+													</span>
+													<br>
+													<span class='fs-6 fw-bold '>
+														{{exercice.rest}}
+														secondes
+													</span>
+												</li>
+											</ul>
+											<div class="card-block">
+											      <a class="btn btn-warning col-md-12 text-white" data-bs-toggle="collapse" href="#collapse{{exo}}" role="button" >Plus d'info</a> 
+                            <div class="collapse" id="collapse{{exo}}">
+                        <div class="card card-body fs-4">
+                          {{exercice.exercise.description | raw}}
+                          {# <video  controls >
+				                    <source src={{asset ('assets/video/iron-accueil.mp4')}} type='video/mp4'>				
+			                    </video> #}
+                        </div>
+                      </div>   
+											</div>
+										</div>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+    {% else %}
+      <p class='text-center fs-4 text-warning' >Vous n'avez pas encore de programme personnalisé</p>
+    {% endif %}
+	</div>
 {% endblock %}
-
-
-

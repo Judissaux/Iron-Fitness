@@ -18,7 +18,7 @@ class Program
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'program', targetEntity: ExerciseSet::class, cascade : ['persist'])]
+    #[ORM\OneToMany(mappedBy: 'program', targetEntity: ExerciseSet::class, cascade : ['persist','remove'])]
     private Collection $exercises;
 
     public function __construct()

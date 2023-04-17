@@ -19,7 +19,8 @@ fos_ck_editor:
                               "-",
                               "Outdent",
                               "Indent",
-                              "-",
+                              "-",                              
+                              "Image",
                               "-",
                               "JustifyLeft",
                               "JustifyCenter",
@@ -31,7 +32,11 @@ fos_ck_editor:
                               "FontSize",
                               "-",
                               "TextColor",
-                              "BGColor",                                                            
-                          ],
+                              "BGColor",
+                              "Source"                                                            
+                          ],                          
                   }
+            filebrowserBrowseRoute: elfinder
+            filebrowserBrowseRouteParameters: []
+                 
             

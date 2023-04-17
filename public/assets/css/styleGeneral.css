@@ -149,9 +149,10 @@ border: 1px solid rgba(255, 238, 13, 0.46);
 
   /* FOOTER */
 
-  .footer{
-    width: 100vw;
-  }
+ footer{
+    width: 100%;
+ }
+
   #map { 
     height: 400px;
     width: 400px;
