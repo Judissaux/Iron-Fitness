@@ -6,16 +6,13 @@
 		{% endblock %}
 {% block body %}
 
- <div class="container-md w-50 text-center">
+ <div class="blocpadding"></div>   
+ <div class="container w-75 text-center">
 
+  <img src="{{asset ('uploads/'~article.illustration)| imagine_filter('miniature') }}" alt="{{article.title }}"  class='img-fluid rounded'>
   <h1 class='text-style text-warning '> {{article.title| capitalize }} </h1>
 
-  <div class="transition my-2"></div>
-
-  <img src="{{asset ('uploads/'~article.illustration) }}" alt="{{article.title }}"  class='img-fluid rounded'>
-
-  <div class="transition my-2"></div>
-  <div class="container-md mb-5">{{article.description | raw }}
+  <div class="container mb-5">{{article.description | raw }}
   </div>
  </div>  
 

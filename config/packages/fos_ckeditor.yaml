@@ -21,6 +21,9 @@ fos_ck_editor:
                               "Indent",
                               "-",                              
                               "Image",
+                              "Link",
+                              "HorizontalRule",
+                              "PageBreak",
                               "-",
                               "JustifyLeft",
                               "JustifyCenter",
@@ -33,7 +36,8 @@ fos_ck_editor:
                               "-",
                               "TextColor",
                               "BGColor",
-                              "Source"                                                            
+                              "Scayt",
+                              "Maximize"                                                            
                           ],                          
                   }
             filebrowserBrowseRoute: elfinder
