@@ -19,14 +19,15 @@ class BlogController extends AbstractController
     
     // En appelant l'entité article on récupére l'article si il existe sinon on renvoie l'utilisateur sur la page d'accueil
     #[Route('/articles/{slug}', name: 'app_show')]
-    public function show(?Article $article): Response   
+    public function show(?Article $article,ArticleRepository $articleRepo): Response   
     {
         if(!$article) {
            return $this->redirectToRoute('app_home');
         }
-        
+        $slug = $article->getSlug();
         return $this->render('articles/show.html.twig',[
-            'article' => $article
-        ]);
+            'article' => $article,
+            'arts' => $articleRepo->find3LastArticles($slug)
+             ]);
     }
 }

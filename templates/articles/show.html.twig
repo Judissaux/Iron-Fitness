@@ -1,19 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}- Blog{% endblock %}
-{% block stylesheets %}			
-			<link rel="stylesheet" href="{{asset ('assets/css/styleBlog.css')}}">
-		{% endblock %}
+{% block title %}- Blog
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset ('assets/css/styleBlog.css')}}">
+{% endblock %}
 {% block body %}
 
- <div class="blocpadding"></div>   
- <div class="container w-75 text-center">
-
-  <img src="{{asset ('uploads/'~article.illustration)| imagine_filter('miniature') }}" alt="{{article.title }}"  class='img-fluid rounded'>
-  <h1 class='text-style text-warning '> {{article.title| capitalize }} </h1>
-
-  <div class="container mb-5">{{article.description | raw }}
-  </div>
- </div>  
-
-{% endblock %}
+	<div class="blocpadding"></div>
+	<div class="container mt-5">
+		<div class="row">
+			<div
+				class="col-lg-8">
+				<!-- Post content-->
+				<article>
+					<!-- Post header-->
+					<header
+						class="mb-4">
+						<!-- Post title-->
+						<h1 class="fw-bolder mb-1">{{article.title }}</h1>
+						<!-- Post meta content-->
+						<div class="text-muted fst-italic mb-2">Mis en ligne le
+							{{ article.createdAt|format_datetime('medium', 'none', locale='fr') }}</div>
+						<!-- Post categories-->
+						{# <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+						                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a> #}
+					</header>
+					<!-- Preview image figure-->
+					<figure class="mb-4 text-center"><img class="img-fluid rounded" src={{asset ('uploads/'~article.illustration)| imagine_filter('blog') }} alt="{{article.title }}"/></figure>
+					<!-- Post content-->
+					<section class="mb-5">
+						<p class="fs-5 mb-4">{{article.description | raw }}</p>
+					</section>
+				</article>
+			</div>
+			<!-- Side widgets-->
+			<div            
+				class="col-lg-4 mt-5">
+				<!-- Side widget-->
+				<div class="card mb-4 mt-5">
+					<div class="card-header">Nos dernier articles</div>
+					<div class="card-body">
+						{% for art in arts %}
+							<div class="card mb-3">
+								<div class="row g-0">
+									<div class="col-md-5 d-flex justify-center">
+										<img class="img-fluid  text-center" src={{asset ('uploads/'~art.illustration)| imagine_filter('miniature') }} alt="{{art.title }}">
+									</div>
+									<div class="col-md-7 text-center">
+										<div class="card-body">
+											<h5 class="card-title">{{ art.title }}</h5>
+											<p class="card-text text-muted">{{ art.createdAt|format_datetime('medium', 'none', locale='fr') }}</p>
+											<a href="{{ path('app_show', { 'slug': art.slug }) }}" class="btn btn-outline-warning">En savoir plus</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="card mb-4 ">
+					<div class="card-header text-center">
+						<a href="{{path ('app_blog')}}" class='btn btn-warning'>Retour à la page articles</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{% endblock %}

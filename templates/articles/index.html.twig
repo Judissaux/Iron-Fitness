@@ -17,8 +17,8 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 my-3 ">
       {% for article in articles %}         
         <div class="col text-center ">
-          <div class="card shadow-sm h-100">
-					<img src="{{ asset ('uploads/' ~ article.illustration) | imagine_filter('miniature') }}" class="card-img-top" alt="{{article.title}}">
+          <div class="card shadow-sm  mb-3">
+					<img src="{{ asset ('uploads/' ~ article.illustration) | imagine_filter('miniature') }}" class="card-img-top"  alt="{{article.title}}">
 
             <div class="card-body">
               <div class="fs-4 text-family text-warning">{{article.title}}</div>
@@ -39,4 +39,19 @@
         
 </div>
 
+
+<div class="col-lg-4">
+  <div class="blog-grid">
+    <div class="blog-img">
+      <div class="date">04 FEB</div> <a href="#">
+         <img src="https://www.bootdey.com/image/350x280/FFB6C1/000000" title="" alt=""> </a></div>
+          <div class="blog-info">
+            <h5><a href="#">Prevent 75% of visitors from google analytics</a></h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+              <div class="btn-bar"> <a href="#" class="px-btn-arrow"> <span>Read More</span> <i class="arrow"></i> </a></div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

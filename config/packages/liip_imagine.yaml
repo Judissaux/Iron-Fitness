@@ -14,3 +14,9 @@ liip_imagine:
             filters:
                 scale:
                     dim: [1200,1200]
+        blog:
+            quality: 75
+            filters:
+                thumbnail:
+                    size: [900,400]
+                    mode: outbound
