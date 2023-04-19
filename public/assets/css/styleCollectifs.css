@@ -71,3 +71,11 @@
 .card:nth-child(even):hover .back {
   transform: rotateY(0deg);
 }
+
+footer{
+  background-color: #fff !important;
+}
+
+footer .text-footer{
+  color: black !important;
+}

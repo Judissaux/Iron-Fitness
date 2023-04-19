@@ -181,3 +181,16 @@ border: 1px solid rgba(255, 238, 13, 0.46);
 
 
 
+footer .map{
+    
+    height: 30rem;
+}
+
+footer .map iframe{  
+     
+    height: 100%;
+    width: 100%;
+    border: 0;
+}
+
+
