@@ -11,14 +11,14 @@
 	<div class="container mt-5">
 		<div class="row">
 			<div
-				class="col-lg-8">
+				class="col-lg-7">
 				<!-- Post content-->
 				<article>
 					<!-- Post header-->
 					<header
 						class="mb-4">
 						<!-- Post title-->
-						<h1 class="fw-bolder mb-1">{{article.title }}</h1>
+						<h1 class="fw-bolder mb-1">{{article.title |capitalize }}</h1>
 						<!-- Post meta content-->
 						<div class="text-muted fst-italic mb-2">Mis en ligne le
 							{{ article.createdAt|format_datetime('medium', 'none', locale='fr') }}</div>
@@ -36,22 +36,23 @@
 			</div>
 			<!-- Side widgets-->
 			<div            
-				class="col-lg-4 mt-5">
+				class="col-lg-5 mt-5">
 				<!-- Side widget-->
 				<div class="card mb-4 mt-5">
-					<div class="card-header">Nos dernier articles</div>
+					<div class="card-header">Nos derniers articles</div>
 					<div class="card-body">
 						{% for art in arts %}
 							<div class="card mb-3">
 								<div class="row g-0">
 									<div class="col-md-5 d-flex justify-center">
-										<img class="img-fluid  text-center" src={{asset ('uploads/'~art.illustration)| imagine_filter('miniature') }} alt="{{art.title }}">
+										<img class="img-fluid" src={{asset ('uploads/'~art.illustration)| imagine_filter('miniature') }} alt="{{art.title }}">
 									</div>
-									<div class="col-md-7 text-center">
+									<div class="col-md-7">
 										<div class="card-body">
-											<h5 class="card-title">{{ art.title }}</h5>
-											<p class="card-text text-muted">{{ art.createdAt|format_datetime('medium', 'none', locale='fr') }}</p>
-											<a href="{{ path('app_show', { 'slug': art.slug }) }}" class="btn btn-outline-warning">En savoir plus</a>
+											<p class="card-text text-left text-muted fs-6">{{ art.createdAt|format_datetime('medium', 'none', locale='fr') }}</p>
+											<h5 class="card-title text-center ">{{ art.title |capitalize}}</h5>
+											<p>{{article.description |striptags|slice(0, 80) ~ '...'}}</p>
+											<a href="{{ path('app_show', { 'slug': art.slug }) }}" class="btn btn-outline-warning">Lire la suite</a>
 										</div>
 									</div>
 								</div>
@@ -61,7 +62,7 @@
 				</div>
 				<div class="card mb-4 ">
 					<div class="card-header text-center">
-						<a href="{{path ('app_blog')}}" class='btn btn-warning'>Retour à la page articles</a>
+						<a href="{{path ('app_blog')}}" class='btn btn-warning col-md-12'>Retour à la page articles</a>
 					</div>
 				</div>
 			</div>
