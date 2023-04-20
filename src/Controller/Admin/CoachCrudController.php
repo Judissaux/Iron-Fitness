@@ -54,6 +54,7 @@ class CoachCrudController extends AbstractCrudController
         };
 
         yield $imageField;
+          
 
        
     }

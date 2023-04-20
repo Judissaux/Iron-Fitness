@@ -7,6 +7,7 @@ use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -44,11 +45,12 @@ public function configureFields(string $pageName): iterable
 {
     $mediaDir = $this->getParameter('medias_directory');
    $uploadsDir = $this->getParameter('uploads_directory');
-
-    yield TextField::new('title','Titre');
+   
+    yield TextField::new('title','Titre');   
     yield SlugField::new('slug','Slug')
     ->setTargetFieldName('title')
-    ->hideOnIndex();
+    ->hideOnIndex();   
+   
     yield TextareaField::new('description','Description')->setFormType(CKEditorType::class);
     $imageField = ImageField::new('illustration', 'Images')
     ->setBasePath($uploadsDir)
