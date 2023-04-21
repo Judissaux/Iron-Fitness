@@ -27,23 +27,29 @@ class ExerciseSetCrudController extends AbstractCrudController
         return $crud
         
         ->showEntityActionsInlined()
-        ->renderContentMaximized();
-        
-        
+        ->renderContentMaximized();       
     }
 
     public function configureFields(string $pageName): iterable
     {
-        yield AssociationField::new('exercise',"Exercice")->setColumns(12)->addCssClass('text-center');               
+        yield AssociationField::new('exercise',"Exercice")->setColumns(12)->addCssClass('text-center'); 
+
         yield IntegerField::new('repetition','Nombre de répétition: ')        
         ->setColumns(12)
-        ->addCssClass('text-center');                 
+        ->addCssClass('text-center');  
+
         yield IntegerField::new('series','Nombre de série: ')
         ->setColumns(12)
         ->addCssClass('text-center');
-        yield IntegerField::new('rest','Temps de repos: ')->setColumns(12)
+
+        yield IntegerField::new('rest','Temps de repos: ')        
+        ->setColumns(12)
+        ->setHelp('Temps en secondes')
         ->addCssClass('text-center');
-        yield IntegerField::new('duration','Durée de l\'exercice: ')->setColumns(12)
+
+        yield IntegerField::new('duration','Distance à parcourir')
+        ->setColumns(12)
+        ->setHelp('Distance en métres')
         ->addCssClass('text-center');           
     }
 

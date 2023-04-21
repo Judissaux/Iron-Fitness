@@ -45,7 +45,8 @@ class ExercisesCrudController extends AbstractCrudController
         $mediaDir = $this->getParameter('medias_directory');
         $uploadsDir = $this->getParameter('uploads_directory');
 
-        yield TextField::new('name','Nom');        
+        yield TextField::new('name','Nom');   
+
         yield TextEditorField::new('description','Description')->setFormType(CKEditorType::class);
         $imageField = ImageField::new('illustration', 'Images')
         ->setBasePath($uploadsDir)
@@ -59,7 +60,6 @@ class ExercisesCrudController extends AbstractCrudController
 
         yield $imageField;
 
-        
         yield TextField::new('video','Lien vidéo');
        
     }

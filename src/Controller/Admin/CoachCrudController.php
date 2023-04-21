@@ -42,7 +42,8 @@ class CoachCrudController extends AbstractCrudController
         $mediaDir = $this->getParameter('medias_directory');
         $uploadsDir = $this->getParameter('uploads_directory');
 
-        yield TextField::new('firstname','Prénom');        
+        yield TextField::new('firstname','Prénom'); 
+               
         $imageField = ImageField::new('illustration', 'Images')
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)
