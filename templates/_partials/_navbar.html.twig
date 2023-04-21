@@ -30,7 +30,13 @@
         </li>
         
          {% if is_granted('ROLE_ADMIN') %}
-              <a href='{{path ('admin')}}' class="btn btn-primary " >Tableau de bord </a>
+              <a href='{{path ('admin')}}' class="btn btn-primary " > Tableau de bord </a>
+          {% endif %}
+
+          {% if is_granted('ROLE_COACH') %}
+              {% if app.user.roles[0] == 'ROLE_COACH' %}
+              <a href="{{ path ('admin')}}" class="btn btn-info text-white " >  Construire un programme </a>
+              {% endif %}
           {% endif %}
       </ul>  
         

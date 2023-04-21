@@ -10,14 +10,15 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Orm\EntityRepository;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
     
     class UserCrudController extends AbstractCrudController
@@ -53,6 +54,17 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
            yield TextField::new('lastname','Nom');
 
            yield TextField::new('firstname','Prénom');
+           
+           yield ChoiceField::new('roles')
+            ->allowMultipleChoices()
+            ->renderAsBadges([
+                'ROLE_ADMIN' => 'success',
+                'ROLE_AUTHOR' => 'warning'
+            ])
+            ->setChoices([
+                'Administrateur' => 'ROLE_ADMIN',
+                'Coach' => 'ROLE_COACH',
+            ]);  
 
            yield EmailField::new('email','E-mail');
 
