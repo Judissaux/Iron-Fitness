@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\ProgramRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
+use App\Model\ModifiedInterface;
 use Doctrine\ORM\Mapping as ORM;
+use App\Model\TimestampedInterface;
+use App\Repository\ProgramRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: ProgramRepository::class)]
-class Program
+class Program implements TimestampedInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -20,6 +23,21 @@ class Program
 
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: ExerciseSet::class, cascade : ['persist','remove'])]
     private Collection $exercises;
+
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $day = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $creator = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $createdAt = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE , nullable: true)]
+    private ?\DateTimeInterface $updatedAt = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $modifiedBy = null;
 
     public function __construct()
     {
@@ -69,6 +87,66 @@ class Program
                 $exercise->setProgram(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getDay(): ?string
+    {
+        return $this->day;
+    }
+
+    public function setDay(?string $day): self
+    {
+        $this->day = $day;
+
+        return $this;
+    }
+
+    public function getCreator(): ?string
+    {
+        return $this->creator;
+    }
+
+    public function setCreator(string $creator): self
+    {
+        $this->creator = $creator;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getModifiedBy(): ?string
+    {
+        return $this->modifiedBy;
+    }
+
+    public function setModifiedBy(?string $modifiedBy): self
+    {
+        $this->modifiedBy = $modifiedBy;
 
         return $this;
     }

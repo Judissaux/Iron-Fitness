@@ -28,8 +28,9 @@ class AdminSubscriber implements EventSubscriberInterface
         if(!$entity instanceof TimestampedInterface){
             return;
         }
-        // Sinon on set à la date du jour
-        $entity->setCreatedAt(new \DateTime());
+        // Sinon on set à la date du jour et on utilise le timezone pour avoir l'heure correcte sinon on a 2 heures de décalage
+        $timezone = new \DateTimeZone('Europe/Paris');
+        $entity->setCreatedAt(new \DateTime('now',  $timezone));
     }
 
     public function setEntityupdatedAt(BeforeEntityUpdatedEvent $event)
@@ -39,7 +40,7 @@ class AdminSubscriber implements EventSubscriberInterface
         if(!$entity instanceof TimestampedInterface){
             return;
         }
-
-        $entity->setUpdatedAt(new \DateTime());
+        $timezone = new \DateTimeZone('Europe/Paris');
+        $entity->setUpdatedAt(new \DateTime('now',  $timezone));
     }
 }

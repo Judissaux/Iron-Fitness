@@ -64,7 +64,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
             ->setChoices([
                 'Administrateur' => 'ROLE_ADMIN',
                 'Coach' => 'ROLE_COACH',
-            ]);  
+            ])
+            ->setRequired(false);  
 
            yield EmailField::new('email','E-mail');
 

@@ -40,36 +40,35 @@ class ArticleCrudController extends AbstractCrudController
     }
 
 
-public function configureFields(string $pageName): iterable
-{
-    $mediaDir = $this->getParameter('medias_directory');
-   $uploadsDir = $this->getParameter('uploads_directory');
-   
-    yield TextField::new('title','Titre');  
-
-    yield SlugField::new('slug','Slug')
-    ->setTargetFieldName('title')
-    ->hideOnIndex()
-    ;   
-   
-    yield TextEditorField::new('description','Description')->setFormType(CKEditorType::class);
-    $imageField = ImageField::new('illustration', 'Images')
-    ->setBasePath($uploadsDir)
-    ->setUploadDir($mediaDir)
-    ->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+    public function configureFields(string $pageName): iterable
+    {
+        $mediaDir = $this->getParameter('medias_directory');
+    $uploadsDir = $this->getParameter('uploads_directory');
     
-    //Permet d'enregistrer les modifications sans devoir remettre une image
-    if(Crud::PAGE_EDIT == $pageName){
-        $imageField->setRequired(false);
-    };
+        yield TextField::new('title','Titre');  
 
-    yield $imageField;
-
-    yield  DateTimeField::new('createdAt','Créé le')->hideOnForm();
-
-    yield  DateTimeField::new('updatedAt','Mis à jour le')->hideOnForm();
+        yield SlugField::new('slug','Slug')
+        ->setTargetFieldName('title')
+        ->hideOnIndex()
+        ;   
     
-}
+        yield TextEditorField::new('description','Description')->setFormType(CKEditorType::class);
+        $imageField = ImageField::new('illustration', 'Images')
+        ->setBasePath($uploadsDir)
+        ->setUploadDir($mediaDir)
+        ->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+        
+        //Permet d'enregistrer les modifications sans devoir remettre une image
+        if(Crud::PAGE_EDIT == $pageName){
+            $imageField->setRequired(false);
+        };
+
+        yield $imageField;
+
+        yield  DateTimeField::new('createdAt','Créé le')->hideOnForm();
+
+        yield  DateTimeField::new('updatedAt','Mis à jour le')->hideOnForm();        
+    }
 
 }
 
