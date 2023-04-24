@@ -11,13 +11,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
-use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Orm\EntityRepository;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
     
@@ -46,6 +42,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
             ->setEntityLabelInSingular('adhérent')
             ->setEntityLabelInPlural('Adhérents')
             ->showEntityActionsInlined()
+            ->setPaginatorPageSize(15)
+            ->setDefaultSort(['roles' => 'DESC'])
             ->renderContentMaximized();
         }
        

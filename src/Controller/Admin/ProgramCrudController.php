@@ -35,6 +35,7 @@ class ProgramCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('un programme')
             ->setEntityLabelInPlural('Programmes')
             ->showEntityActionsInlined()
+            ->setPaginatorPageSize(15)
             ->renderContentMaximized();
             
         }

@@ -4,17 +4,28 @@ namespace App\Controller;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class BlogController extends AbstractController
 {
     #[Route('/articles', name: 'app_blog')]
-    public function index(ArticleRepository $article): Response   
+    public function index(ArticleRepository $article, Request $request, PaginatorInterface $paginator): Response   
     {
-        return $this->render('articles/index.html.twig',
-        ['articles' => $article->findBy([],['createdAt' => 'DESC'])]);
+        $donnees =  $article->findBy([],['createdAt' => 'DESC']);
+
+        $articles = $paginator->paginate(
+            $donnees,
+            $request->query->getInt('page', 1),
+            6
+        );
+
+        return $this->render('articles/index.html.twig', 
+            compact('articles')
+        );
     }
     
     // En appelant l'entité article on récupére l'article si il existe sinon on renvoie l'utilisateur sur la page d'accueil

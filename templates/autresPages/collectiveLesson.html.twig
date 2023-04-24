@@ -81,7 +81,7 @@
 		<div class="display-1 text-warning text-decoration-underline fst-italic text-center p-3 text-style">Découvrez nos activités</div>
 		 <div class="row text-center mx-2 ">
 		 {% for activity in activities %}
-		 	<div class="col-xxl-3 mx-auto  my-3 col-md-6">
+		 	<div class="col-xxl-4 mx-auto  my-3 col-md-6">
 					<a class="card"  >
 						<div class="front" style="background-image: url({{ asset ('uploads/' ~ activity.illustration) }}">
 						</div>
@@ -103,8 +103,11 @@
 					</a>						
 				</div>				
 			{% endfor %}
-			</div>		
+      <span class='d-flex flex-column align-items-center'> {{ knp_pagination_render(activities) }} </span>
+
+			</div>					
 		</div>
 	</div>
-</div>		
+</div>
+
 {% endblock %}	

@@ -35,6 +35,7 @@ class ActivitiesCrudController extends AbstractCrudController
             ->setEntityLabelInPlural('Cours collectifs')
             ->showEntityActionsInlined()
             ->renderContentMaximized()
+            ->setPaginatorPageSize(10)
             ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
             
         }

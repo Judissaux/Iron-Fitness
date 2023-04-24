@@ -35,6 +35,7 @@ class ArticleCrudController extends AbstractCrudController
         ->setEntityLabelInPlural('Articles')
         ->showEntityActionsInlined()
         ->renderContentMaximized()
+        ->setPaginatorPageSize(10)
         ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
         
     }

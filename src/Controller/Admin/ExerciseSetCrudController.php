@@ -7,11 +7,8 @@ namespace App\Controller\Admin;
 use App\Entity\ExerciseSet;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use Symfony\Bridge\Twig\Attribute\Template;
-use Symfony\Component\Routing\Annotation\Route;
 
 
 
