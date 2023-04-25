@@ -16,7 +16,6 @@ class CoachCrudController extends AbstractCrudController
     {
         return Coach::class;
     }
-
     
     public function configureActions(Actions $actions): Actions
     {
@@ -31,11 +30,9 @@ class CoachCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('un coach')
             ->setEntityLabelInPlural('Coachs')
             ->showEntityActionsInlined()
-            ->renderContentMaximized();
-            
+            ->renderContentMaximized();           
             
         }
-
     
     public function configureFields(string $pageName): iterable
     {
@@ -56,9 +53,6 @@ class CoachCrudController extends AbstractCrudController
 
         yield $imageField;
           
-
-       
-    }
-    
+    }    
 }
 

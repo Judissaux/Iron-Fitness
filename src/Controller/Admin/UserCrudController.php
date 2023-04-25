@@ -91,7 +91,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
             $hashedPassword = $this->passwordHasher->hashPassword($user, $plainPassword);
             
             $user->setPassword($hashedPassword);
-
            
             $dateNaissance = $user->getbirthdayDate();
             $now = new \DateTime();
@@ -102,11 +101,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
             parent::persistEntity($entityManager,$entityInstance);
     
         }  
-        
-       
-
-
-
         
     }
 

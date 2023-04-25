@@ -2,15 +2,11 @@
 
 namespace App\Controller\Admin;
 
-
-
 use App\Entity\ExerciseSet;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-
-
 
 class ExerciseSetCrudController extends AbstractCrudController
 {
@@ -49,5 +45,4 @@ class ExerciseSetCrudController extends AbstractCrudController
         ->setHelp('Distance en métres')
         ->addCssClass('text-center');           
     }
-
 }

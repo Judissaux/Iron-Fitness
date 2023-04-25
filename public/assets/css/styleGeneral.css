@@ -150,7 +150,7 @@ border: 1px solid rgba(255, 238, 13, 0.46);
   /* FOOTER */
 
  footer{
-    width: 100%;
+    width:100%;
  }
 
   #map { 
@@ -180,7 +180,9 @@ border: 1px solid rgba(255, 238, 13, 0.46);
 }
 
 
-.test{
+.prefooter{
+    margin: 0;
+    width: 100%;
     background: rgb(2,0,36);
     background: linear-gradient(280deg, rgba(2,0,36,1) 0%, rgba(212,181,1,1) 100%);
 }

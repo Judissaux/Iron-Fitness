@@ -39,7 +39,6 @@ class ProgramCrudController extends AbstractCrudController
             ->renderContentMaximized();
             
         }
-
     
     public function configureFields(string $pageName): iterable
     {
@@ -88,6 +87,5 @@ class ProgramCrudController extends AbstractCrudController
             $program->setModifiedBy($modifier);
 
             parent::updateEntity($entityManager, $entityInstance);
-        }
-    
+        }    
 }

@@ -17,8 +17,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
-
-
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin')]
@@ -77,7 +75,6 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::linkToCrud('Ajouter', 'fas fa-plus',Program::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),
             ]);
         }
-       
-        
+               
     }
 }

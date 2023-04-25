@@ -18,7 +18,9 @@ class HomeController extends AbstractController
 
     #[Route('/', name: 'app_home')]
     public function index(CoachRepository $coachRepo): Response
-    {           
+    {    
+        
+         
         return $this->render('home/index.html.twig', [
             'coachs' => $coachRepo->findAll()
         ]);

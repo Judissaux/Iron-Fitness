@@ -20,7 +20,6 @@ class ActivitiesCrudController extends AbstractCrudController
         return Activities::class;
     }
 
-
     public function configureActions(Actions $actions): Actions
     {
         return $actions
@@ -63,6 +62,5 @@ class ActivitiesCrudController extends AbstractCrudController
         yield IntegerField::new('calories','Calories');
         yield IntegerField::new('time','Temps');
        
-    }
-    
+    }    
 }

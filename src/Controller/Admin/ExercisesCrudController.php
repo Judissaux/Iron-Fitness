@@ -18,7 +18,6 @@ class ExercisesCrudController extends AbstractCrudController
     {
         return Exercises::class;
     }
-
     
     public function configureActions(Actions $actions): Actions
     {
@@ -36,9 +35,8 @@ class ExercisesCrudController extends AbstractCrudController
             ->renderContentMaximized()
             ->setPaginatorPageSize(10)
             ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
-            
+           
         }
-
     
     public function configureFields(string $pageName): iterable
     {
@@ -60,8 +58,8 @@ class ExercisesCrudController extends AbstractCrudController
 
         yield $imageField;
 
-        yield TextField::new('video','Lien vidéo');
+        yield TextField::new('video','Lien vidéo')
+        ->setHelp('Récupérer le code de fin d\'URL juste aprés le "v=" : Exemple "NPbVrgRBtBY"');
        
-    }
-    
+    }    
 }
