@@ -16,7 +16,7 @@ class MailerService
     $subject,    
     $adresseTemplate,
     $context): void    
-    {         
+    {       
 
         $email = (new TemplatedEmail())
             ->from($from)

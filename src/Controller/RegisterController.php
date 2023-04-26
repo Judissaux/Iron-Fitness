@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 
 use App\Form\RegisterFormType;
 use App\Service\MailerService;
@@ -29,23 +28,20 @@ class RegisterController extends AbstractController
                 $sexe = $contact->get('sexe')->getData(); 
                 // Ici on réalise une condition pour afficher 'monsieur' ou 'madame' en fonction du sexe sélectionné
                 ($sexe== 'M') ? $sexe='Monsieur' : $sexe='Madame';                     
-                $dateNaissance = $contact->get('dateNaissance')->getData();
                 // Ici on découpe le téléphone pour afficher un '-' tous les 2 caractéres                 
                 $telephone = wordwrap($contact->get('numTelephone')->getData(),2,'-',true);               
                 
                     $this->mailer->sendEmail(
                         $from = $contact->get('email')->getData(),
-                        $to = 'caswalcha@gmail.com',
-                        $subject = 'Nouvelle Inscription de ' . $nom .' '. $prenom,
-                        $adresseTemplate = 'emails/contactInscription.html.twig',
-                        $context = [
+                        $to = 'justin.dissaux@laposte.net',
+                        'Nouvelle Inscription de ' . $nom .' '. $prenom,
+                        'emails/contactInscription.html.twig',
+                        [
                             'mail' => $from,
                             'nom' => $nom,
                             'prenom' => $prenom,
                             'sexe' => $sexe,
-                            'dateNaissance' =>$dateNaissance, 
                             'telephone' => $telephone,
-                            'date' => new \DateTime()                   
                         ]
                     );
 
