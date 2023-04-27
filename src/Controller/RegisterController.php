@@ -34,12 +34,12 @@ class RegisterController extends AbstractController
                     $this->mailer->sendEmail(
                         $from = $contact->get('email')->getData(),
                         $to = 'justin.dissaux@laposte.net',
-                        'Nouvelle Inscription de ' . $nom .' '. $prenom,
+                        'Nouvelle Inscription de ' .ucfirst(strtolower($nom)) .' '. ucfirst(strtolower($prenom)),
                         'emails/contactInscription.html.twig',
                         [
                             'mail' => $from,
-                            'nom' => $nom,
-                            'prenom' => $prenom,
+                            'nom' => strtolower($nom),
+                            'prenom' => strtolower($prenom),
                             'sexe' => $sexe,
                             'telephone' => $telephone,
                         ]
