@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class ProgramCrudController extends AbstractCrudController
 {
@@ -52,6 +53,7 @@ class ProgramCrudController extends AbstractCrudController
            'Vendredi' => 'Vendredi',
            'Samedi' => 'Samedi',
        ]);
+       yield AssociationField::new('user', 'Adhérent/s');
        yield  DateTimeField::new('createdAt','Créé le')->hideOnForm();
        yield TextField::new('creator', 'Créateur du programme')->hideOnForm();      
        yield CollectionField::new('exercises','Exercices')->useEntryCrudForm(ExerciseSetCrudController::class);

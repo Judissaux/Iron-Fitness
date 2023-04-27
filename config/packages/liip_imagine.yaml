@@ -22,3 +22,9 @@ liip_imagine:
                 thumbnail:
                     size: [900,400]
                     mode: outbound
+        logo:
+            filters:
+                fixed:
+                    # set the fixed size to "120x90" pixels
+                    width: 120
+                    height: 90

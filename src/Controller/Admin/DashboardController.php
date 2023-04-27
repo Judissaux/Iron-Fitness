@@ -10,6 +10,7 @@ use App\Entity\Exercises;
 use App\Entity\Activities;
 use Symfony\Component\HttpFoundation\Response;
 use App\Controller\Admin\ProgramCrudController;
+use App\Entity\General;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -44,6 +45,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Retourner sur le site', 'fa fa-undo','app_home');
 
         if($this->isGranted('ROLE_ADMIN')){
+            yield MenuItem::subMenu('Informations générales', 'fas fa-user')->setSubItems([
+                MenuItem::linkToCrud('Information du site', 'fas fa-user-friends',General::class)->setQueryParameter('submenuIndex', 0),
+            ]);
+
             yield MenuItem::subMenu('Comptes', 'fas fa-user')->setSubItems([
                 MenuItem::linkToCrud('Tous les comptes', 'fas fa-user-friends',User::class)->setQueryParameter('submenuIndex', 0),
                 MenuItem::linkToCrud('Ajouter', 'fas fa-plus',User::class)->setQueryParameter('submenuIndex', 1)->setAction(Crud::PAGE_NEW),

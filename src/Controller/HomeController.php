@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\FreeSessionType;
 use App\Repository\CoachRepository;
+use App\Repository\GeneralRepository;
 use App\Service\MailerService;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +28,7 @@ class HomeController extends AbstractController
     }   
     
     #[Route('/traitement-formulaire-ajax', name: 'app_test')]
-    public function addNavBar(Request $request){
+    public function addNavBar(Request $request,GeneralRepository $general){
 
         $form = $this->createForm(FreeSessionType::class);
         $contact = $form->handleRequest($request);   
@@ -69,7 +70,8 @@ class HomeController extends AbstractController
         
                 
         return $this->render('_partials/_navbar.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'general' => $general->findAll()
         ]);
 
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -43,6 +45,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $age = null;
 
+    #[ORM\ManyToMany(targetEntity: Program::class, mappedBy: 'user')]
+    private Collection $programs;
+
+    public function __construct()
+    {
+        $this->programs = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->firstname ." " . $this->lastname;
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -169,6 +183,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAge(int $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Program>
+     */
+    public function getPrograms(): Collection
+    {
+        return $this->programs;
+    }
+
+    public function addProgram(Program $program): self
+    {
+        if (!$this->programs->contains($program)) {
+            $this->programs->add($program);
+            $program->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgram(Program $program): self
+    {
+        if ($this->programs->removeElement($program)) {
+            $program->removeUser($this);
+        }
 
         return $this;
     }

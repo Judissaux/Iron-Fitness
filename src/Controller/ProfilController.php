@@ -18,9 +18,9 @@ class ProfilController extends AbstractController
     #[Route('/profil', name: 'app_profil')]
     public function index(ProgramRepository $programRepo, ExercisesRepository $exercisesRepo): Response
     {   
-        
-        $programmes = $programRepo->findAll();
-        
+        /** @var User $programmes */
+        $programmes = $this->getUser()->getPrograms()->getValues();
+               
         $programme = [];
         foreach($programmes as $infos){
             $programme  [] = [

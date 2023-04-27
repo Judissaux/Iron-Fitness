@@ -39,9 +39,13 @@ class Program implements TimestampedInterface
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $modifiedBy = null;
 
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'programs')]
+    private Collection $user;
+
     public function __construct()
     {
         $this->exercises = new ArrayCollection();
+        $this->user = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -147,6 +151,30 @@ class Program implements TimestampedInterface
     public function setModifiedBy(?string $modifiedBy): self
     {
         $this->modifiedBy = $modifiedBy;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUser(): Collection
+    {
+        return $this->user;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->user->contains($user)) {
+            $this->user->add($user);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        $this->user->removeElement($user);
 
         return $this;
     }
