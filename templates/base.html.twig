@@ -33,8 +33,7 @@
 		{{ render (controller('App\\Controller\\HomeController::addNavBar', {form : 'form' })) }}
 		
 		{% block body %}{% endblock %}	
-			
-		{% include "_partials/_footer.html.twig" %}	
+		{{ render (controller('App\\Controller\\HomeController::forFooter')) }}
 		
 		{# Importation du datePicker Seance gratuite , de l'extension fr et du plugin minMax pour gestion horaire	 #}
 		<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>	

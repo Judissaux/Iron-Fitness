@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ChangePasswordType;
-use App\Repository\ProgramRepository;
 use App\Repository\ExercisesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,16 +15,17 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'app_profil')]
-    public function index(ProgramRepository $programRepo, ExercisesRepository $exercisesRepo): Response
+    public function index( ExercisesRepository $exercisesRepo): Response
     {   
-        /** @var User $programmes */
-        $programmes = $this->getUser()->getPrograms()->getValues();
+        /** @var User $user */
+        $user = $this->getUser();
+
+        $programmes = $user->getPrograms()->getValues();
                
         $programme = [];
         foreach($programmes as $infos){
-            $programme  [] = [
-                'name' => $infos->getName(),
-                'day' => $infos->getDay(),
+            $programme  [] = [ 
+                'name' =>$infos->getName(),               
                 'exercices' => $infos->getExercises()->getValues()
             ];
         }

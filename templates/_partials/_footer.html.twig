@@ -5,13 +5,12 @@
       <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d755.6596133984532!2d2.7897528594972165!3d50.42757946078005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47dd309d4e522daf%3A0x75a81040f3493519!2sL&#39;Orange%20bleue%20-%20Salle%20de%20sport!5e0!3m2!1sfr!2sfr!4v1681905184700!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="col-md-6 text-center">
-      <h1 class='text-style text-warning'>Iron Fitness</h1>
+      <h1 class='text-style text-warning'>{{general[0].nameSite}}</h1>
       <h5 class='text-white'>Rue de la Convention <br>
         62800 Liévin</h5>
-      <p class='text-white' > Téléphone  :  <a class='btn btn-outline-warning ms-2' href="tel:+09 52 74 66 18">09 52 74 66 18</a></p>        
-      <a href="https://www.facebook.com/oblievin/?locale=fr_FR"> <img src="{{asset ('assets/img/facebook.png')}}" alt="Icone facebook" width='25'> </a>
-      <a> <img src="{{asset ('assets/img/instagram.png')}}" alt="Icone Instagram" width='25'  class='ms-2'> </a> 
-      <a> <img src="{{asset ('assets/img/twitter.png')}}" alt="Icone Twitter" width='25'  class='ms-2'> </a>        
+      <p class='text-white' > Téléphone  :  <a class='btn btn-outline-warning ms-2' href="tel:+09 52 74 66 18">{{general[0].phoneNumber}}</a></p>        
+      <a href="{{general[0].linkFacebook}}"> <img src="{{asset ('assets/img/facebook.png')}}" alt="Icone facebook" width='25'> </a>
+      <a href="{{general[0].linkInstagram}}"> <img src="{{asset ('assets/img/instagram.png')}}" alt="Icone Instagram" width='25'  class='ms-2'> </a> 
     </div>
   </div> 
 

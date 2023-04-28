@@ -8,19 +8,19 @@
 {% block body %}
 <div class='bgImgRegister'  style='background-image: url({{ asset ('assets/img/bgRegister.jpg' ) | imagine_filter('welcome') }})' > 
 <div class="container text-center text-family test ">
-    <div class='display-1 text-warning text-style' >S'inscrire chez Iron Fitness</div>
+    <div class='display-1 text-warning text-style' >S'inscrire chez {{general[0].nameSite}}</div>
 </div>
 
 <div class="container-fluid">
 <div class="row">
-    <div class="col-md-6 d-flex flex-column align-items-center mb-3">
+    <div class="col-md-6 d-flex flex-column align-items-center mb-2">
         <div class='text-center text-decoration-underline text-family text-warning display-5 mb-4'>Rappel de votre futur abonnement </div>
-            <div class="pricingTable col-md-6">
+            <div class="pricingTable col-md-6 mt-4">
                 <div class="pricingTable-header">
                     <i class="fa fa-adjust"></i>
-                    <div class="price-value"> €21.90 <span class="month fs-5 ">/mois</span> </div>
+                    <div class="price-value"> {{(general[0].price /100) | number_format(2, ',','.')}}€ /mois <p class='text-muted fs-5'>  pour une souscription d'un an </p> </div>
                 </div>
-                <h3 class="heading">Iron Enjoy</h3>
+                <h3 class="heading"></h3>
                 <div class="pricing-content text-center">
                 <div class="transition"></div>
                     <ul>
@@ -55,7 +55,7 @@
                  
         </div>
     </div>
-    <button class="btn btn-outline-light my-5 col-md-10 mx-auto   fs-2 text-warning text-style" type="submit">Rejoindre l'aventure Iron FITNESS</button> 
+    <button class="btn btn-outline-light my-5 col-md-10 mx-auto   fs-2 text-warning text-style" type="submit">Rejoindre l'aventure {{general[0].nameSite}} </button> 
    {{ form_rest(registerForm) }}
    {{ form_end(registerForm) }}  
   </div>

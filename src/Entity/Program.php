@@ -18,14 +18,8 @@ class Program implements TimestampedInterface
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
-
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: ExerciseSet::class, cascade : ['persist','remove'])]
     private Collection $exercises;
-
-    #[ORM\Column(length: 20, nullable: true)]
-    private ?string $day = null;
 
     #[ORM\Column(length: 50)]
     private ?string $creator = null;
@@ -39,13 +33,17 @@ class Program implements TimestampedInterface
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $modifiedBy = null;
 
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'programs')]
-    private Collection $user;
+    #[ORM\ManyToOne(inversedBy: 'programs')]
+    private ?User $user = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
+    
 
     public function __construct()
     {
         $this->exercises = new ArrayCollection();
-        $this->user = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -53,17 +51,6 @@ class Program implements TimestampedInterface
         return $this->id;
     }
 
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, ExerciseSet>
@@ -95,17 +82,7 @@ class Program implements TimestampedInterface
         return $this;
     }
 
-    public function getDay(): ?string
-    {
-        return $this->day;
-    }
-
-    public function setDay(?string $day): self
-    {
-        $this->day = $day;
-
-        return $this;
-    }
+    
 
     public function getCreator(): ?string
     {
@@ -155,27 +132,29 @@ class Program implements TimestampedInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, User>
-     */
-    public function getUser(): Collection
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function addUser(User $user): self
+    public function setUser(?User $user): self
     {
-        if (!$this->user->contains($user)) {
-            $this->user->add($user);
-        }
+        $this->user = $user;
 
         return $this;
     }
 
-    public function removeUser(User $user): self
+    public function getName(): ?string
     {
-        $this->user->removeElement($user);
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
 
         return $this;
     }
+
+    
 }

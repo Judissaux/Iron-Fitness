@@ -45,9 +45,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Retourner sur le site', 'fa fa-undo','app_home');
 
         if($this->isGranted('ROLE_ADMIN')){
-            yield MenuItem::subMenu('Informations générales', 'fas fa-user')->setSubItems([
-                MenuItem::linkToCrud('Information du site', 'fas fa-user-friends',General::class)->setQueryParameter('submenuIndex', 0),
-            ]);
+            yield MenuItem::linkToCrud('Informations du site', 'fas fa-gear',General::class);               
 
             yield MenuItem::subMenu('Comptes', 'fas fa-user')->setSubItems([
                 MenuItem::linkToCrud('Tous les comptes', 'fas fa-user-friends',User::class)->setQueryParameter('submenuIndex', 0),

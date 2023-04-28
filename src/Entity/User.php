@@ -15,7 +15,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
+    #[ORM\Column]   
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
@@ -45,14 +45,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $age = null;
 
-    #[ORM\ManyToMany(targetEntity: Program::class, mappedBy: 'user')]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Program::class , cascade : ['remove'])]
     private Collection $programs;
 
     public function __construct()
     {
         $this->programs = new ArrayCollection();
     }
+   
 
+  
     public function __toString()
     {
         return $this->firstname ." " . $this->lastname;
@@ -199,7 +201,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->programs->contains($program)) {
             $this->programs->add($program);
-            $program->addUser($this);
+            $program->setUser($this);
         }
 
         return $this;
@@ -208,9 +210,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeProgram(Program $program): self
     {
         if ($this->programs->removeElement($program)) {
-            $program->removeUser($this);
+            // set the owning side to null (unless already changed)
+            if ($program->getUser() === $this) {
+                $program->setUser(null);
+            }
         }
 
         return $this;
-    }
+    }   
+
+   
 }

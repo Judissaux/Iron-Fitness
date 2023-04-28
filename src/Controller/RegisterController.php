@@ -4,6 +4,7 @@ namespace App\Controller;
 
 
 use App\Form\RegisterFormType;
+use App\Repository\GeneralRepository;
 use App\Service\MailerService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ class RegisterController extends AbstractController
     public function __construct(private MailerService $mailer){}
 
     #[Route('/inscription' , name: 'app_register')]
-    public function index(Request $request): Response
+    public function index(Request $request,GeneralRepository $generalRepo): Response
     {
         $form = $this->createForm(RegisterFormType::class);
 
@@ -51,7 +52,8 @@ class RegisterController extends AbstractController
             }
 
         return $this->render('autresPages/register.html.twig', [
-            'registerForm' => $form->createView()
+            'registerForm' => $form->createView(),
+            'general' => $generalRepo->findAll()
         ]);
     }
 }

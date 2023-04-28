@@ -9,7 +9,7 @@
 
 	<div class="container-fluid">	
 		<div class="row wrapped accueil">
-		<span class='text-accueil'>Iron Fitness</span>
+		<span class='text-accueil'>{{general[0].nameSite}}</span>
 		{% include "_partials/_flash.html.twig" %}
 			<video autoplay="autoplay" loop="loop" muted="muted" playsinline >
 				<source src={{asset ('assets/video/iron-accueil.mp4')}} type='video/mp4'>				
@@ -20,10 +20,13 @@
 	<div class="transition my-2"></div>
 		<div class="defile ">
 			<span class="txt text-style">
-				Cardio-training - Cours Collectifs - Programme personnalisé - Musculation - Abdos-fessiers  - Boxe - Pilates -  &nbsp;
+				{{general[0].scrollingMessage}}  &nbsp;
 			</span>
 			<span class="txt text-style">
-				Cardio-training - Cours Collectifs - Programme personnalisé - Musculation - Abdos-fessiers  - Boxe - Pilates - &nbsp;
+				{{general[0].scrollingMessage}} &nbsp;
+			</span>
+			<span class="txt text-style">
+				{{general[0].scrollingMessage}} &nbsp;
 			</span>
 		</div>
 	<div class="transition my-2"></div>
@@ -32,7 +35,7 @@
 			
 			Notre salle situé à <b class='text-decoration-underline fs-5 fst-italic' > Liévin </b> est fière de vous accueillir <i class='fs-5'> 7 jours sur 7, de 6h à 23h,</i> avec une équipe de coachs diplômés d'état, dédiée à vous accompagner tout au long de vos activités de remise en forme. Que vous soyez <b class='text-warning' >débutant</b>  ou <b  class='text-warning' > vrai athlète </b> , notre salle de sport santé est adaptée à <u>tous les âges </u>  pour que vous puissiez pratiquer dans les meilleures conditions </p>
 			<hr class="border border-warning border-2 opacity-50">
-		<p class='mt-2 '>La salle de musculation <span class='text-style' > Iron Fitness </span> est un centre de fitness et de musculation situé dans un <u>grand bâtiment moderne </u>  équipé d'une grande variété d'appareils de musculation et de cardio-training. La salle de musculation propose également des <b>cours de groupe</b> , des
+		<p class='mt-2 '> La salle de musculation <span class='text-style' > {{general[0].nameSite}} </span> est un centre de fitness et de musculation situé dans un <u>grand bâtiment moderne </u>  équipé d'une grande variété d'appareils de musculation et de cardio-training. La salle de musculation propose également des <b>cours de groupe</b> , des
 		<b> programmes de formation personnalisés </b>  et <b> des services de coaching </b>  pour aider les clients à atteindre leurs objectifs de remise en forme.</p>	
 	</div>
 
@@ -59,7 +62,7 @@
 				<div class="display-6 text-warning fst-italic text-decoration-underline mb-2 text-style ">Cours collectifs</div>
 				<div class="position-relative">	
 				<img src="{{asset ('assets/img/bgCoursCollectifs.jpg') | imagine_filter('miniature')}}" alt="Cours collectifs" class=" img-fluid img-activite">
-				<p class='description text-white '>Iron Fitness propose des cours collectifs pour tous les niveaux de condition physique, tels que cardio, renforcement musculaire, danse et yoga. Les cours sont amusants, motivants et efficaces, enseignés par des instructeurs qualifiés, et encouragent les participants à travailler ensemble pour atteindre leurs objectifs de fitness.</p>
+				<p class='description text-white '> {{general[0].nameSite}} propose des cours collectifs pour tous les niveaux de condition physique, tels que cardio, renforcement musculaire, danse et yoga. Les cours sont amusants, motivants et efficaces, enseignés par des instructeurs qualifiés, et encouragent les participants à travailler ensemble pour atteindre leurs objectifs de fitness.</p>
 				</div>
 			</div>
 		</div>
@@ -74,7 +77,7 @@
 
 <div class="container ">
 	<div class="row text-center reveal ">
-		<div class="heading-title  text-warning  text-style display-1 text-uppercase reveal-1">Notre équipes</div>
+		<div class="heading-title  text-warning  text-style display-1 text-uppercase reveal-1">Notre équipe</div>
 		<div class="coaching reveal-1">
 		<p>Notre équipe de <strong class='text-warning'> coachs diplômés d'Etat </strong>  et professionnels expérimentés est <b> compétente </b>  pour vous aider à atteindre vos objectifs de remise en forme. Nous sommes <b><i>passionnés par notre métier et déterminés à vous aider à atteindre votre potentiel maximal.</i></b></p> <p class='text-style'>  Rejoignez-nous pour une remise en forme réussie !</p>
 		
@@ -111,12 +114,13 @@
                     <div class="pricingTable">
 						<div class="pricingTable-header">
 							<span class="heading text-style">
-								Iron Fitness 
+								{{general[0].nameSite}} 
 							</span>
 						</div>
 						<div class="pricing-plans">
-							<span class="price-value"><span>24.90€ / mois</span></span>
-							<span class="subtitle">30€ de frais d'inscription </span>
+							<span class="price-value">{{(general[0].price /100) | number_format(2, ',','.')}}€ / mois</span>
+							<span class="subtitle">pour une souscription d'un an. </span>
+							<span class="subtitle">{{(general[0].entrance /100) | number_format(0, ',','.')}}€ de frais d'inscription </span>
 						</div>
 						<div class="pricingContent">
 							<ul>

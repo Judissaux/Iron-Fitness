@@ -35,6 +35,12 @@ class General implements IllustrationInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $planning = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $linkFacebook = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $linkInstagram = null;
+
 
     public function getId(): ?int
     {
@@ -121,6 +127,30 @@ class General implements IllustrationInterface
     public function setPlanning(?string $planning): self
     {
         $this->planning = $planning;
+
+        return $this;
+    }
+
+    public function getLinkFacebook(): ?string
+    {
+        return $this->linkFacebook;
+    }
+
+    public function setLinkFacebook(?string $linkFacebook): self
+    {
+        $this->linkFacebook = $linkFacebook;
+
+        return $this;
+    }
+
+    public function getLinkInstagram(): ?string
+    {
+        return $this->linkInstagram;
+    }
+
+    public function setLinkInstagram(?string $linkInstagram): self
+    {
+        $this->linkInstagram = $linkInstagram;
 
         return $this;
     }

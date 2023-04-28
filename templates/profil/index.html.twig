@@ -73,8 +73,8 @@
 				<div class="accordion-item mt-2 mb-3">
 					<h2 class="accordion-header mx-auto">
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapses{{key}}" aria-expanded="false" aria-controls="collapses{{key}}">
-						<span class="text-decoration-underline">	Programme</span> : 
-							<span class='fs-5  fw-2 mx-3'> {{programme.name |capitalize }}  </span> <span class='fs-5 text-warning fw-3'> ({{programme.day}}) </span></button>
+						<span class="text-decoration-underline">	Programme</span> : <span> &nbsp; {{programme.name}} </span>
+							<span class='fs-5  fw-2 mx-3'>   </span> <span class='fs-5 text-warning fw-3'>  </span></button>
 					</h2>
 					<div id="collapses{{key}}" class="accordion-collapse collapse " data-bs-parent="#accordion">
 						<div class="accordion-body">
@@ -89,6 +89,18 @@
 													{{exo}}
 												</h4>
 												<h6 class="card-subtitle text-warning text-style fs-2">{{exercice.exercise.name}}</h6>
+												<span class='fs-4 mt-2'> -
+												{% if exercice.days | length > 1 %}
+													{% for day in exercice.days %}
+														 {{day}} - <span>
+													{% endfor %}
+													 
+												{% else %}
+													{% for day in exercice.days %}
+														<span class='fs-4 mt-2'> {{day}} -  <span>
+													{% endfor %}
+												{% endif %}
+												
 											</div>
 											<img class="card-img-top img-fluid" src="{{ asset ('uploads/' ~ exercice.exercise.illustration) | imagine_filter('miniature') }}" alt="{{exercice.exercise.name}}">
 											<ul class="list-group list-group-flush">

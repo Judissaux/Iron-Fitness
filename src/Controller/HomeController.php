@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+
 use App\Form\FreeSessionType;
+use App\Service\MailerService;
 use App\Repository\CoachRepository;
 use App\Repository\GeneralRepository;
-use App\Service\MailerService;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,17 +14,20 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+
 class HomeController extends AbstractController
 {   
-    public function __construct(private MailerService $mailer){}
+
+    
+    public function __construct(private MailerService $mailer, private GeneralRepository $generalRepo){}
 
     #[Route('/', name: 'app_home')]
     public function index(CoachRepository $coachRepo): Response
     {    
         
-         
         return $this->render('home/index.html.twig', [
-            'coachs' => $coachRepo->findAll()
+            'coachs' => $coachRepo->findAll(),
+            'general' => $this->generalRepo->findAll()
         ]);
     }   
     
@@ -68,10 +72,10 @@ class HomeController extends AbstractController
                 return new JsonResponse($this->getErrorsMessages($form), 400);
             }      
         
-                
+                 
         return $this->render('_partials/_navbar.html.twig', [
             'form' => $form->createView(),
-            'general' => $general->findAll()
+            'general' => $this->generalRepo->findAll()            
         ]);
 
     }
@@ -100,5 +104,11 @@ class HomeController extends AbstractController
             }            
         }        
         return $errors;
+    }
+    
+    public function forFooter(){
+        return $this->render('_partials/_footer.html.twig',[
+            'general' => $this->generalRepo->findAll()
+        ]);
     }
 }

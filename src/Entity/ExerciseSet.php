@@ -31,6 +31,9 @@ class ExerciseSet
     #[ORM\ManyToOne(inversedBy: 'exercises')]
     private ?Program $program = null;
 
+    #[ORM\Column]
+    private ?array $days = [];
+
     public function __toString()
     {
         return $this->exercise;
@@ -108,6 +111,18 @@ class ExerciseSet
     public function setProgram(?Program $program): self
     {
         $this->program = $program;
+
+        return $this;
+    }
+
+    public function getDays(): ?array
+    {
+        return $this->days;
+    }
+
+    public function setDays(array $days): self
+    {
+        $this->days = $days;
 
         return $this;
     }

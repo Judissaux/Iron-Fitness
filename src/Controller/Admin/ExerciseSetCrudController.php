@@ -4,9 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Entity\ExerciseSet;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use Symfony\Component\Validator\Constraints\Choice;
 
 class ExerciseSetCrudController extends AbstractCrudController
 {
@@ -23,8 +27,23 @@ class ExerciseSetCrudController extends AbstractCrudController
         ->renderContentMaximized();       
     }
 
+   
+    
     public function configureFields(string $pageName): iterable
-    {
+    {   
+        yield ChoiceField::new('days', 'Jour')
+        ->allowMultipleChoices()
+        ->setChoices([
+            'Lundi' => 'Lundi',
+            'Mardi' => 'Mardi',
+            'Mercredi' => 'Mercredi',
+            'Jeudi' => 'Jeudi',
+            'Vendredi' => 'Vendredi',
+            'Samedi' => 'Samedi'
+        ])
+        ->setColumns(12)
+        ->addCssClass('text-center');  
+
         yield AssociationField::new('exercise',"Exercice")->setColumns(12)->addCssClass('text-center'); 
 
         yield IntegerField::new('repetition','Nombre de répétition: ')        
