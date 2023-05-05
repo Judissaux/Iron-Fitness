@@ -51,7 +51,7 @@ class ProgramCrudController extends AbstractCrudController
 
        yield TextField::new('creator', 'Créateur du programme')->hideOnForm(); 
 
-       yield CollectionField::new('exercises','Exercices')->useEntryCrudForm(ExerciseSetCrudController::class);
+       yield CollectionField::new('exercises','Exercices')->useEntryCrudForm(ExerciseSetCrudController::class)->hideOnIndex();
        
        yield  DateTimeField::new('updatedAt','Mis à jour le')->hideOnForm(); 
 

@@ -23,12 +23,10 @@
                 <h3 class="heading"></h3>
                 <div class="pricing-content text-center">
                 <div class="transition"></div>
-                    <ul>
-                    
+                    <ul>                    
                         <li><b>Horaire étendus</b> <br> 6h/23h 7j/7</li>
                         <li><b>Coaching</b> <br> Programme personnalisé offert</li>
-                        <li><b>Cours collectif</b> <br> Accés à l'ensemble des cours en illimité</li>    
-                                     
+                        <li><b>Cours collectif</b> <br> Accés à l'ensemble des cours en illimité</li>                                     
                     </ul>                    
                 </div>
             </div>          
@@ -45,17 +43,20 @@
         {{ form_widget(registerForm.sexe)}}    
         </div> <br>
 
-        {{ form_row(registerForm.nom) }}
-        {{ form_row(registerForm.prenom) }}
-        {{ form_row(registerForm.dateNaissance) }}        
+        {{ form_row(registerForm.lastname) }}
+        {{ form_row(registerForm.firstname) }}
+        {{ form_row(registerForm.birthdayDate) }}        
         {{ form_row(registerForm.email) }}
-        {{ form_row(registerForm.numTelephone) }}    
-          
+        {{ form_row(registerForm.phoneNumber) }} 
         
-                 
+        {{ form_row(registerForm.acceptCgu) }}   
+          
+                         
         </div>
     </div>
-    <button class="btn btn-outline-light my-5 col-md-10 mx-auto   fs-2 text-warning text-style" type="submit">Rejoindre l'aventure {{general[0].nameSite}} </button> 
+    
+    <button class="btn btn-outline-light my-5 col-md-10 mx-auto   fs-2 text-warning text-style" type='submit' >Rejoindre l'aventure {{general[0].nameSite}} </button> 
+      
    {{ form_rest(registerForm) }}
    {{ form_end(registerForm) }}  
   </div>

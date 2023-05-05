@@ -5,15 +5,16 @@ namespace App\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\LessThan;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
-use Symfony\Component\Validator\Constraints\GreaterThan;
-use Symfony\Component\Validator\Constraints\Length;
-use Symfony\Component\Validator\Constraints\LessThan;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class RegisterFormType extends AbstractType
 {
@@ -34,17 +35,17 @@ class RegisterFormType extends AbstractType
                 'constraints' => new NotBlank()
             ])
 
-            ->add('nom', TextType::class,
+            ->add('lastname', TextType::class,
                  ['label' => 'Nom: ',
                   'constraints' => new NotBlank()
                  ])
 
-            ->add('prenom', TextType::class,
+            ->add('firstname', TextType::class,
                  ['label' => 'Prénom: ',
                   'constraints' => new NotBlank()
                  ])
             
-            ->add('dateNaissance', BirthdayType::class , [
+            ->add('birthdayDate', BirthdayType::class , [
                 'label' => 'Date de naissance: ',                
                 'widget' => 'single_text',
                 'constraints' =>[
@@ -66,7 +67,7 @@ class RegisterFormType extends AbstractType
                 ]                       
             ])
             
-            ->add('numTelephone', TelType::class, [
+            ->add('phoneNumber', TelType::class, [
                 'label' => 'Numéro de téléphone: ',
                 'constraints' => [
                     new NotBlank(),
@@ -77,6 +78,13 @@ class RegisterFormType extends AbstractType
                 ],
                 'attr' => [
                     'maxlength' => 10 ]
+                ])
+
+            ->add('acceptCgu', CheckboxType::class, [
+                'label' => 'J\'accepte les <a href="/cgu"> conditions générales d\'utilisation </a> et j\'autorise l`\'éditeur du site à collecter et traiter  mes données personnelles conformément à la politique de protection de données personnelles',
+                'label_html' => true,
+                    'required' => true,
+                    'constraints' => new NotBlank(message: "Pour continuer, vous devez cocher cette case.")
                 ]);
         
     }

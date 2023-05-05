@@ -82,8 +82,6 @@ class Program implements TimestampedInterface
         return $this;
     }
 
-    
-
     public function getCreator(): ?string
     {
         return $this->creator;

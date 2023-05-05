@@ -28,7 +28,7 @@
                             <div class="blog-img">
                                 <div class="date">{{ article.createdAt|format_datetime('medium', 'none', locale='fr') }}</div>
                                 <a href="#">
-                                    <img src="{{ asset ('uploads/' ~ article.illustration) | imagine_filter('miniature') }}"  alt="{{article.title}}" class='img-fluid'>
+                                    <img src="{{ asset ('uploads/' ~ article.illustration) | imagine_filter('miniature') }}"  alt="{{article.title}}" class='h-100'>
                                 </a>
                             </div>
                             <div class="blog-info text-center">

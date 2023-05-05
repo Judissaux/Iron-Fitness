@@ -2,18 +2,20 @@
 
 namespace App\Form;
 
-use Symfony\Component\Form\AbstractType;
 use App\Validator\SundayConstraint;
 use App\Validator\TimeSlotConstraint;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\LessThan;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class FreeSessionType extends AbstractType
@@ -73,6 +75,7 @@ class FreeSessionType extends AbstractType
                   'widget' => 'single_text',                                   
                   'constraints' => [
                     new GreaterThan('now', message: 'La date ne peux pas être inférieur à la date du jour'),
+                    new LessThan('+ 14 days', message: 'La date ne peux pas être supérieur à 14 jour à partir de la date du jour'),
                     new SundayConstraint(),
                     new TimeSlotConstraint(),
                   ],
@@ -82,7 +85,13 @@ class FreeSessionType extends AbstractType
                 'placeholder' => "Selectionner une date"],                                 
                 ])
                 
-            );
+            )
+            ->add('acceptCgu', CheckboxType::class, [
+                'label' => 'J\'accepte les <a href="/cgu"> conditions générales d\'utilisation  </a> et j\'autorise l`\'éditeur du site à collecter et traiter  mes données personnelles conformément à la politique de protection de données personnelles',
+                'label_html' => true,
+                'required' => true,
+                'constraints' => new NotBlank(message: "Pour continuer, vous devez cocher cette case.")
+            ]);
     }
 
     

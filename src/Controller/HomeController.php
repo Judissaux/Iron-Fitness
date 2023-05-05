@@ -17,7 +17,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {   
-
     
     public function __construct(private MailerService $mailer, private GeneralRepository $generalRepo){}
 
@@ -32,7 +31,7 @@ class HomeController extends AbstractController
     }   
     
     #[Route('/traitement-formulaire-ajax', name: 'app_test')]
-    public function addNavBar(Request $request,GeneralRepository $general){
+    public function addNavBar(Request $request){
 
         $form = $this->createForm(FreeSessionType::class);
         $contact = $form->handleRequest($request);   
@@ -107,6 +106,7 @@ class HomeController extends AbstractController
     }
     
     public function forFooter(){
+        
         return $this->render('_partials/_footer.html.twig',[
             'general' => $this->generalRepo->findAll()
         ]);
