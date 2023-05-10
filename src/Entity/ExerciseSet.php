@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ExerciseSetRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ExerciseSetRepository::class)]
@@ -31,12 +33,12 @@ class ExerciseSet
     #[ORM\ManyToOne(inversedBy: 'exercises')]
     private ?Program $program = null;
 
-    #[ORM\Column]
-    private ?array $days = [];
+    #[ORM\Column(length: 50)]
+    private ?string $day = null;
 
     public function __toString()
     {
-        return $this->exercise;
+        return $this->exercise . ' ( ' .  $this->day  .' )';
     }
     public function getId(): ?int
     {
@@ -115,15 +117,18 @@ class ExerciseSet
         return $this;
     }
 
-    public function getDays(): ?array
+    public function getDay(): ?string
     {
-        return $this->days;
+        return $this->day;
     }
 
-    public function setDays(array $days): self
+    public function setDay(string $day): self
     {
-        $this->days = $days;
+        $this->day = $day;
 
         return $this;
     }
-}
+
+   
+
+   }

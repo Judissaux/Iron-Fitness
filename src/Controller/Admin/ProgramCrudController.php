@@ -8,15 +8,22 @@ use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use App\Controller\Admin\ExerciseSetCrudController;
+use App\Entity\Exercises;
+use App\Entity\ExerciseSet;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Component\Serializer\SerializerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class ProgramCrudController extends AbstractCrudController
-{
+{   
+    public function __construct(private SerializerInterface $serializer)
+    {
+        
+    }
     public static function getEntityFqcn(): string
     {
         return Program::class;
@@ -33,7 +40,7 @@ class ProgramCrudController extends AbstractCrudController
             return $crud
 
             ->setEntityLabelInSingular('un programme')
-            ->setEntityLabelInPlural('Programmes')
+            ->setEntityLabelInPlural('Programmes')            
             ->showEntityActionsInlined()
             ->setPaginatorPageSize(15)
             ->renderContentMaximized();
@@ -65,14 +72,29 @@ class ProgramCrudController extends AbstractCrudController
             $user  = $this->getUser();
            
             $program = $entityInstance;
-                                               
+                                                  
             $creator = $user->getFirstname();
 
-            $program->setCreator($creator);          
-                    
-            parent::persistEntity($entityManager,$entityInstance);
+            $program->setCreator($creator);  
+            
+            
+            $exercises = $program->getExercises()->getValues();
+           
+        // Trier les exercices par ordre des jours de la semaine
+            usort($exercises, function ($exercise1, $exercise2) {
+            return $exercise1->getDay() <=> $exercise2->getDay();
+            });
+           
+            foreach ($exercises as $exercise) {
+                 $program->addExercise($exercise);
+            }
+          
+        // Associer les exercices triés à l'exerciseSet
+              
+        parent::persistEntity($entityManager,$entityInstance);
     
         }  
+        
 
         // Permet de mettre en place des informations avant la mise en BDD lors de la modification d'une entité
         public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void

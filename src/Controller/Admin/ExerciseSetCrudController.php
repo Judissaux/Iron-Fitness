@@ -31,15 +31,15 @@ class ExerciseSetCrudController extends AbstractCrudController
     
     public function configureFields(string $pageName): iterable
     {   
-        yield ChoiceField::new('days', 'Jour')
-        ->allowMultipleChoices()
+        yield ChoiceField::new('day', 'Jour')
+        
         ->setChoices([
-            'Lundi' => 'Lundi',
-            'Mardi' => 'Mardi',
-            'Mercredi' => 'Mercredi',
-            'Jeudi' => 'Jeudi',
-            'Vendredi' => 'Vendredi',
-            'Samedi' => 'Samedi'
+            'Lundi' => '1 : Lundi',
+            'Mardi' => '2 : Mardi',
+            'Mercredi' => '3 : Mercredi',
+            'Jeudi' => '4: Jeudi',
+            'Vendredi' => '5: Vendredi',
+            'Samedi' => '6: Samedi'
         ])
         ->setColumns(12)
         ->addCssClass('text-center');  
