@@ -4,13 +4,10 @@ namespace App\Controller\Admin;
 
 use App\Entity\ExerciseSet;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use Symfony\Component\Validator\Constraints\Choice;
 
 class ExerciseSetCrudController extends AbstractCrudController
 {
@@ -24,6 +21,7 @@ class ExerciseSetCrudController extends AbstractCrudController
         return $crud
         
         ->showEntityActionsInlined()
+        
         ->renderContentMaximized();       
     }
 
@@ -34,12 +32,12 @@ class ExerciseSetCrudController extends AbstractCrudController
         yield ChoiceField::new('day', 'Jour')
         
         ->setChoices([
-            'Lundi' => '1 : Lundi',
-            'Mardi' => '2 : Mardi',
-            'Mercredi' => '3 : Mercredi',
-            'Jeudi' => '4: Jeudi',
-            'Vendredi' => '5: Vendredi',
-            'Samedi' => '6: Samedi'
+            'Lundi' => 'Lundi',
+            'Mardi' => 'Mardi',
+            'Mercredi' => 'Mercredi',
+            'Jeudi' => 'Jeudi',
+            'Vendredi' => 'Vendredi',
+            'Samedi' => 'Samedi'
         ])
         ->setColumns(12)
         ->addCssClass('text-center');  
@@ -64,4 +62,5 @@ class ExerciseSetCrudController extends AbstractCrudController
         ->setHelp('Distance en métres')
         ->addCssClass('text-center');           
     }
+
 }

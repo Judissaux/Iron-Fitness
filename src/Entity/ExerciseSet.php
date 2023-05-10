@@ -2,10 +2,8 @@
 
 namespace App\Entity;
 
-use App\Repository\ExerciseSetRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ExerciseSetRepository;
 
 #[ORM\Entity(repositoryClass: ExerciseSetRepository::class)]
 class ExerciseSet 
@@ -14,7 +12,6 @@ class ExerciseSet
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
     #[ORM\ManyToOne(inversedBy: 'exerciseSets')]
     private ?Exercises $exercise = null;
 
@@ -38,8 +35,9 @@ class ExerciseSet
 
     public function __toString()
     {
-        return $this->exercise . ' ( ' .  $this->day  .' )';
+      return $this->exercise . '( ' . $this->day . ' )';
     }
+
     public function getId(): ?int
     {
         return $this->id;

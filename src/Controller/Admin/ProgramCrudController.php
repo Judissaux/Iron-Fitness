@@ -8,8 +8,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use App\Controller\Admin\ExerciseSetCrudController;
-use App\Entity\Exercises;
-use App\Entity\ExerciseSet;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -42,7 +40,7 @@ class ProgramCrudController extends AbstractCrudController
             ->setEntityLabelInSingular('un programme')
             ->setEntityLabelInPlural('Programmes')            
             ->showEntityActionsInlined()
-            ->setPaginatorPageSize(15)
+            ->setPaginatorPageSize(15)            
             ->renderContentMaximized();
             
         }
@@ -77,21 +75,7 @@ class ProgramCrudController extends AbstractCrudController
 
             $program->setCreator($creator);  
             
-            
-            $exercises = $program->getExercises()->getValues();
-           
-        // Trier les exercices par ordre des jours de la semaine
-            usort($exercises, function ($exercise1, $exercise2) {
-            return $exercise1->getDay() <=> $exercise2->getDay();
-            });
-           
-            foreach ($exercises as $exercise) {
-                 $program->addExercise($exercise);
-            }
-          
-        // Associer les exercices triés à l'exerciseSet
-              
-        parent::persistEntity($entityManager,$entityInstance);
+            parent::persistEntity($entityManager,$entityInstance);
     
         }  
         

@@ -3,14 +3,15 @@
 namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
-use App\Model\ModifiedInterface;
 use Doctrine\ORM\Mapping as ORM;
 use App\Model\TimestampedInterface;
 use App\Repository\ProgramRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping\OrderBy;
 
 #[ORM\Entity(repositoryClass: ProgramRepository::class)]
+
 class Program implements TimestampedInterface
 {
     #[ORM\Id]
@@ -19,6 +20,7 @@ class Program implements TimestampedInterface
     private ?int $id = null;
 
     #[ORM\OneToMany(mappedBy: 'program', targetEntity: ExerciseSet::class, cascade : ['persist','remove'])]
+    #[OrderBy(["day" => "ASC"])]
     private Collection $exercises;
 
     #[ORM\Column(length: 50)]
