@@ -9,16 +9,19 @@ class MailerService
 {   
     public function __construct(private MailerInterface $mailer){}
     
-    public function sendEmail(  
+    public function sendEmail( 
+       
         $subject,    
         $adresseTemplate,
         $context,
+        $from = 'caswalcha@gmail.com',
+        $to = 'caswalcha@gmail.com',
         ): void    
     {     
-       
+       // voir pour recuperer l'email dans un generalrepo , à voir
         $email = (new TemplatedEmail())
-            ->from('caswalcha@gmail.com')
-            ->to('caswalcha@gmail.com')
+            ->from($from)
+            ->to($to)
             ->subject($subject)
             ->htmlTemplate($adresseTemplate)
             ->context($context);           
