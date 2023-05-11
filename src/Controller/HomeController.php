@@ -18,7 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {   
     
-    public function __construct(private MailerService $mailer, private GeneralRepository $generalRepo){}
+    public function __construct( private GeneralRepository $generalRepo){}
 
     #[Route('/', name: 'app_home')]
     public function index(CoachRepository $coachRepo): Response
@@ -47,21 +47,21 @@ class HomeController extends AbstractController
                 // Ici on découpe le téléphone pour afficher un '-' tous les 2 caractéres                 
                 $telephone = wordwrap($contact->get('numTelephone')->getData(),2,'-',true);               
                 
-                    $this->mailer->sendEmail(
-                        $from = $contact->get('email')->getData(),
-                        $to = 'caswalcha@gmail.com',
-                        $subject = 'Demande séance gratuite de ' . $nom .' '. $prenom,
-                        $adresseTemplate = 'emails/seancegratuite.html.twig',
-                        $context = [
-                            'mail' => $from,
-                            'nom' => $nom,
-                            'prenom' => $prenom,
-                            'sexe' => $sexe,
-                            'datePresence' =>$datePresence, 
-                            'telephone' => $telephone,
-                            'date' => new \DateTime()                   
-                        ]
-                    );
+                    // $this->mailer->sendEmail(
+                    //     $from = $contact->get('email')->getData(),
+                    //     $to = 'caswalcha@gmail.com',
+                    //     $subject = 'Demande séance gratuite de ' . $nom .' '. $prenom,
+                    //     $adresseTemplate = 'emails/seancegratuite.html.twig',
+                    //     $context = [
+                    //         'mail' => $from,
+                    //         'nom' => $nom,
+                    //         'prenom' => $prenom,
+                    //         'sexe' => $sexe,
+                    //         'datePresence' =>$datePresence, 
+                    //         'telephone' => $telephone,
+                    //         'date' => new \DateTime()                   
+                    //     ]
+                    // );
             $this->addFlash('success','Votre séance est enregistré, nous vous attendons avec impatience pour vous faire découvrir la salle.');
         }
         

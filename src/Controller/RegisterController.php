@@ -34,20 +34,18 @@ class RegisterController extends AbstractController
                 // Ici on découpe le téléphone pour afficher un '-' tous les 2 caractéres                 
                 $telephone = wordwrap($contact->get('phoneNumber')->getData(),2,'-',true);               
                 
-                    // $this->mailer->sendEmail(
-                    //     $from = $contact->get('email')->getData(),
-                    //     $to = 'justin.dissaux@laposte.net',
-                    //     'Nouvelle Inscription de ' .ucfirst(strtolower($nom)) .' '. ucfirst(strtolower($prenom)),
-                    //     'emails/contactInscription.html.twig',
-                    //     [
-                    //         'mail' => $from,
-                    //         'nom' => strtolower($nom),
-                    //         'prenom' => strtolower($prenom),
-                    //         'sexe' => $sexe,
-                    //         'telephone' => $telephone,
-                    //     ]
-                    // );
-
+                $this->mailer->sendEmail(
+                        'Nouvelle Inscription de ' .ucfirst(strtolower($nom)) .' '. ucfirst(strtolower($prenom)),
+                        'emails/contactInscription.html.twig',
+                        [
+                            'mail' => $contact->get('email')->getData(),
+                            'nom' => strtolower($nom),
+                            'prenom' => strtolower($prenom),
+                            'sexe' => $sexe,
+                            'telephone' => $telephone,
+                        ]
+                    );
+                    
                 $this->addFlash('success', 'Votre enregistrement a été pris en compte nous vous attendons à la salle pour finaliser votre inscription');
                 return $this->redirectToRoute('app_home');
            

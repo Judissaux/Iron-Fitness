@@ -96,7 +96,7 @@
 									{# code permettant de regrouper les exercices par jour  #}
 										{% set jour = exercice.day %}
 										{% if not exercicesParJour[jour] is defined %}
-											{% set exercicesParJour = exercicesParJour|merge({ (jour): [] }) %}
+										{% set exercicesParJour = exercicesParJour|merge({ (jour): [] }) %}
 										{% endif %}
 										{% set exercicesParJour = exercicesParJour|merge({ (jour): exercicesParJour[jour]|merge([exercice]) }) %}
 									{% endfor %}
@@ -176,11 +176,8 @@
 										</div>
 									{% endfor %}
 								{% endfor %}
-
-
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
