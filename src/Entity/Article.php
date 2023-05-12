@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Model\TimestampedInterface;
 use App\Model\IllustrationInterface;
 use App\Repository\ArticleRepository;
-
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article implements TimestampedInterface,IllustrationInterface
@@ -35,7 +35,6 @@ class Article implements TimestampedInterface,IllustrationInterface
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
-    
     public function getId(): ?int
     {
         return $this->id;
@@ -113,4 +112,6 @@ class Article implements TimestampedInterface,IllustrationInterface
 
         return $this;
     }
+
+      
 }

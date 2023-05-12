@@ -6,6 +6,7 @@ namespace App\EventSubscriber;
 use App\Model\IllustrationInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityDeletedEvent;
+use Liip\ImagineBundle\Imagine\Cache\CacheManager;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 
@@ -16,8 +17,7 @@ class DeleteImageSubscriber implements EventSubscriberInterface{
 
     
 
-    public function __construct(private ParameterBagInterface $parameterBag){       
-    }
+    public function __construct(private ParameterBagInterface $parameterBag, private CacheManager $cacheManager){}
 
     public static function getSubscribedEvents(){
         return [
@@ -28,16 +28,17 @@ class DeleteImageSubscriber implements EventSubscriberInterface{
     public function deletePhysicalImage(AfterEntityDeletedEvent $event){
 
         $entity = $event->getEntityInstance();
+
         if (!$entity instanceof IllustrationInterface ){
              return;
         }
-
+        
         $imgpath = $this->parameterBag->get('kernel.project_dir') . $this->parameterBag->get('medias_directory') .
-        $entity->getIllustration();
+        $entity->getIllustration();    
+        
+        $this->cacheManager->remove($imgpath);  
 
-      
-             
         if(file_exists($imgpath)) unlink($imgpath);
-
+        
     }
 }
