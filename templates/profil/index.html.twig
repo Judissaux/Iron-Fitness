@@ -9,7 +9,7 @@
 {% block body %}
 	{# HEADER #}
 	{% include "_partials/_flash.html.twig" %}
-	<div class="bgPage" style='background-image: url({{ asset ('assets/img/bpProfil.jpg' ) | imagine_filter('welcome') }})'>
+	<div class="bgPage" style='background-image: url({{ asset ('assets/img/bgProfil.jpg' ) | imagine_filter('welcome') }})'>
 		<div class="container text-center  text-dark bg rounded">
 			<h1>Profil</h1>
 			<h2 class='text-style'>
@@ -93,12 +93,31 @@
 								{% set exercicesParJour = {} %}
 								<div class="row">
 									{% for exercice in programme.exercices %}
-									{# code permettant de regrouper les exercices par jour  #}
+										{# code permettant de regrouper les exercices par jour  #}
 										{% set jour = exercice.day %}
+										{% switch jour %}
+
+											{% case 1 %}
+												{% set jour = "Lundi" %}
+											{% case 2 %}
+												{% set jour = "Mardi" %}
+											{% case 3 %}
+												{% set jour = "Mercredi" %}
+											{% case 4 %}
+												{% set jour = "Jeudi" %}
+											{% case 5 %}
+												{% set jour = "Vendredi" %}
+											{% case 6 %}
+												{% set jour = "Samedi" %}
+										{% endswitch %}
+
 										{% if not exercicesParJour[jour] is defined %}
-										{% set exercicesParJour = exercicesParJour|merge({ (jour): [] }) %}
+
+											{% set exercicesParJour = exercicesParJour|merge({ (jour): [] }) %}
+
 										{% endif %}
 										{% set exercicesParJour = exercicesParJour|merge({ (jour): exercicesParJour[jour]|merge([exercice]) }) %}
+
 									{% endfor %}
 									{# fin #}
 									{% set day = 1000 %}
@@ -118,7 +137,7 @@
 																	<h4 class="card-title text-style text-decoration-underline">
 																		Exercice n°
 																		{{exo}}
-																		
+
 																	</h4>
 																	<h6 class="card-subtitle text-warning text-style fs-2">{{exercice.exercise.name}}</h6>
 																</div>
@@ -146,8 +165,9 @@
 																		</span><br>
 																		<span class='fs-6 fw-bold '>
 																			{% if exercice.rest is not null %}
-																			
-																			{{exercice.rest}} secondes
+
+																				{{exercice.rest}}
+																				secondes
 																			{% endif %}
 																		</span>
 																	</li>
@@ -175,14 +195,12 @@
 											</div>
 										</div>
 									{% endfor %}
-								{% endfor %}
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				{% endfor %}
 			</div>
-		{% else %}
-			<p class='text-center fs-4 text-warning'>Vous n'avez pas encore de programme personnalisé</p>
-		{% endif %}
+		</div>
 	</div>
-{% endblock %}
+</div></div>{% else %}<p class='text-center fs-4 text-warning'>Vous n'avez pas encore de programme personnalisé</p>{% endif %}</div>{% endblock %}

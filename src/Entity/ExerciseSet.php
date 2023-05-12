@@ -35,26 +35,30 @@ class ExerciseSet
 
     public function __toString()
     {
+       $day = "";
     switch($this->day){
         case 1:
-            return $this->exercise . 'Lundi';
+            $day =  $this->exercise .   ' ( Lundi )';
             break;
         case 2:
-                return $this->exercise . 'Mardi';
+            $day = $this->exercise .  ' ( Mardi )';
                 break;
-        case 1:
-                return $this->exercise . 'Lundi';
+        case 3:
+            $day = $this->exercise . ' ( Mercredi )';
                 break;
-                    case 1:
-                        return $this->exercise . 'Lundi';
-                        break;
-                        case 1:
-                            return $this->exercise . 'Lundi';
-                            break;
+        case 4:
+            $day = $this->exercise .  ' ( Jeudi )';
+            break;
+        case 5:
+            $day = $this->exercise .  ' ( Vendredi )';
+            break;
+        case 6:
+            $day = $this->exercise .   ' ( Samedi )';
+            break;
                 
 
     }
-      return $this->exercise . '( ' . $this->day . ' )';
+      return $day;
     }
 
     public function getId(): ?int

@@ -1,4 +1,4 @@
-<?PHP
+<?php
 
 namespace App\EventSubscriber;
 
@@ -34,7 +34,8 @@ class DeleteImageSubscriber implements EventSubscriberInterface{
 
         $imgpath = $this->parameterBag->get('kernel.project_dir') . $this->parameterBag->get('medias_directory') .
         $entity->getIllustration();
-       
+
+      
              
         if(file_exists($imgpath)) unlink($imgpath);
 

@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\General;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -10,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class GeneralCrudController extends AbstractCrudController
@@ -39,7 +41,8 @@ class GeneralCrudController extends AbstractCrudController
         ->setSearchFields(null)
         ->showEntityActionsInlined()
         ->renderContentMaximized()
-        ->setPaginatorRangeSize(0);
+        ->setPaginatorRangeSize(0)
+        ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');       
         
         
     }
@@ -75,13 +78,16 @@ class GeneralCrudController extends AbstractCrudController
 
         yield $planningField;
 
-        yield TextField::new('scrollingMessage','Message défilant'); 
+        yield TextField::new('scrollingMessage','Message défilant')->hideOnIndex(); 
         
         yield MoneyField::new('price','Tarif')->setCurrency('EUR'); 
         yield MoneyField::new('entrance','Frais d\'inscription')->setCurrency('EUR'); 
         yield TelephoneField::new('PhoneNumber','Téléphone');
-        yield TextField::new('linkFacebook','Lien Facebook');
-        yield TextField::new('linkInstagram','Lien Instagram');
+
+        yield TextField::new('linkFacebook','Lien Facebook')->hideOnIndex();
+        yield TextField::new('linkInstagram','Lien Instagram')->hideOnIndex();
+        yield TextEditorField::new('mentionLegale','Mentions légales')->setFormType(CKEditorType::class);
+
           
     }
     

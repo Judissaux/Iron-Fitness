@@ -4,63 +4,10 @@
 
 {% block body %}
 <div class="blocpadding"></div>
-<h1 class='text-center p-3 text-style text-warning display-4'> Mentions Légales  </h1>
-<div class="container my-5">
-    <div class="row">
-                <div>Conformément à l'article 6 de la loi n°2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, le site internet www.lorangebleue.fr (ci-après, le « Site ») est régi par le droit français et les internautes (ci-après, l'« Utilisateur ») du Site sont informés des mentions légales suivantes : </div> 
-
-            <h3 class="text-style text-warning my-3" >L'Éditeur</h3>
-            <div>
-                Société     
-                <br>
-                Statut société : 
-                <br>
-                Siège social :
-                <br> 
-                Immatriculée au RCS de     sous le numéro 
-                <br>
-                TVA intracommunautaire :
-                <br> 
-                Téléphone : 
-                <br>
-                Directeur de la publication : 
-            </div>
-
-            <h3 class="text-style text-warning my-3">Hébergeur du site</h3>
-            <div>
-                Société
-                <br> 
-                Siège social : 
-                <br>
-                Immatriculée au RCS de  sous le numéro 
-                <br>
-                Téléphone : 
-            </div>
-
-            <h3 class="text-style text-warning my-3">Conception du site</h3>
-            <div>
-                Société :
-                <br>
-                Statut société : 
-                <br>
-                Siège sociale :
-                <br> 
-                Immatriculée au RCS de  sous le numéro 
-            </div>
-
-            <h3 class="text-style text-warning my-3" >Propriété intellectuelle</h3>
-            <div>
-                L'ensemble des éléments du Site ainsi que tout élément susceptible d'être protégé par un droit de propriété intellectuelle notamment les marques et logos, sont la propriété intellectuelle exclusive de l'Éditeur. À cet égard, leurs représentations, utilisations, reproductions, modifications, imbrications, diffusions et rediffusions, partielles ou totales, à quelque titre et sous quelque forme que ce soit, sont interdites, sous peine de poursuites judiciaires prévues à l'article L335-2 du Code de la propriété intellectuelle.
-
-                Limitation de responsabilité
-                L'éditeur a le droit de modifier, à tout moment, unilatéralement tout ou partie des mentions et contenus du Site, et ce, sans notification préalable.
-
-                L'Utilisateur est seul responsable du choix, de l'utilisation et de l'interprétation des données qu'il consulte.
-
-                L'éditeur ne saurait être tenu responsable des dommages subis par l'utilisation du site et de ses contenus.
-
-                Cette limitation de responsabilité s'étend à tous les préjudices matériels, financiers, informatiques, immatériels, consécutifs à l'accès ou à l'usage du site internet et des sites internet liés.
-			</div>
+	<div class="container mt-5">
+		<div class="row">
+            {{mentionLegale | raw}}
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Model\IllustrationInterface;
 use App\Repository\GeneralRepository;
@@ -43,6 +44,15 @@ class General implements IllustrationInterface
 
     #[ORM\Column(nullable: true)]
     private ?int $StripeSessionId = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $mentionLegale = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cgu = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cgv = null;
 
 
     public function getId(): ?int
@@ -166,6 +176,42 @@ class General implements IllustrationInterface
     public function setStripeSessionId(?int $StripeSessionId): self
     {
         $this->StripeSessionId = $StripeSessionId;
+
+        return $this;
+    }
+
+    public function getMentionLegale(): ?string
+    {
+        return $this->mentionLegale;
+    }
+
+    public function setMentionLegale(?string $mentionLegale): self
+    {
+        $this->mentionLegale = $mentionLegale;
+
+        return $this;
+    }
+
+    public function getCgu(): ?string
+    {
+        return $this->cgu;
+    }
+
+    public function setCgu(?string $cgu): self
+    {
+        $this->cgu = $cgu;
+
+        return $this;
+    }
+
+    public function getCgv(): ?string
+    {
+        return $this->cgv;
+    }
+
+    public function setCgv(?string $cgv): self
+    {
+        $this->cgv = $cgv;
 
         return $this;
     }

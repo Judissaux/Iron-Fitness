@@ -44,7 +44,7 @@ class ArticleCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         $mediaDir = $this->getParameter('medias_directory');
-    $uploadsDir = $this->getParameter('uploads_directory');
+        $uploadsDir = $this->getParameter('uploads_directory');
     
         yield TextField::new('title','Titre');  
 
