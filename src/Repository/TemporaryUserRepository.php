@@ -72,4 +72,12 @@ class TemporaryUserRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();        
     }
+
+    public function deleteAll()
+    {
+        return $this->createQueryBuilder('u')
+            ->delete()
+            ->getQuery()
+            ->getResult();
+    }
 }

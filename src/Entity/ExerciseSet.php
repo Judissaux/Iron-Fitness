@@ -35,6 +35,25 @@ class ExerciseSet
 
     public function __toString()
     {
+    switch($this->day){
+        case 1:
+            return $this->exercise . 'Lundi';
+            break;
+        case 2:
+                return $this->exercise . 'Mardi';
+                break;
+        case 1:
+                return $this->exercise . 'Lundi';
+                break;
+                    case 1:
+                        return $this->exercise . 'Lundi';
+                        break;
+                        case 1:
+                            return $this->exercise . 'Lundi';
+                            break;
+                
+
+    }
       return $this->exercise . '( ' . $this->day . ' )';
     }
 

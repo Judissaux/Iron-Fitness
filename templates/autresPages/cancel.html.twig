@@ -2,8 +2,40 @@
 
 {% block title %}- Erreur enregistrement{% endblock %}
 
-{% block body %}
+		{% block stylesheets %}	
+       
+        <style>
+         body{
+            min-height:85vh;
+            position:relative;
+            
+            }	
+			footer{
+            position:absolute;
+            bottom:0;  /* on le colle en bas */
+            height:100px;   /* Hauteur du pied de page */
+        }
+        </style>
+		{% endblock %}
+{% block body  %}
+
 <div class="blocpadding"></div>
-<h1 class='text-center p-3 '> Erreur lors de l'enregistrement </h1>
-METTRE LES INFOS DE L'UTILISATEUR LUI EXPLIQUANT L'ERREUR ET LES SOLUTIONS.
+<h1 class='text-center p-3 text-style text-warning mt-5'> Erreur lors de l'enregistrement </h1>
+    <div class="container text-center mt-5" >
+    <p> 
+   
+       <p class='text-style fs-5'> Bonjour, </p>  {% if infoUser.sexe == 'M' %} Monsieur {% else %}
+            Madame {% endif %} . {{infoUser.prenom |capitalize}} {{infoUser.nom |capitalize}} , <br><br>
+        Nous vous signalons un problème de paiement lors de votre tentative d'inscription. <br>
+
+        Vous pouvez tenter de vous réinscrire en cliquant sur ce <a href="{{path ('app_register')}}"> lien </a> ou venir vous inscrire directement dans notre salle de sport. <br><br>
+        
+        <p class=' mb-5'> Bien cordialement,</p>
+        
+        <p class='text-style text-warning fs-4 mb-1'> L'équipe.</p>
+
+    </p>
+</div>
+
+
 {% endblock %}

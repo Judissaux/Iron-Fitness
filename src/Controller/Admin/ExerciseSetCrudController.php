@@ -32,12 +32,12 @@ class ExerciseSetCrudController extends AbstractCrudController
         yield ChoiceField::new('day', 'Jour')
         
         ->setChoices([
-            'Lundi' => 'Lundi',
-            'Mardi' => 'Mardi',
-            'Mercredi' => 'Mercredi',
-            'Jeudi' => 'Jeudi',
-            'Vendredi' => 'Vendredi',
-            'Samedi' => 'Samedi'
+            'Lundi' => '1',
+            'Mardi' => '2',
+            'Mercredi' => '3',
+            'Jeudi' => '4',
+            'Vendredi' => '5',
+            'Samedi' => '6'
         ])
         ->setColumns(12)
         ->addCssClass('text-center');  

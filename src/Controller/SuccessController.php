@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\TemporaryUserRepository;
 use App\Service\MailerService;
+use Stripe\Stripe;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,12 +16,13 @@ class SuccessController extends AbstractController
         MailerService $mailer,
         $stripeSessionId
         )
-    {
+    {   
+        
         $user = $temporaryUserRepo->findOneByStripeSessionId($stripeSessionId);
 
         if(!$user ){
             $this->addFlash('warning', 'Erreur lors de l\'inscription');
-            $this->redirectToRoute('app_home');
+            return $this->redirectToRoute('app_home');
         }
 
         // Mail pour l'administrateur

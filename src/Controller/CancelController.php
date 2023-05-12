@@ -17,14 +17,21 @@ class CancelController extends AbstractController
         )
     {
         $user = $temporaryUserRepo->findOneByStripeSessionId($stripeSessionId);
-
-        if(!$user ){
+       
+        if( !$user ){
             $this->addFlash('warning', 'Erreur lors de l\'inscription');
-            $this->redirectToRoute('app_home');
+            return  $this->redirectToRoute('app_home');
         }
 
+        $infoUser = [
+            'sexe' => $user->getSexe(),
+            'nom' => $user->getLastname(),
+            'prenom' => $user->getFirstname(),
+        ];
+
         $temporaryUserRepo->deleteById($user->getId());
-        $this->addFlash('warning', 'Votre enregistrement a échoué , retentez en ligne ou venez vous inscrire en centre directement.');
-        return $this->redirectToRoute('app_home');
+
+        return $this->render('autresPages/cancel.html.twig', compact('infoUser'));
+        
     }
 }
