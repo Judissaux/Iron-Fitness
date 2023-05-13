@@ -23,6 +23,9 @@ class Activities implements IllustrationInterface
         max: 300,        
         maxMessage: 'Trop de lignes',
     )]
+    #[Assert\NotBlank(                
+        message: "La description doit être renseignée"
+    )]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 

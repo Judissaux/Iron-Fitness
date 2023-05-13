@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Model\TimestampedInterface;
 use App\Model\IllustrationInterface;
 use App\Repository\ArticleRepository;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article implements TimestampedInterface,IllustrationInterface
@@ -17,15 +17,21 @@ class Article implements TimestampedInterface,IllustrationInterface
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank(                
+        message: "Le titre doit être renseigné"
+    )]
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
-
+        
     #[ORM\Column(length: 255)]
     private ?string $illustration = null;
 
+    #[Assert\NotBlank(                
+        message: "La description doit être renseignée"
+    )]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 

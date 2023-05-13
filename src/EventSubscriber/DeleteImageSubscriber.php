@@ -32,11 +32,10 @@ class DeleteImageSubscriber implements EventSubscriberInterface{
         if (!$entity instanceof IllustrationInterface ){
              return;
         }
-        
         $imgpath = $this->parameterBag->get('kernel.project_dir') . $this->parameterBag->get('medias_directory') .
         $entity->getIllustration();    
         
-        $this->cacheManager->remove($imgpath);  
+        $this->cacheManager->remove('/uploads/' .$entity->getIllustration());  
 
         if(file_exists($imgpath)) unlink($imgpath);
         

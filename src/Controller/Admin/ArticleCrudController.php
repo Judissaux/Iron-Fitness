@@ -50,8 +50,8 @@ class ArticleCrudController extends AbstractCrudController
 
         yield SlugField::new('slug','Slug')
         ->setTargetFieldName('title')
-        ->hideOnIndex()
-        ;   
+        ->hideOnIndex(); 
+          
     
         yield TextEditorField::new('description','Description')->setFormType(CKEditorType::class);
         $imageField = ImageField::new('illustration', 'Images')
