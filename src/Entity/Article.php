@@ -119,5 +119,4 @@ class Article implements TimestampedInterface,IllustrationInterface
         return $this;
     }
 
-      
 }

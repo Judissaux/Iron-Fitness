@@ -15,8 +15,6 @@ use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
  */
 class DeleteImageSubscriber implements EventSubscriberInterface{
 
-    
-
     public function __construct(private ParameterBagInterface $parameterBag, private CacheManager $cacheManager){}
 
     public static function getSubscribedEvents(){
@@ -25,6 +23,7 @@ class DeleteImageSubscriber implements EventSubscriberInterface{
         ];
     }
 
+    //Permet de supprimer l'image de l'entité supprimée ainsi que celle en cache dans le bundle Liipimagine si elle existe
     public function deletePhysicalImage(AfterEntityDeletedEvent $event){
 
         $entity = $event->getEntityInstance();
@@ -32,6 +31,7 @@ class DeleteImageSubscriber implements EventSubscriberInterface{
         if (!$entity instanceof IllustrationInterface ){
              return;
         }
+        
         $imgpath = $this->parameterBag->get('kernel.project_dir') . $this->parameterBag->get('medias_directory') .
         $entity->getIllustration();    
         

@@ -54,6 +54,7 @@ class ArticleCrudController extends AbstractCrudController
           
     
         yield TextEditorField::new('description','Description')->setFormType(CKEditorType::class);
+        
         $imageField = ImageField::new('illustration', 'Images')
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)

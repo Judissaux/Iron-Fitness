@@ -24,6 +24,7 @@ class AdminSubscriber implements EventSubscriberInterface
     {   
         // permet de récupérer l'entité
         $entity = $event->getEntityInstance();
+        
         //Grace à la création de l'interface Timestamped on peux créer une condition!
         if(!$entity instanceof TimestampedInterface){
             return;
@@ -36,11 +37,13 @@ class AdminSubscriber implements EventSubscriberInterface
     public function setEntityupdatedAt(BeforeEntityUpdatedEvent $event)
     {
         $entity = $event->getEntityInstance();
-
+       
         if(!$entity instanceof TimestampedInterface){
             return;
         }
+
         $timezone = new \DateTimeZone('Europe/Paris');
         $entity->setUpdatedAt(new \DateTime('now',  $timezone));
+
     }
 }
