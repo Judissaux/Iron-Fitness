@@ -1,8 +1,9 @@
 <p class='display-2'>Bonjour,<p>
 
-<p>{{sexe }} {{nom |capitalize }} {{ prenom |capitalize}} souhaite s'inscrire. </p> 
+<p> {% if sexe == 'M' %} Monsieur {% else %}
+            Madame {% endif %} {{nom |capitalize }} {{ prenom |capitalize}}  s'est inscrit.</p> 
 
-<p>Vous pouvez le contacter par e-mail : <a href="mailto:{{mail}} "> {{mail}} </a>  ou par téléphone <a href="tel:{{telephone}}">{{telephone}}</a></p>
+<p> Cette personne a {{age}} ans ,vous pouvez la  contacter par e-mail : <a href="mailto:{{mail}} "> {{mail}} </a>  ou par téléphone <a href="tel:{{telephone}}">{{telephone}}</a> </p> 
 
 <p>Bonne Journée </p>
 

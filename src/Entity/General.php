@@ -54,6 +54,12 @@ class General implements IllustrationInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $cgv = null;
 
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $emailClient = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $emailClientRefus = null;
+
 
     public function getId(): ?int
     {
@@ -212,6 +218,30 @@ class General implements IllustrationInterface
     public function setCgv(?string $cgv): self
     {
         $this->cgv = $cgv;
+
+        return $this;
+    }
+
+    public function getEmailClient(): ?string
+    {
+        return $this->emailClient;
+    }
+
+    public function setEmailClient(string $emailClient): self
+    {
+        $this->emailClient = $emailClient;
+
+        return $this;
+    }
+
+    public function getEmailClientRefus(): ?string
+    {
+        return $this->emailClientRefus;
+    }
+
+    public function setEmailClientRefus(string $emailClientRefus): self
+    {
+        $this->emailClientRefus = $emailClientRefus;
 
         return $this;
     }

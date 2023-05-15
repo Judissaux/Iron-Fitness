@@ -23,7 +23,6 @@ class StripeController extends AbstractController
         $infos = $general->findAll();
         $user = $temporaryUserRepo->findOneBy([], ['id' => 'DESC']);
 
-        // ensuite mettre les infos de l'utilisateur, faire le cheminement paiement, faire les vue success et cancel + voir pour envoyer les différents mail en foncton de la réponse + un mail à l'administrateur.
         Stripe::setApiKey($this->getParameter('stripe_sk'));
 
         $price [] = [

@@ -87,6 +87,8 @@ class GeneralCrudController extends AbstractCrudController
         yield TextField::new('linkFacebook','Lien Facebook')->hideOnIndex();
         yield TextField::new('linkInstagram','Lien Instagram')->hideOnIndex();
         yield TextEditorField::new('mentionLegale','Mentions légales')->setFormType(CKEditorType::class);
+        yield TextEditorField::new('emailClient','Email du client')->setFormType(CKEditorType::class);
+        yield TextEditorField::new('emailClientRefus','Email du client lors d\'un refus/erreur')->setFormType(CKEditorType::class);
 
           
     }
