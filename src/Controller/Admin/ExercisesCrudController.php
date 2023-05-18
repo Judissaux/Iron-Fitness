@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Exercises;
+
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -11,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use App\Validator\EasyAdminIllustrationConstraint;
 
 class ExercisesCrudController extends AbstractCrudController
 {
@@ -51,7 +53,17 @@ class ExercisesCrudController extends AbstractCrudController
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)
         ->setUploadedFileNamePattern('[slug]-[uuid].[extension]')
-        ->setHelp('Seulement .png ou .jpg et max image de taille 1Mo' );
+        ->setHelp('Seulement .png ou .jpg et max image de taille 1Mo' )
+        ->setFormTypeOption(
+            'constraints',
+            [
+                new EasyAdminIllustrationConstraint([
+                    'mimeTypes' => [ // We want to let upload only jpeg or png
+                        'image/jpeg',
+                        'image/png',
+                    ],
+                ])
+                ]);
 
         //Permet d'enregistrer les modifications sans devoir remettre une image
         if(Crud::PAGE_EDIT == $pageName){

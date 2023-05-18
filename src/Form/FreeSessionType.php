@@ -87,7 +87,7 @@ class FreeSessionType extends AbstractType
                 
             )
             ->add('acceptCgu', CheckboxType::class, [
-                'label' => 'J\'accepte les <a href="/cgu"> conditions générales d\'utilisation  </a> et j\'autorise l\'éditeur du site à collecter et traiter  mes données personnelles conformément à la politique de protection de données personnelles',
+                'label' => 'J\'accepte les <a href="/cgu" target="_blank"> conditions générales d\'utilisation  </a> et j\'autorise l\'éditeur du site à collecter et traiter  mes données personnelles conformément à la politique de protection de données personnelles',
                 'label_html' => true,
                 'required' => true,
                 'constraints' => new NotBlank(message: "Pour continuer, vous devez cocher cette case.")

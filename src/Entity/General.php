@@ -42,9 +42,6 @@ class General implements IllustrationInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $linkInstagram = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?int $StripeSessionId = null;
-
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $mentionLegale = null;
 
@@ -170,18 +167,6 @@ class General implements IllustrationInterface
     public function setLinkInstagram(?string $linkInstagram): self
     {
         $this->linkInstagram = $linkInstagram;
-
-        return $this;
-    }
-
-    public function getStripeSessionId(): ?int
-    {
-        return $this->StripeSessionId;
-    }
-
-    public function setStripeSessionId(?int $StripeSessionId): self
-    {
-        $this->StripeSessionId = $StripeSessionId;
 
         return $this;
     }

@@ -5,7 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use Symfony\Component\Validator\Constraints\File;
+use App\Validator\EasyAdminIllustrationConstraint;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
@@ -60,7 +60,17 @@ class ArticleCrudController extends AbstractCrudController
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)
         ->setUploadedFileNamePattern('[slug]-[uuid].[extension]')
-        ->setHelp('Seulement .png ou .jpg et max image de taille 1Mo' );
+        ->setHelp('Seulement .png ou .jpg et max image de taille 1Mo' )
+        ->setFormTypeOption(
+            'constraints',
+            [
+                new EasyAdminIllustrationConstraint([
+                    'mimeTypes' => [ // We want to let upload only jpeg or png
+                        'image/jpeg',
+                        'image/png',
+                    ],
+                ])
+                ]);
        
         
         //Permet d'enregistrer les modifications sans devoir remettre une image
