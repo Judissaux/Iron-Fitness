@@ -41,4 +41,5 @@ class BlogController extends AbstractController
             'arts' => $articleRepo->find3LastArticles($slug)
              ]);
     }
+
 }

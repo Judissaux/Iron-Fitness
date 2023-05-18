@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Model\TimestampedInterface;
 use App\Model\IllustrationInterface;
 use App\Repository\ArticleRepository;
+use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
@@ -25,7 +26,8 @@ class Article implements TimestampedInterface,IllustrationInterface
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
-        
+    
+   
     #[ORM\Column(length: 255)]
     private ?string $illustration = null;
 

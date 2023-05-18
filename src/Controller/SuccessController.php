@@ -32,8 +32,8 @@ class SuccessController extends AbstractController
             return $this->redirectToRoute('app_home');
         }
 
-        // Mail pour l'administrateur
-        $mailer->sendEmail(
+                // Mail pour l'administrateur
+                $mailer->sendEmail(
 
                         'Nouvelle Inscription de ' .ucfirst(strtolower($user->getLastname())) .' '. ucfirst(strtolower($user->getFirstname())),
                         'emails/contactInscription.html.twig',

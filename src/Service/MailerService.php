@@ -15,7 +15,7 @@ class MailerService
         $adresseTemplate,
         $context,
         $from = 'caswalcha@gmail.com',
-        $to = 'caswalcha@gmail.com',
+        $to = 'justin.dissaux@laposte.net',
         ): void    
     {     
        // voir pour recuperer l'email dans un generalrepo , à voir

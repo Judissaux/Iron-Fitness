@@ -2,6 +2,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Model\IllustrationInterface;
 use App\Model\TimestampedInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityUpdatedEvent;
@@ -16,7 +17,8 @@ class AdminSubscriber implements EventSubscriberInterface
      return[
         //ajout des éléments qui seront exécuté avant la création d"une entité
         BeforeEntityPersistedEvent::class => ['setEntityCreatedAt'],
-        BeforeEntityUpdatedEvent::class => ['setEntityUpdatedAt']
+        BeforeEntityUpdatedEvent::class => ['setEntityUpdatedAt'],
+        BeforeEntityPersistEvent::class => ['setEntityIllustration']
      ];
     }
 
@@ -44,6 +46,20 @@ class AdminSubscriber implements EventSubscriberInterface
 
         $timezone = new \DateTimeZone('Europe/Paris');
         $entity->setUpdatedAt(new \DateTime('now',  $timezone));
+
+    }
+
+    public function setEntityIllustration(BeforeEntityPersistedEvent $event)
+    {   
+        // permet de récupérer l'entité
+        $entity = $event->getEntityInstance();
+        
+        //Grace à la création de l'interface Illustration on peux créer une condition!
+        if(!$entity instanceof IllustrationInterface){
+            return;
+        }
+        
+        
 
     }
 }

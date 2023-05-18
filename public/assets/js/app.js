@@ -36,8 +36,7 @@ $(document).on('submit', '#FreeSession', function(e) {
     e.preventDefault(); // Empêche la soumission normale du formulaire    
     const formData = $(this).serialize(); // Récupère les données du formulaire 
     
-    $.ajax({
-        
+    $.ajax({        
         beforeSend: function(xhr) {
         xhr.setRequestHeader('X-CSRF-Token', csrf_token)},
         url: '/traitement-formulaire-ajax', // URL de traitement du formulaire
@@ -136,6 +135,13 @@ flatpickr(".js-datepicker", {
   enableTime: true, 
 
 });
+
+
+
+
+
+
+
 
 
 

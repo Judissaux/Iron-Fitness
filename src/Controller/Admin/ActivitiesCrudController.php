@@ -50,7 +50,8 @@ class ActivitiesCrudController extends AbstractCrudController
         $imageField = ImageField::new('illustration', 'Images')
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)
-        ->setUploadedFileNamePattern('[slug]-[uuid].[extension]');
+        ->setUploadedFileNamePattern('[slug]-[uuid].[extension]')
+        ->setHelp('Seulement .png ou .jpg et max image de taille 1Mo' );
 
         //Permet d'enregistrer les modifications sans devoir remettre une image
         if(Crud::PAGE_EDIT == $pageName){
