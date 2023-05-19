@@ -42,13 +42,13 @@ class General implements IllustrationInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $linkInstagram = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $mentionLegale = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 255)]
     private ?string $cgu = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 255)]
     private ?string $cgv = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -219,15 +219,5 @@ class General implements IllustrationInterface
         return $this;
     }
 
-    public function getEmailClientRefus(): ?string
-    {
-        return $this->emailClientRefus;
-    }
-
-    public function setEmailClientRefus(string $emailClientRefus): self
-    {
-        $this->emailClientRefus = $emailClientRefus;
-
-        return $this;
-    }
+   
 }

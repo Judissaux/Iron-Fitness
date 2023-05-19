@@ -63,7 +63,7 @@ class ExercisesCrudController extends AbstractCrudController
                         'image/png',
                     ],
                 ])
-                ]);
+            ]);
 
         //Permet d'enregistrer les modifications sans devoir remettre une image
         if(Crud::PAGE_EDIT == $pageName){

@@ -61,6 +61,7 @@ class GeneralCrudController extends AbstractCrudController
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)
         ->setUploadedFileNamePattern('[slug]-[uuid].[extension]')
+        ->setHelp('Seulement .png ou .jpg et max image de taille 1Mo' )
         ->setFormTypeOption(
             'constraints',
             [
@@ -72,10 +73,6 @@ class GeneralCrudController extends AbstractCrudController
                 ])
                 ]);
 
-        //Permet d'enregistrer les modifications sans devoir remettre une image
-        if(Crud::PAGE_EDIT == $pageName){
-            $logoField->setRequired(false);
-        };
 
         yield $logoField;
                
@@ -83,6 +80,7 @@ class GeneralCrudController extends AbstractCrudController
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)
         ->setUploadedFileNamePattern('[slug]-[uuid].[extension]')
+        ->setHelp('Seulement .png ou .jpg et max image de taille 1Mo' )
         ->setFormTypeOption(
             'constraints',
             [
@@ -94,10 +92,6 @@ class GeneralCrudController extends AbstractCrudController
                 ])
                 ]);
 
-        //Permet d'enregistrer les modifications sans devoir remettre une image
-        if(Crud::PAGE_EDIT == $pageName){
-            $planningField->setRequired(false);
-        };
 
         yield $planningField;
 
@@ -115,13 +109,13 @@ class GeneralCrudController extends AbstractCrudController
 
         yield TextEditorField::new('mentionLegale','Mentions légales')->setFormType(CKEditorType::class)->hideOnIndex();
 
-
-        yield ImageField::new('cgu', 'Condition Générale d\'Utilisation')
+        $cgu = ImageField::new('cgu', 'Condition Générale d\'Utilisation')
         ->setFormType(FileUploadType::class)
         ->setBasePath($uploadsDir)
         ->setUploadDir($mediaDir)
         ->setColumns(6)
         ->hideOnIndex()
+        ->setHelp('Seulement .pdf et max  de taille 1Mo' )
         ->setFormTypeOption(
             'constraints',
             [
@@ -131,29 +125,37 @@ class GeneralCrudController extends AbstractCrudController
                     ],
                 ])
             ]);
+
+        yield $cgu;
         
-            yield ImageField::new('cgv', 'Condition Générale de Vente')
-            ->setFormType(FileUploadType::class)
-            ->setBasePath($uploadsDir)
-            ->setUploadDir($mediaDir)
-            ->setColumns(6)
-            ->hideOnIndex()
-            ->setFormTypeOption(
-                'constraints',
-                [
-                    new EasyAdminIllustrationConstraint([
-                        'mimeTypes' => [ // We want to let upload only jpeg or png
-                            'application/pdf',                            
-                        ],
-                    ])
-                ]);
+        $cgv = ImageField::new('cgv', 'Condition Générale de Vente')
+        ->setFormType(FileUploadType::class)
+        ->setBasePath($uploadsDir)
+        ->setUploadDir($mediaDir)
+        ->setColumns(6)
+        ->hideOnIndex()
+        ->setHelp('Seulement .pdf et max  de taille 1Mo' )
+        ->setFormTypeOption(
+            'constraints',
+            [
+                new EasyAdminIllustrationConstraint([
+                    'mimeTypes' => [ // We want to let upload only jpeg or png
+                        'application/pdf',                            
+                    ],
+                ])
+            ]);
+        yield $cgv;
     
                
         yield TextEditorField::new('emailClient','Email du client')->setFormType(CKEditorType::class);
 
-        yield TextEditorField::new('emailClientRefus','Email du client lors d\'un refus/erreur')->setFormType(CKEditorType::class);
-
-          
+        //Permet d'enregistrer les modifications sans devoir remettre une image
+        if(Crud::PAGE_EDIT == $pageName){
+            $logoField->setRequired(false);
+            $planningField->setRequired(false);
+            $cgv->setRequired(false);
+            $cgu->setRequired(false);
+        }; 
     }
     
 }
