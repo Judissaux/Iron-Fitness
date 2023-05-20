@@ -27,18 +27,13 @@ class ProgramCrudController extends AbstractCrudController
         return Program::class;
     }
 
-    public function configureActions(Actions $actions): Actions
-    {
-        return $actions
-            ->remove(Crud::PAGE_INDEX, Action::NEW);
-    }
+    
 
     public function configureCrud(Crud $crud): Crud
         {
             return $crud
 
             ->setEntityLabelInSingular('un programme')
-            ->setEntityLabelInPlural('Programmes')            
             ->showEntityActionsInlined()
             ->setPaginatorPageSize(15)            
             ->renderContentMaximized();

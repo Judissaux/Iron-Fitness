@@ -22,18 +22,12 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
-    public function configureActions(Actions $actions): Actions
-    {
-        return $actions
-            ->remove(Crud::PAGE_INDEX, Action::NEW);
-    }
     
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
 
         ->setEntityLabelInSingular('un article')
-        ->setEntityLabelInPlural('Articles')
         ->showEntityActionsInlined()
         ->renderContentMaximized()
         ->setPaginatorPageSize(10)

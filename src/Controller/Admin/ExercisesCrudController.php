@@ -21,18 +21,13 @@ class ExercisesCrudController extends AbstractCrudController
         return Exercises::class;
     }
     
-    public function configureActions(Actions $actions): Actions
-    {
-        return $actions
-            ->remove(Crud::PAGE_INDEX, Action::NEW);
-    }
+    
 
     public function configureCrud(Crud $crud): Crud
         {
             return $crud
 
             ->setEntityLabelInSingular('un exercice')
-            ->setEntityLabelInPlural('Exercices')
             ->showEntityActionsInlined()
             ->renderContentMaximized()
             ->setPaginatorPageSize(10)

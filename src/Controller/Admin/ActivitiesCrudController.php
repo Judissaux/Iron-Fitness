@@ -22,11 +22,6 @@ class ActivitiesCrudController extends AbstractCrudController
         return Activities::class;
     }
 
-    public function configureActions(Actions $actions): Actions
-    {
-        return $actions
-            ->remove(Crud::PAGE_INDEX, Action::NEW);
-    }
 
     public function configureCrud(Crud $crud): Crud
         {
