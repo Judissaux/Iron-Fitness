@@ -63,6 +63,7 @@ class StripeController extends AbstractController
                 $price
                 ],
                 'mode' => 'payment',
+                'invoice_creation' => ['enabled' => true],
                 'success_url' => $YOUR_DOMAIN . '/enregistrement/merci/{CHECKOUT_SESSION_ID}',
                 'cancel_url' => $YOUR_DOMAIN . '/enregistrement/erreur/{CHECKOUT_SESSION_ID}',
             ]);   

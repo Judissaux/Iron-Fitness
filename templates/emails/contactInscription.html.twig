@@ -2,9 +2,12 @@
 
 <p> {% if sexe == 'M' %} Monsieur {% else %}
             Madame {% endif %} {{nom |capitalize }} {{ prenom |capitalize}}  s'est inscrit.</p> 
+ 
+<p> Âge => {{age}} ans, </p>
+<p> Date de naissance  =>  {{dateNaissance}}, </p>
+<p> E-mail => {{mail}}, </p>
+<p> Numéro de téléphone {{telephone}}. </p>
 
-<p> Cette personne a {{age}} ans ,vous pouvez la  contacter par e-mail : <a href="mailto:{{mail}} "> {{mail}} </a>  ou par téléphone <a href="tel:{{telephone}}">{{telephone}}</a> </p> 
-
-<p>Bonne Journée </p>
+<p>Bonne Journée et à bientôt </p>
 
 <p>Votre assistant.</p>

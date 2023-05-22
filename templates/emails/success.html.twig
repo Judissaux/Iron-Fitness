@@ -3,4 +3,8 @@
 <p> {% if sexe == 'M' %} Monsieur {% else %}
             Madame {% endif %} {{nom |capitalize }} {{ prenom |capitalize}},</p> 
 
-{{content| raw}}
+{{ content |  raw }}
+
+Vous pouvez télécharger votre facture en cliquant sur ce <a href="{{facture}}"> lien </a>.
+
+

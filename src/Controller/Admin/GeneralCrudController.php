@@ -146,8 +146,8 @@ class GeneralCrudController extends AbstractCrudController
         yield $cgv;
     
                
-        yield TextEditorField::new('emailClient','Email du client')->setFormType(CKEditorType::class);
-        yield TextEditorField::new('emailClientRefus','Information suite à un echec d\'inscription')->setFormType(CKEditorType::class);
+        yield TextEditorField::new('emailClient','Email du client')->setFormType(CKEditorType::class)->hideOnIndex();;
+        yield TextEditorField::new('emailClientRefus','Information suite à un echec d\'inscription')->setFormType(CKEditorType::class)->hideOnIndex();
 
         //Permet d'enregistrer les modifications sans devoir remettre une image
         if(Crud::PAGE_EDIT == $pageName){

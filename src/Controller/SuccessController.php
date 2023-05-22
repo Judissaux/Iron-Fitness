@@ -6,9 +6,12 @@ use DateTime;
 
 use Stripe\Stripe;
 use Stripe\Invoice;
+use Stripe\PaymentIntent;
+use Stripe\Checkout\Session;
 use App\Service\MailerService;
 use App\Repository\GeneralRepository;
 use App\Repository\TemporaryUserRepository;
+use Stripe\Charge;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -24,14 +27,32 @@ class SuccessController extends AbstractController
     {   
         $user = $temporaryUserRepo->findOneByStripeSessionId($stripeSessionId);
         Stripe::setApiKey($this->getParameter('stripe_sk'));
-        $invoice = Invoice::retrieve($stripeSessionId, ['expand' => ['payment_intent']]);
-        dd($invoice);
 
+        // Récupération de la session utilisateur
+        $session = Session::retrieve(
+            $stripeSessionId);
+            
+        // Récupération des informations de paiement
+        $paymentIntent = PaymentIntent::retrieve($session->payment_intent);
+        
+        // Récupération facture client
+        $test= Invoice::retrieve($paymentIntent->invoice);
+        // Ici la facture en PDF
+        $facture = $test->hosted_invoice_url;
+
+
+        // Récupération des informations permettant de récupérer le reçu de commande
+        // $receipt = Charge::retrieve($paymentIntent->latest_charge);       
+        // // Récupération de l'url du recu
+        // $recu = $receipt->receipt_url;    
+               
+        
         $infos = $generalRepo->findAll();
         $customMail = $infos[0]->getEmailClient();
         $now = new DateTime();
-        $dateNaissance = $user->getBirthdayDate() ;
+        $dateNaissance = $user->getBirthdayDate();
         $age = $now->diff($dateNaissance, true)->y;
+        $stringDn = $dateNaissance = date_format($user->getBirthdayDate(),('d-m-Y'));
         if(!$user ){
             $this->addFlash('warning', 'Erreur lors de l\'inscription');
             return $this->redirectToRoute('app_home');
@@ -48,7 +69,8 @@ class SuccessController extends AbstractController
                             'prenom' => strtolower($user->getFirstname()),
                             'sexe' => $user->getSexe(),
                             'telephone' => $user->getPhoneNumber(),
-                            'age' => $age
+                            'age' => $age,
+                            'dateNaissance' => $stringDn
                         ],                        
                 );
             // Mail pour l\'adhérent
@@ -60,7 +82,8 @@ class SuccessController extends AbstractController
                     'nom' => strtolower($user->getLastname()),
                     'prenom' => strtolower($user->getFirstname()),
                     'sexe' => $user->getSexe(),
-                    'content' => $customMail
+                    'content' => $customMail,
+                    'facture' => $facture
                 ],
                 to: $user->getEmail(),                        
             );
@@ -70,10 +93,4 @@ class SuccessController extends AbstractController
             return $this->redirectToRoute('app_home');
     }
 
-    public function customEmail(GeneralRepository $general)
-    {
-        
-
-        return $this->render('emails/success.html.twig', compact('customMail'));
-    }
 }
