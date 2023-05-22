@@ -36,7 +36,7 @@ class ChangePasswordType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new NotBlank(),
-                    new Length(8, exactMessage: "Minimum 8 caractères" )
+                    new Length(min: 8 , exactMessage: "Minimum 8 caractères" )
                 ],
                 'mapped' =>false,
                 'first_options' => [

@@ -5,8 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
@@ -30,11 +28,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
             return User::class;
         }
         
-        public function configureActions(Actions $actions): Actions
-        {
-            return $actions
-                ->remove(Crud::PAGE_INDEX, Action::NEW);
-        }
         public function configureCrud(Crud $crud): Crud
         {
             return $crud

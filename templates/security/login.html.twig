@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Se connecter{% endblock %}
+{% block title %} - Se connecter{% endblock %}
 
 {% block body %}
 <div class="bgPage" style='background-image: url({{ asset ('assets/img/bgProfil.jpg' ) | imagine_filter('welcome') }})' > 
@@ -8,6 +8,7 @@
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
+    {% include "_partials/_flash.html.twig" %}
 
     {# {% if app.user %}
         <div class="mb-3">
@@ -38,9 +39,10 @@
         </div>
     #}
 
-    <button class="btn col-md-12 btn-warning my-4 fs-5 fsw-5 " type="submit">
+    <button class="btn col-md-12 btn-warning my-3 fs-5 fsw-5 " type="submit">
         Se connecter
     </button>
+    <a class='my-2 btn btn-outline-primary' href="{{path ('forgotten-password')}}">Mot de passe oublié ?</a>
 </form>
 </div>
 </div>
