@@ -3,11 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
+use App\Validator\UploadTypeConstraint;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use App\Validator\EasyAdminIllustrationConstraint;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -58,7 +56,7 @@ class ArticleCrudController extends AbstractCrudController
         ->setFormTypeOption(
             'constraints',
             [
-                new EasyAdminIllustrationConstraint([
+                new UploadTypeConstraint([
                     'mimeTypes' => [ // We want to let upload only jpeg or png
                         'image/jpeg',
                         'image/png',

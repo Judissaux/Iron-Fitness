@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
-use App\Repository\GeneralRepository;
-
-use App\Service\MailerService;
-use App\Repository\TemporaryUserRepository;
 use DateTime;
+
+use Stripe\Stripe;
+use Stripe\Invoice;
+use App\Service\MailerService;
+use App\Repository\GeneralRepository;
+use App\Repository\TemporaryUserRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -21,6 +23,9 @@ class SuccessController extends AbstractController
         )
     {   
         $user = $temporaryUserRepo->findOneByStripeSessionId($stripeSessionId);
+        Stripe::setApiKey($this->getParameter('stripe_sk'));
+        $invoice = Invoice::retrieve($stripeSessionId, ['expand' => ['payment_intent']]);
+        dd($invoice);
 
         $infos = $generalRepo->findAll();
         $customMail = $infos[0]->getEmailClient();

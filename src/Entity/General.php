@@ -219,5 +219,15 @@ class General implements IllustrationInterface
         return $this;
     }
 
-   
+    public function getEmailClientRefus(): ?string
+    {
+        return $this->emailClientRefus;
+    }
+
+    public function setEmailClientRefus(string $emailClientRefus): self
+    {
+        $this->emailClientRefus = $emailClientRefus;
+
+        return $this;
+    }
 }

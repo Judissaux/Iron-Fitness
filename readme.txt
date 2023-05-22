@@ -6,7 +6,7 @@
 
     - Taper symfony console doctrine:database:create (pour créer la base de donnée ) puis doctrine:migrations:migrate (pour insérer les différentes tables)
 
-    - Créer un compte sur mailJet avec votre adresse e-mail d'herbergeur (Attention ne pas prendre d'email GMAIL,YAHOO,HOTMAIL en email d'inscription. Utilisez celle de l'hebergeur).
+    - Créer un compte sur mailJet avec votre adresse e-mail d'herbergeur en n'oubliant pas de bien spécifiant  la nature de votre activité, vos coordonnées et la page de votre politique de confidentialité. (Attention ne pas prendre d'email GMAIL,YAHOO,HOTMAIL en email d'inscription. Utilisez celle de l'hebergeur).
 
     - Récupérer les clefs Api(public et secrete) et les mettre en place dans le fichier .env
 

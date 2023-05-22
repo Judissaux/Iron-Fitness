@@ -3,10 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Coach;
+use App\Validator\UploadTypeConstraint;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use App\Validator\EasyAdminIllustrationConstraint;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -44,7 +42,7 @@ class CoachCrudController extends AbstractCrudController
         ->setFormTypeOption(
             'constraints',
             [
-                new EasyAdminIllustrationConstraint([
+                new UploadTypeConstraint([
                     'mimeTypes' => [ // We want to let upload only jpeg or png
                         'image/jpeg',
                         'image/png',

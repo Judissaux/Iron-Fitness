@@ -3,10 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\General;
+use App\Validator\UploadTypeConstraint;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
-use App\Validator\EasyAdminIllustrationConstraint;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -65,7 +64,7 @@ class GeneralCrudController extends AbstractCrudController
         ->setFormTypeOption(
             'constraints',
             [
-                new EasyAdminIllustrationConstraint([
+                new UploadTypeConstraint([
                     'mimeTypes' => [ // We want to let upload only jpeg or png
                         'image/jpeg',
                         'image/png',
@@ -84,7 +83,7 @@ class GeneralCrudController extends AbstractCrudController
         ->setFormTypeOption(
             'constraints',
             [
-                new EasyAdminIllustrationConstraint([
+                new UploadTypeConstraint([
                     'mimeTypes' => [ // We want to let upload only jpeg or png
                         'image/jpeg',
                         'image/png',
@@ -119,7 +118,7 @@ class GeneralCrudController extends AbstractCrudController
         ->setFormTypeOption(
             'constraints',
             [
-                new EasyAdminIllustrationConstraint([
+                new UploadTypeConstraint([
                     'mimeTypes' => [ // We want to let upload only jpeg or png
                         'application/pdf',                            
                     ],
@@ -138,7 +137,7 @@ class GeneralCrudController extends AbstractCrudController
         ->setFormTypeOption(
             'constraints',
             [
-                new EasyAdminIllustrationConstraint([
+                new UploadTypeConstraint([
                     'mimeTypes' => [ // We want to let upload only jpeg or png
                         'application/pdf',                            
                     ],
@@ -148,6 +147,7 @@ class GeneralCrudController extends AbstractCrudController
     
                
         yield TextEditorField::new('emailClient','Email du client')->setFormType(CKEditorType::class);
+        yield TextEditorField::new('emailClientRefus','Information suite à un echec d\'inscription')->setFormType(CKEditorType::class);
 
         //Permet d'enregistrer les modifications sans devoir remettre une image
         if(Crud::PAGE_EDIT == $pageName){

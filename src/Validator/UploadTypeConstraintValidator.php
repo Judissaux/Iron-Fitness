@@ -5,13 +5,13 @@ namespace App\Validator;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormBuilder;
 use Symfony\Component\Validator\Constraint;
-use App\Validator\EasyAdminIllustrationConstraint;
+use App\Validator\UploadTypeConstraint;
 use Symfony\Component\Validator\Constraints\FileValidator;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use EasyCorp\Bundle\EasyAdminBundle\Form\Type\Model\FileUploadState;
 
 
-class EasyAdminIllustrationConstraintValidator extends FileValidator
+class UploadTypeConstraintValidator extends FileValidator
 {
     /**
      * @param mixed $value
@@ -21,8 +21,8 @@ class EasyAdminIllustrationConstraintValidator extends FileValidator
     public function validate(mixed $value, Constraint $constraint)
     {   
         
-        if (!$constraint instanceof EasyAdminIllustrationConstraint) {
-            throw new UnexpectedTypeException($constraint, EasyAdminIllustrationConstraint::class);
+        if (!$constraint instanceof UploadTypeConstraint) {
+            throw new UnexpectedTypeException($constraint, UploadTypeConstraint::class);
         }
         if ($value !== null &&
             $this->context->getObject() instanceof Form &&

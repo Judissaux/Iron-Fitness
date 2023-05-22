@@ -27,11 +27,18 @@ class RegisterController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-
+                $temporaryUser = $temporaryUserRepository->findOneBy(["email" => $user->getEmail()]);
+               
+                if(!$temporaryUser){
                 $user = $form->getData();
                 $this->em->persist($user);
-                $this->em->flush();               
+                $this->em->flush(); 
                 return $this->redirectToRoute('app_stripe');
+                }else{
+                    $email = $temporaryUser->getEmail();
+                    return $this->redirectToRoute('app_stripe_email', ['email' => $email]);
+                }              
+                
            
             }
 
