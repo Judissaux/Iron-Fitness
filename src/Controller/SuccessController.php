@@ -48,6 +48,7 @@ class SuccessController extends AbstractController
                
         
         $infos = $generalRepo->findAll();
+        $telephone = wordwrap($user->getPhoneNumber(), 2, "-", 1);
         $customMail = $infos[0]->getEmailClient();
         $now = new DateTime();
         $dateNaissance = $user->getBirthdayDate();
@@ -68,7 +69,7 @@ class SuccessController extends AbstractController
                             'nom' => strtolower($user->getLastname()),
                             'prenom' => strtolower($user->getFirstname()),
                             'sexe' => $user->getSexe(),
-                            'telephone' => $user->getPhoneNumber(),
+                            'telephone' => $telephone,
                             'age' => $age,
                             'dateNaissance' => $stringDn
                         ],                        
