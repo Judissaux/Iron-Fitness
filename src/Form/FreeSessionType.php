@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Validator\SundayConstraint;
+use App\Validator\HolidayConstraint;
 use App\Validator\TimeSlotConstraint;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -77,6 +78,7 @@ class FreeSessionType extends AbstractType
                     new GreaterThan('now', message: 'La date ne peux pas être inférieur à la date du jour'),
                     new LessThan('+ 14 days', message: 'La date ne peux pas être supérieur à 14 jour à partir de la date du jour'),
                     new SundayConstraint(),
+                    new HolidayConstraint(),
                     new TimeSlotConstraint(),
                   ],
                   'html5' => false,

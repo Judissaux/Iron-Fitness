@@ -90,6 +90,26 @@ const removeErrors = function () {
   
 };   
 
+// ____________________________________CALENDRIER__________________________________________
+
+// Fonction pour récupérer les jours fériés d'une année spécifique
+function getJoursFeries(year) {
+  // Tableau des jours fériés fixes (jour-mois)
+  var joursFeriesFixes = ["01-01", "04-10" , "05-01", "05-08" , "05-18" , "05-29", "07-14", "08-15", "11-01", "11-11", "12-25"];
+
+  // Générer les dates complètes des jours fériés pour l'année spécifique
+  var joursFeries = joursFeriesFixes.map(function (date) {
+    return year + "-" + date;
+  });
+
+  return joursFeries;
+}
+
+// Obtenir l'année en cours
+var currentYear = new Date().getFullYear();
+
+// Obtenir les jours fériés de l'année en cours
+var joursFeries = getJoursFeries(currentYear);
 
 // Mise en place du calendrier pour la séance gratuite
 flatpickr(".js-datepicker", {
@@ -100,12 +120,14 @@ flatpickr(".js-datepicker", {
     function(date) {
       // Désactiver les dimanches
       return date.getDay() === 0;
-    },     
+    },
   ],
+   
+  disable: joursFeries  , 
   plugins: [
     new minMaxTimePlugin({
       getTimeLimits: function(date) {
-        if (date.getDay() === 1 || date.getDay() === 4 ) { // si c'est dimanche
+        if (date.getDay() === 1 || date.getDay() === 4 ) { 
           return {
             minTime: "09:30",
             maxTime: "19:00"
