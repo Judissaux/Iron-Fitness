@@ -92,38 +92,35 @@ const removeErrors = function () {
 
 // ____________________________________CALENDRIER__________________________________________
 
-// Fonction pour récupérer les jours fériés d'une année spécifique
-function getJoursFeries(year) {
+function disableDates(date) {
+  // Désactiver les dimanches
+  if (date.getDay() === 0) {
+    return true;
+  }
+
+  // Récupérer la date au format "MM-DD"
+  var month = String(date.getMonth() + 1).padStart(2, '0');
+  var day = String(date.getDate()).padStart(2, '0');
+  var dateString = month + "-" + day;
+  alert(dateString);
   // Tableau des jours fériés fixes (jour-mois)
-  var joursFeriesFixes = ["01-01", "04-10" , "05-01", "05-08" , "05-18" , "05-29", "07-14", "08-15", "11-01", "11-11", "12-25"];
+  var joursFeriesFixes = ["01-01", "04-10", "05-01", "05-08", "05-18", "05-29", "07-14", "08-15", "11-01", "11-11", "12-25"];
 
-  // Générer les dates complètes des jours fériés pour l'année spécifique
-  var joursFeries = joursFeriesFixes.map(function (date) {
-    return year + "-" + date;
-  });
-
-  return joursFeries;
+  // Vérifier si la date est un jour férié
+  if (joursFeriesFixes.includes(dateString)) {
+    return true;
+  }
+  return false;
 }
-
-// Obtenir l'année en cours
-var currentYear = new Date().getFullYear();
-
-// Obtenir les jours fériés de l'année en cours
-var joursFeries = getJoursFeries(currentYear);
 
 // Mise en place du calendrier pour la séance gratuite
 flatpickr(".js-datepicker", {
   locale: "fr",
   minDate:"today",
-  maxDate: new Date().fp_incr(13), // 14 days from now
-  disable: [    
-    function(date) {
-      // Désactiver les dimanches
-      return date.getDay() === 0;
-    },
+  maxDate: new Date().fp_incr(13), // 14 days from now  
+  disable: [ disableDates,
   ],
-   
-  disable: joursFeries  , 
+    
   plugins: [
     new minMaxTimePlugin({
       getTimeLimits: function(date) {
