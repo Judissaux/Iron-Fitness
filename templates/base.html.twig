@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		
 		<meta charset="UTF-8">
 		<title>
 			IronFitness
 			{% block title %}{% endblock %}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    
+		<script src="{{asset ('tarteaucitron/tarteaucitron.js')}}"></script>		
+		<script>
+		
+       	tarteaucitron.init({
+            "privacyUrl": "https://5.135.101.197:8000/cgu", /* URL de la page de la politique de vie privée */
+
+            "hashtag": "#tarteaucitron", /* Ouvrir le panneau contenant ce hashtag */
+            "cookieName": "tarteaucitron", /* Nom du Cookie */
+
+            "orientation": "middle", /* Position de la bannière (top - bottom) */
+            "showAlertSmall": false, /* Voir la bannière réduite en bas à droite */
+            "cookieslist": false, /* Voir la liste des cookies */
+
+            "adblocker": false, /* Voir une alerte si un bloqueur de publicités est détecté */
+            "AcceptAllCta": true, /* Voir le bouton accepter tout (quand highPrivacy est à true) */
+            "highPrivacy": true, /* Désactiver le consentement automatique */
+            "handleBrowserDNTRequest": false, /* Si la protection du suivi du navigateur est activée, tout interdire */
+
+            "removeCredit": false, /* Retirer le lien vers tarteaucitron.js */
+            "moreInfoLink": true, /* Afficher le lien "voir plus d'infos" */
+            "useExternalCss": false, /* Si false, tarteaucitron.css sera chargé */
+
+            //"cookieDomain": ".my-multisite-domaine.fr", /* Cookie multisite */
+
+            "readmoreLink": "/cookiespolicy" /* Lien vers la page "Lire plus" */
+			
+        	});
+			
+		</script>
 
 		{# importation css flatpickr et du théme confetti #}
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -22,8 +53,10 @@
 		<link rel="stylesheet" href="{{asset ('assets/css/styleGeneral.css')}}">
 
 		{% block javascripts %}		
-					
+			
+   			
 		{% endblock %}
+		
 	</head>
 	<body>	
 		{# Permet de récupérer les infos venant du controlleur Home et de la fonction addNavbar, utile pour avoir le formulaire sur toutes les pages #}
