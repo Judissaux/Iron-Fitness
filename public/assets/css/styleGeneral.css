@@ -153,10 +153,6 @@ border: 1px solid rgba(255, 238, 13, 0.46);
     width:100%;
  }
 
-  #map { 
-    height: 400px;
-    width: 400px;
-}
 
 .reveal-loaded .reveal [class*="reveal-"] {
     opacity: 0 !important;
@@ -187,7 +183,7 @@ border: 1px solid rgba(255, 238, 13, 0.46);
     background: linear-gradient(280deg, rgba(2,0,36,1) 0%, rgba(212,181,1,1) 100%);
 }
 
-iframe{  
+.map{  
      
     height: 100%;
     width: 100%;
