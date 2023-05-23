@@ -18,10 +18,10 @@
 
     <h1 class="h3 mb-3 font-weight-normal text-center text-warning text-style ">Se connecter</h1>
     <div class="container w-75  text-center text-family text-dark fs-5 bg-login">
-    <label for="inputEmail" class='form-label py-3'>E-mail</label>
+    <label for="inputEmail" class='form-label py-2'>E-mail</label>
     <input  type="email" value="{{ last_username }}"  name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     
-    <label for="inputPassword" class='form-label py-3'>Mot de passe </label>
+    <label for="inputPassword" class='form-label py-2'>Mot de passe </label>
     <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
     <input type="hidden" name="_csrf_token"
@@ -39,10 +39,10 @@
         </div>
     #}
 
-    <button class="btn col-md-12 btn-warning my-3 fs-5 fsw-5 " type="submit">
+    <button class="btn  btn-warning my-2 fs-5 " type="submit">
         Se connecter
     </button>
-    <a class='my-2 btn btn-outline-primary' href="{{path ('forgotten-password')}}">Mot de passe oublié ?</a>
+    <div><a class='my-1 btn btn-primary btn-sm' href="{{path ('forgotten-password')}}">Mot de passe oublié ?</a></div>
 </form>
 </div>
 </div>

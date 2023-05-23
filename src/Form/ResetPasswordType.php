@@ -16,24 +16,28 @@ class ResetPasswordType extends AbstractType
     {
         $builder
         ->add('password',RepeatedType::class,[
-            'help' => 'Minimum 8 caractères',
             'type' => PasswordType::class,                
             'invalid_message' => 'Le mot de passe et la confirmation doivent être identique',
             'label' => 'Mot de passe',               
             'required' => true,
             'constraints' => [
                 new NotBlank(),
-                new Length( min: 8 ,  exactMessage: "Minimum 8 caractères" )
             ],
             'mapped' =>false,
             'first_options' => [
                 'help' => ' Minimum 8 caractères',
                 'label' => 'Nouveau mot de passe',
-                'attr' => ['placeholder' => 'Mot de passe']
+                'attr' => [
+                    'placeholder' => 'Mot de passe',
+                    'class' => 'text-center',
+                ],
             ],
             'second_options' => [
                 'label' => 'Confirmer le nouveau mot de passe',
-                'attr' => ['placeholder' => 'Confirmer le mot de passe']
+                
+                'attr' => [
+                    'placeholder' => 'Confirmer le mot de passe',
+                    'class' => 'text-center',]
                 ]             
          ]);  
         ;
