@@ -2,12 +2,14 @@
 
 namespace App\Form;
 
+use App\Entity\TemporaryUser;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\LessThan;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Validator\Constraints\GreaterThan;
@@ -88,6 +90,13 @@ class RegisterFormType extends AbstractType
                     'constraints' => new NotBlank(message: "Pour continuer, vous devez cocher cette case.")
                 ]);
         
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => TemporaryUser::class,
+        ]);
     }
    
 }

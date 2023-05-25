@@ -92,35 +92,32 @@ const removeErrors = function () {
 
 // ____________________________________CALENDRIER__________________________________________
 
-function disableDates(date) {
-  // Désactiver les dimanches
-  if (date.getDay() === 0) {
-    return true;
-  }
-
-  // Récupérer la date au format "MM-DD"
-  var month = String(date.getMonth() + 1).padStart(2, '0');
-  var day = String(date.getDate()).padStart(2, '0');
-  var dateString = month + "-" + day;
-  alert(dateString);
-  // Tableau des jours fériés fixes (jour-mois)
-  var joursFeriesFixes = ["01-01", "04-10", "05-01", "05-08", "05-18", "05-29", "07-14", "08-15", "11-01", "11-11", "12-25"];
-
-  // Vérifier si la date est un jour férié
-  if (joursFeriesFixes.includes(dateString)) {
-    return true;
-  }
-  return false;
-}
+// Obtenir l'année en cours
+var currentYear = new Date().getFullYear();
 
 // Mise en place du calendrier pour la séance gratuite
 flatpickr(".js-datepicker", {
   locale: "fr",
   minDate:"today",
-  maxDate: new Date().fp_incr(13), // 14 days from now  
-  disable: [ disableDates,
-  ],
+  disable: [     
+    function(date) {
+      // Désactiver les dimanches      
+      return date.getDay() === 0;
+    },
+     currentYear + "-01-01",
+     currentYear + "-04-10",
+     currentYear + "-05-01",
+     currentYear + "-05-08",
+     currentYear + "-05-18",
+     currentYear + "-05-29",
+     currentYear + "-07-14",
+     currentYear + "-08-15",
+     currentYear + "-11-01",
+     currentYear + "-11-11",
+     currentYear + "-12-25"
     
+   ],
+  
   plugins: [
     new minMaxTimePlugin({
       getTimeLimits: function(date) {
