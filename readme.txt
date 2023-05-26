@@ -1,4 +1,4 @@
-    -  Mettre le dossier IronFitness en place.
+    - Mettre le dossier IronFitness en place.
 
     - Taper Composer install pour télécharger les dépendances.
 
