@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\TemporaryUser;
+use DateInterval;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -39,45 +41,29 @@ class TemporaryUserRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return TemporaryUser[] Returns an array of TemporaryUser objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('t.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?TemporaryUser
-//    {
-//        return $this->createQueryBuilder('t')
-//            ->andWhere('t.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
     public function deleteById($id) 
     {
-    return $this->createQueryBuilder('u')
+    return $this->createQueryBuilder('tu')
         ->delete()
-        ->where('u.id = :id')   
+        ->where('tu.id = :id')   
         ->setParameter('id', $id)
         ->getQuery()
         ->getResult();        
     }
 
-    public function deleteAll()
+    public function deleteExpiredUsers()
     {
-        return $this->createQueryBuilder('u')
+        $dateLimit = new \DateTime();
+        $dateLimit->modify('-2 days');
+
+        return $this->createQueryBuilder('tu')
             ->delete()
+            ->where('tu.created_at < :dateLimit')
+            ->setParameter('dateLimit', $dateLimit)
             ->getQuery()
-            ->getResult();
+            ->execute();
     }
+
+   
 }

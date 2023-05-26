@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use DateTime;
+use DateInterval;
 use App\Repository\GeneralRepository;
 use App\Repository\TemporaryUserRepository;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,7 +19,8 @@ class CancelController extends AbstractController
         )
     {
         $user = $temporaryUserRepo->findOneByStripeSessionId($stripeSessionId);
-        
+       
+       
         $infos = $generalRepo->findAll();
         $customMail = $infos[0]->getEmailClientRefus();
 

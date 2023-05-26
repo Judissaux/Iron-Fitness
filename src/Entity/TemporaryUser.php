@@ -35,6 +35,9 @@ class TemporaryUser
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $stripeSessionId = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $created_at = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -120,6 +123,18 @@ class TemporaryUser
     public function setStripeSessionId(?string $stripeSessionId): self
     {
         $this->stripeSessionId = $stripeSessionId;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
 
         return $this;
     }

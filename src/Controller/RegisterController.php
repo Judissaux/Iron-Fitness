@@ -7,6 +7,7 @@ use App\Form\RegisterFormType;
 use App\Service\MailerService;
 use App\Repository\GeneralRepository;
 use App\Repository\TemporaryUserRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,19 +19,24 @@ class RegisterController extends AbstractController
     public function __construct(private MailerService $mailer,private EntityManagerInterface $em){}
 
     #[Route('/inscription' , name: 'app_register')]
-    public function index(Request $request,GeneralRepository $generalRepo,TemporaryUserRepository $temporaryUserRepository): Response
+    public function index(
+        Request $request,
+        GeneralRepository $generalRepo,
+        TemporaryUserRepository $temporaryUserRepository): Response
     {
-       
+        
         $user = new TemporaryUser();
         $form = $this->createForm(RegisterFormType::class,$user);
 
         $form->handleRequest($request);
-
+        $temporaryUserRepository->deleteExpiredUsers();
         if($form->isSubmitted() && $form->isValid()){
                 $temporaryUser = $temporaryUserRepository->findOneBy(["email" => $user->getEmail()]);
                
                 if(!$temporaryUser){
                 $user = $form->getData();
+                $now = new DateTime();
+                $user->setCreatedAt($now);
                 $this->em->persist($user);
                 $this->em->flush(); 
                 return $this->redirectToRoute('app_stripe');

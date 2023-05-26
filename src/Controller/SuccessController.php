@@ -60,34 +60,34 @@ class SuccessController extends AbstractController
         }
 
                 // Mail pour l'administrateur
-                $mailer->sendEmail(
+            //     $mailer->sendEmail(
 
-                        'Nouvelle Inscription de ' .ucfirst(strtolower($user->getLastname())) .' '. ucfirst(strtolower($user->getFirstname())),
-                        'emails/contactInscription.html.twig',
-                        [
-                            'mail' => $user->getEmail(),
-                            'nom' => strtolower($user->getLastname()),
-                            'prenom' => strtolower($user->getFirstname()),
-                            'sexe' => $user->getSexe(),
-                            'telephone' => $telephone,
-                            'age' => $age,
-                            'dateNaissance' => $stringDn
-                        ],                        
-                );
-            // Mail pour l\'adhérent
-            $mailer->sendEmail(
+            //             'Nouvelle Inscription de ' .ucfirst(strtolower($user->getLastname())) .' '. ucfirst(strtolower($user->getFirstname())),
+            //             'emails/contactInscription.html.twig',
+            //             [
+            //                 'mail' => $user->getEmail(),
+            //                 'nom' => strtolower($user->getLastname()),
+            //                 'prenom' => strtolower($user->getFirstname()),
+            //                 'sexe' => $user->getSexe(),
+            //                 'telephone' => $telephone,
+            //                 'age' => $age,
+            //                 'dateNaissance' => $stringDn
+            //             ],                        
+            //     );
+            // // Mail pour l\'adhérent
+            // $mailer->sendEmail(
 
-                'Enregistrement de ' .ucfirst(strtolower($user->getLastname())) .' '. ucfirst(strtolower($user->getFirstname())),
-                'emails/success.html.twig',
-                [
-                    'nom' => strtolower($user->getLastname()),
-                    'prenom' => strtolower($user->getFirstname()),
-                    'sexe' => $user->getSexe(),
-                    'content' => $customMail,
-                    'facture' => $facture
-                ],
-                to: $user->getEmail(),                        
-            );
+            //     'Enregistrement de ' .ucfirst(strtolower($user->getLastname())) .' '. ucfirst(strtolower($user->getFirstname())),
+            //     'emails/success.html.twig',
+            //     [
+            //         'nom' => strtolower($user->getLastname()),
+            //         'prenom' => strtolower($user->getFirstname()),
+            //         'sexe' => $user->getSexe(),
+            //         'content' => $customMail,
+            //         'facture' => $facture
+            //     ],
+            //     to: $user->getEmail(),                        
+            // );
                     
             $temporaryUserRepo->deleteById($user->getId());
             $this->addFlash('success', 'Votre enregistrement a été pris en compte, vous allez recevoir un mail à présenter lors de votre première séance.');
