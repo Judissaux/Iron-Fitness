@@ -6,6 +6,7 @@ use App\Validator\SundayConstraint;
 use App\Validator\HolidayConstraint;
 use App\Validator\TimeSlotConstraint;
 use Symfony\Component\Form\AbstractType;
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
@@ -19,6 +20,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 
 class FreeSessionType extends AbstractType
 {
@@ -94,7 +96,7 @@ class FreeSessionType extends AbstractType
                 'label_html' => true,
                 'required' => true,
                 'constraints' => new NotBlank(message: "Pour continuer, vous devez cocher cette case.")
-            ]);
+            ]);          
     }
 
             public function configureOptions(OptionsResolver $resolver): void

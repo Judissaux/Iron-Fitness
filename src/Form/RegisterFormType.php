@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\TemporaryUser;
 use Symfony\Component\Form\AbstractType;
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Regex;
 use Symfony\Component\Validator\Constraints\Length;
@@ -17,6 +18,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 
 class RegisterFormType extends AbstractType
 {
@@ -88,7 +90,14 @@ class RegisterFormType extends AbstractType
                 'mapped' => false,
                     'required' => true,
                     'constraints' => new NotBlank(message: "Pour continuer, vous devez cocher cette case.")
-                ]);
+                ])
+
+            ->add('captcha', Recaptcha3Type::class, [
+                'constraints' => new Recaptcha3 ([
+                    'message' => 'karser_recaptcha3.message',
+                    'messageMissingValue' => 'karser_recaptcha3.message_missing_value',
+                ])
+            ]);
         
     }
 
