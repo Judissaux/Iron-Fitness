@@ -65,7 +65,7 @@ class HomeController extends AbstractController
         
         // Ici une erreur liée à une contrainte est détectée, les erreurs sont envoyées en Json directement dans le formulaire
         if ($form->isSubmitted() && !$form->isValid()) {
-            // Récupération des erreurs et envoi sous forme de chaîne de caractères JSON
+            // Récupération des erreurs et envoi sous forme de chaîne de caractères JSON avec le code 400 d'erreur
                 return new JsonResponse($this->getErrorsMessages($form), 400);
             }      
         

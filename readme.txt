@@ -16,6 +16,12 @@
 
     - Récupérer les clefs Api(public et secrete) et les mettre en place dans le fichier .env
 
+    - Modifier dans le 'stripecontrolleur' , la variable "$YOUR_DOMAIN = " en y mettant l'adresse exacte du site.
+
+    - connecter vous au compte google fitnessiron62@gmail.com, mdp= Cestlesite62! et mettre l'adresse de votre domaine à cette adresse "https://www.google.com/recaptcha/admin/site/641904741/settings" sinon créer vous même votre compte gmail et créer vos clefs api
+
+    - Mettre les clefs Api dans le fichier .env au niveau du recaptcha
+
     - Creer un administrateur dans la base de donnée avec le ["ROLE_ADMIN"] dans la colonne role
 
     - Connecter vous au site avec votre compte admin et commencer à construire le site blog,exercice,programme,cours collectifs.

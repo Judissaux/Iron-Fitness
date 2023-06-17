@@ -99,6 +99,7 @@ var currentYear = new Date().getFullYear();
 flatpickr(".js-datepicker", {
   locale: "fr",
   minDate:"today",
+  maxDate: new Date().fp_incr(13),
   disable: [     
     function(date) {
       // Désactiver les dimanches      
