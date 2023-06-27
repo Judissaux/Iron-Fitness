@@ -6,9 +6,12 @@
 		{% endblock %}
 
 {% block body %}
+{% for gen in general %}
+    
+
 <div class='bgImgRegister'  style='background-image: url({{ asset ('assets/img/bgRegister.jpg' ) | imagine_filter('welcome') }})' > 
 <div class="container text-center text-family test ">
-    <div class='display-1 text-warning text-style' >S'inscrire chez {{general[0].nameSite}}</div>
+    <div class='display-1 text-warning text-style' >S'inscrire chez {{gen.nameSite}}</div>
 </div>
 
 <div class="container-fluid">
@@ -18,7 +21,7 @@
             <div class="pricingTable col-md-6 mt-4">
                 <div class="pricingTable-header">
                     <i class="fa fa-adjust"></i>
-                    <div class="price-value"> {{(general[0].price /100) | number_format(2, ',','.')}}€ /mois <p class='text-muted fs-5'>  pour une souscription d'un an </p> </div>
+                    <div class="price-value"> {{(gen.price /100) | number_format(2, ',','.')}}€ /mois <p class='text-muted fs-5'>  pour une souscription d'un an </p> </div>
                 </div>
                 <h3 class="heading"></h3>
                 <div class="pricing-content text-center">
@@ -55,10 +58,11 @@
         </div>
     </div>
     
-    <button class="btn btn-outline-light my-5 col-md-10 mx-auto   fs-2 text-warning text-style" type='submit' >Rejoindre l'aventure {{general[0].nameSite}} </button> 
+    <button class="btn btn-outline-light my-5 col-md-10 mx-auto   fs-2 text-warning text-style" type='submit' >Rejoindre l'aventure {{gen.nameSite}} </button> 
       
    {{ form_rest(registerForm) }}
    {{ form_end(registerForm) }}  
   </div>
 </div>
+{% endfor %}
 {% endblock %}

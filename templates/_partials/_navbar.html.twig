@@ -1,8 +1,9 @@
 {% set uri = app.request.server.get("PHP_SELF")| split ('php',2)  %}
+{% for gen in general %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark ">
   <div class="container-fluid">
-   <a class="navbar-brand" href="#"> <img src="{{asset ('uploads/'~ general[0].illustration)  | imagine_filter('logo') }}" class='logoIF rounded' alt='Logo de la salle de sport'></a>
+   <a class="navbar-brand" href="#"> <img src="{{asset ('uploads/'~ gen.illustration)  | imagine_filter('logo') }}" class='logoIF rounded' alt='Logo de la salle de sport'></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -71,11 +72,11 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title ms-5 fs-2 text-warning text-style" id="modalPlanning">Planning {{general[0].nameSite}}</h5>
+        <h5 class="modal-title ms-5 fs-2 text-warning text-style" id="modalPlanning">Planning {{gen.nameSite}}</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="{{asset ('uploads/'~ general[0].planning )}}" alt="Planning de la salle de sport" class="img-fluid">
+        <img src="{{asset ('uploads/'~ gen.planning )}}" alt="Planning de la salle de sport" class="img-fluid">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>        
@@ -83,7 +84,7 @@
     </div>
   </div>
 </div>
-
+{% endfor %}
 {# MODAL SEANCE GRATUITE #}
 
   {{ form_start(form, {'attr': {'id': 'FreeSession', novalidate:'novalidate'}} ) }} 

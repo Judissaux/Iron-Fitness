@@ -22,6 +22,7 @@ class ResetPasswordType extends AbstractType
             'required' => true,
             'constraints' => [
                 new NotBlank(),
+                new Length(min: 8)
             ],
             'mapped' =>false,
             'first_options' => [

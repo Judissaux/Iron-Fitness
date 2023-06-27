@@ -35,7 +35,6 @@ const csrf_token = $("input[name='_csrfToken']").val();
 $(document).on('submit', '#FreeSession', function(e) {
     e.preventDefault(); // Empêche la soumission normale du formulaire    
     const formData = $(this).serialize(); // Récupère les données du formulaire 
-    
     $.ajax({        
         beforeSend: function(xhr) {
         xhr.setRequestHeader('X-CSRF-Token', csrf_token)},

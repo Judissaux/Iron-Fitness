@@ -35,10 +35,11 @@ class HomeController extends AbstractController
 
         $form = $this->createForm(FreeSessionType::class);
         $contact = $form->handleRequest($request);   
-
+        
         //Ici le formulaire est soumis et valide
         if ($form->isSubmitted() && $form->isValid()) {
-            $nom = $contact->get('nom')->getData();
+           
+                $nom = $contact->get('nom')->getData();
                 $prenom =  $contact->get('prenom')->getData();
                 $sexe = $contact->get('sexe')->getData(); 
                 // Ici on réalise une condition pour afficher 'monsieur' ou 'madame' en fonction du sexe sélectionné
@@ -100,6 +101,7 @@ class HomeController extends AbstractController
                 
             }            
         }        
+        
         return $errors;
     }
     
