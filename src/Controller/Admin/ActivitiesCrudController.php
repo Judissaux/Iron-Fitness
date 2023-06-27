@@ -65,7 +65,8 @@ class ActivitiesCrudController extends AbstractCrudController
         yield $imageField;
 
         yield IntegerField::new('calories','Calories');
-        yield IntegerField::new('time','Temps');
+        yield IntegerField::new('time','Temps')
+        ->setHelp('en minutes');
        
     }    
 }

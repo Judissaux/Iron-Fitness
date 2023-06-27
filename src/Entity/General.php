@@ -55,7 +55,7 @@ class General implements IllustrationInterface
     private ?string $emailClient = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $emailClientRefus = null;
+    private ?string $pageErreurPaiement = null;
 
 
     public function getId(): ?int
@@ -219,14 +219,14 @@ class General implements IllustrationInterface
         return $this;
     }
 
-    public function getEmailClientRefus(): ?string
+    public function getPageErreurPaiement(): ?string
     {
-        return $this->emailClientRefus;
+        return $this->pageErreurPaiement;
     }
 
-    public function setEmailClientRefus(string $emailClientRefus): self
+    public function setPageErreurPaiement(string $pageErreurPaiement): self
     {
-        $this->emailClientRefus = $emailClientRefus;
+        $this->pageErreurPaiement = $pageErreurPaiement;
 
         return $this;
     }

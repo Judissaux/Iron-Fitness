@@ -14,8 +14,8 @@ class MailerService
         $subject,    
         $adresseTemplate,
         $context,
-        $from = 'caswalcha@gmail.com',
-        $to = 'justin.dissaux@laposte.net',
+        $from = 'ici l\adresse fournie par l\hebergeur, utilisée pour l\inscription sur MailJet',
+        $to = 'la même adresse que le from',
         ): void    
     {     
        // voir pour recuperer l'email dans un generalrepo , à voir
